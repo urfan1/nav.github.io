@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        
+        let array=[3,1,4,2,6,9,5,32,134]
+        //进阶版本，当其中的一次循环中未发生排序替换则退出大循环，减少损耗
+        // for(let i=0;i<array.length-1;i++){
+        //     var isFlag=false;
+        //     for(let j=0;j<array.length-i-1;j++){
+        //         if(array[j]>array[j+1]){
+        //             isFlag=true;
+        //             let temp=array[j];
+        //             array[j]=array[j+1];
+        //             array[j+1]=temp;
+        //         }
+        //     }
+        //     if(!isFlag){
+        //         console.log('一趟下来');
+        //         break;
+        //     }
+        // }
+
+        //冒泡排序最终版本，由于冒泡排序中会发生重复循环的过程，所以需要记录当处于有序位置的边界则不继续循环
+        let lastSort=0;
+        let sortBorder=array.length-1;
+        for(let t=0;t<array.length-1;t++){
+            //每次循环初始化是否本次循环值发生交换
+            var sort=false;
+            for(let b=0;b<sortBorder;b++){
+                if(array[b]>array[b+1]){
+                    //如果发生交换了则为true
+                    sort=true;
+                    let tp=array[b];
+                    array[b]=array[b+1];
+                    array[b+1]=tp;
+                    lastSort=b;
+                }
+            }
+            sortBorder=lastSort;
+            //如果没有发生交换则退出大循环，结束所有的循环
+            if(!sort){
+                break;
+            }
+        }
+        console.log(array);
+
+
+    </script>
+</body>
+</html>
