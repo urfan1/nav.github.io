@@ -1,0 +1,240 @@
+[2022-09-05 08:55:10 .96465600 +08:00] ERROR system 119.163.115.21
+array (
+  0 => 'Exception',
+  1 => '没有权限',
+  2 => 0,
+  3 => '/www/wwwroot/nav.com/zb_system/function/lib/zblogphp.php',
+  4 => 4236,
+)
+[2022-09-05 11:17:09 .58470300 +08:00] ERROR system 119.163.115.21
+array (
+  0 => 'Error',
+  1 => 8,
+  2 => 'Undefined index: keywords',
+  3 => '/www/wwwroot/nav.com/zb_users/theme/suiranx_nav/get_tkd_favicon.php',
+  4 => 70,
+)
+[2022-09-05 11:17:24 .64867300 +08:00] ERROR system 119.163.115.21
+array (
+  0 => 'Error',
+  1 => 8,
+  2 => 'Undefined index: keywords',
+  3 => '/www/wwwroot/nav.com/zb_users/theme/suiranx_nav/get_tkd_favicon.php',
+  4 => 70,
+)
+[2022-09-05 11:17:24 .87368800 +08:00] ERROR system 119.163.115.21
+array (
+  0 => 'Error',
+  1 => 8,
+  2 => 'Undefined index: keywords',
+  3 => '/www/wwwroot/nav.com/zb_users/theme/suiranx_nav/get_tkd_favicon.php',
+  4 => 70,
+)
+[2022-09-05 11:17:24 .98180800 +08:00] ERROR system 119.163.115.21
+array (
+  0 => 'Error',
+  1 => 8,
+  2 => 'Undefined index: keywords',
+  3 => '/www/wwwroot/nav.com/zb_users/theme/suiranx_nav/get_tkd_favicon.php',
+  4 => 70,
+)
+[2022-09-05 11:17:25 .02050300 +08:00] ERROR system 119.163.115.21
+array (
+  0 => 'Error',
+  1 => 8,
+  2 => 'Undefined index: keywords',
+  3 => '/www/wwwroot/nav.com/zb_users/theme/suiranx_nav/get_tkd_favicon.php',
+  4 => 70,
+)
+[2022-09-05 11:17:25 .18525500 +08:00] ERROR system 119.163.115.21
+array (
+  0 => 'Error',
+  1 => 8,
+  2 => 'Undefined index: keywords',
+  3 => '/www/wwwroot/nav.com/zb_users/theme/suiranx_nav/get_tkd_favicon.php',
+  4 => 70,
+)
+[2022-09-05 11:17:25 .41071800 +08:00] ERROR system 119.163.115.21
+array (
+  0 => 'Error',
+  1 => 8,
+  2 => 'Undefined index: keywords',
+  3 => '/www/wwwroot/nav.com/zb_users/theme/suiranx_nav/get_tkd_favicon.php',
+  4 => 70,
+)
+[2022-09-05 11:17:25 .95173800 +08:00] ERROR system 119.163.115.21
+array (
+  0 => 'Error',
+  1 => 8,
+  2 => 'Undefined index: keywords',
+  3 => '/www/wwwroot/nav.com/zb_users/theme/suiranx_nav/get_tkd_favicon.php',
+  4 => 70,
+)
+[2022-09-05 11:17:26 .07919400 +08:00] ERROR system 119.163.115.21
+array (
+  0 => 'Error',
+  1 => 8,
+  2 => 'Undefined index: keywords',
+  3 => '/www/wwwroot/nav.com/zb_users/theme/suiranx_nav/get_tkd_favicon.php',
+  4 => 70,
+)
+[2022-09-05 11:17:26 .29862300 +08:00] ERROR system 119.163.115.21
+array (
+  0 => 'Error',
+  1 => 8,
+  2 => 'Undefined index: keywords',
+  3 => '/www/wwwroot/nav.com/zb_users/theme/suiranx_nav/get_tkd_favicon.php',
+  4 => 70,
+)
+[2022-09-05 11:17:26 .47871400 +08:00] ERROR system 119.163.115.21
+array (
+  0 => 'Error',
+  1 => 8,
+  2 => 'Undefined index: keywords',
+  3 => '/www/wwwroot/nav.com/zb_users/theme/suiranx_nav/get_tkd_favicon.php',
+  4 => 70,
+)
+[2022-09-05 11:17:32 .03720800 +08:00] ERROR system 119.163.115.21
+array (
+  0 => 'Error',
+  1 => 8,
+  2 => 'Undefined index: keywords',
+  3 => '/www/wwwroot/nav.com/zb_users/theme/suiranx_nav/get_tkd_favicon.php',
+  4 => 70,
+)
+[2022-09-05 11:17:32 .63747800 +08:00] ERROR system 119.163.115.21
+array (
+  0 => 'Error',
+  1 => 8,
+  2 => 'Undefined index: keywords',
+  3 => '/www/wwwroot/nav.com/zb_users/theme/suiranx_nav/get_tkd_favicon.php',
+  4 => 70,
+)
+[2022-09-05 11:17:32 .95914000 +08:00] ERROR system 119.163.115.21
+array (
+  0 => 'Error',
+  1 => 8,
+  2 => 'Undefined index: keywords',
+  3 => '/www/wwwroot/nav.com/zb_users/theme/suiranx_nav/get_tkd_favicon.php',
+  4 => 70,
+)
+[2022-09-05 11:17:33 .16891500 +08:00] ERROR system 119.163.115.21
+array (
+  0 => 'Error',
+  1 => 8,
+  2 => 'Undefined index: keywords',
+  3 => '/www/wwwroot/nav.com/zb_users/theme/suiranx_nav/get_tkd_favicon.php',
+  4 => 70,
+)
+[2022-09-05 12:03:56 .84514100 +08:00] ERROR system 119.163.115.21
+array (
+  0 => 'Error',
+  1 => 8,
+  2 => 'Undefined index: title',
+  3 => '/www/wwwroot/nav.com/zb_users/theme/suiranx_nav/get_tkd_favicon.php',
+  4 => 69,
+)
+[2022-09-05 12:04:30 .92448200 +08:00] ERROR system 119.163.115.21
+array (
+  0 => 'Error',
+  1 => 8,
+  2 => 'Undefined index: title',
+  3 => '/www/wwwroot/nav.com/zb_users/theme/suiranx_nav/get_tkd_favicon.php',
+  4 => 69,
+)
+[2022-09-05 12:05:55 .57080600 +08:00] ERROR system 119.163.115.21
+array (
+  0 => 'Error',
+  1 => 2,
+  2 => 'file_get_contents(https://www.ui.cn/): failed to open stream: HTTP request failed! HTTP/1.1 403 Forbidden
+',
+  3 => '/www/wwwroot/nav.com/zb_users/theme/suiranx_nav/get_tkd_favicon.php',
+  4 => 16,
+)
+[2022-09-05 12:06:00 .84735800 +08:00] ERROR system 119.163.115.21
+array (
+  0 => 'Error',
+  1 => 2,
+  2 => 'file_get_contents(https://www.ui.cn/): failed to open stream: HTTP request failed! HTTP/1.1 403 Forbidden
+',
+  3 => '/www/wwwroot/nav.com/zb_users/theme/suiranx_nav/get_tkd_favicon.php',
+  4 => 16,
+)
+[2022-09-05 12:06:01 .35712900 +08:00] ERROR system 119.163.115.21
+array (
+  0 => 'Error',
+  1 => 2,
+  2 => 'file_get_contents(https://www.ui.cn/): failed to open stream: HTTP request failed! HTTP/1.1 403 Forbidden
+',
+  3 => '/www/wwwroot/nav.com/zb_users/theme/suiranx_nav/get_tkd_favicon.php',
+  4 => 16,
+)
+[2022-09-05 12:06:01 .59187800 +08:00] ERROR system 119.163.115.21
+array (
+  0 => 'Error',
+  1 => 2,
+  2 => 'file_get_contents(https://www.ui.cn/): failed to open stream: HTTP request failed! HTTP/1.1 403 Forbidden
+',
+  3 => '/www/wwwroot/nav.com/zb_users/theme/suiranx_nav/get_tkd_favicon.php',
+  4 => 16,
+)
+[2022-09-05 12:06:01 .74407700 +08:00] ERROR system 119.163.115.21
+array (
+  0 => 'Error',
+  1 => 2,
+  2 => 'file_get_contents(https://www.ui.cn/): failed to open stream: HTTP request failed! HTTP/1.1 403 Forbidden
+',
+  3 => '/www/wwwroot/nav.com/zb_users/theme/suiranx_nav/get_tkd_favicon.php',
+  4 => 16,
+)
+[2022-09-05 12:06:01 .88816900 +08:00] ERROR system 119.163.115.21
+array (
+  0 => 'Error',
+  1 => 2,
+  2 => 'file_get_contents(https://www.ui.cn/): failed to open stream: HTTP request failed! HTTP/1.1 403 Forbidden
+',
+  3 => '/www/wwwroot/nav.com/zb_users/theme/suiranx_nav/get_tkd_favicon.php',
+  4 => 16,
+)
+[2022-09-05 12:06:02 .01839000 +08:00] ERROR system 119.163.115.21
+array (
+  0 => 'Error',
+  1 => 2,
+  2 => 'file_get_contents(https://www.ui.cn/): failed to open stream: HTTP request failed! HTTP/1.1 403 Forbidden
+',
+  3 => '/www/wwwroot/nav.com/zb_users/theme/suiranx_nav/get_tkd_favicon.php',
+  4 => 16,
+)
+[2022-09-05 13:08:11 .15992100 +08:00] ERROR system 119.163.115.21
+array (
+  0 => 'Exception',
+  1 => 'PHP版本太旧，该应用要求使用 7.4 及以上版本。',
+  2 => 0,
+  3 => '/www/wwwroot/nav.com/zb_system/function/lib/zblogphp.php',
+  4 => 4236,
+)
+[2022-09-05 17:58:28 .87719800 +08:00] ERROR system 119.163.115.21
+array (
+  0 => 'Error',
+  1 => 2,
+  2 => 'file_get_contents(https://www.52pojie.cn/): failed to open stream: HTTP request failed! HTTP/1.1 403 Forbidden
+',
+  3 => '/www/wwwroot/nav.com/zb_users/theme/suiranx_nav/get_tkd_favicon.php',
+  4 => 16,
+)
+[2022-09-05 21:39:27 .20156000 +08:00] FATAL system 152.89.196.62
+array (
+  0 => 'Shutdown',
+  1 => 8192,
+  2 => 'Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set \'always_populate_raw_post_data\' to \'-1\' in php.ini and use the php://input stream instead.',
+  3 => 'Unknown',
+  4 => 0,
+)
+[2022-09-05 21:55:03 .97399600 +08:00] FATAL system 152.89.196.62
+array (
+  0 => 'Shutdown',
+  1 => 8192,
+  2 => 'Automatically populating $HTTP_RAW_POST_DATA is deprecated and will be removed in a future version. To avoid this warning set \'always_populate_raw_post_data\' to \'-1\' in php.ini and use the php://input stream instead.',
+  3 => 'Unknown',
+  4 => 0,
+)

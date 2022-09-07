@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<plugin version="php">
+<id>faviconapi</id>
+<name>Favicon.ico远程获取API</name>
+<url>https://www.hnysnet.com/</url>
+<note>远程实时获取并显示网站的Favicon.ico文件，美化网站外链显示效果。</note>
+<description>远程实时获取并显示网站的Favicon.ico文件，美化网站外链显示效果。</description>
+<path>main.php</path>
+<include>include.php</include>
+<level>1</level>
+<author>
+  <name>星岚工作室</name>
+  <email>hnysnet@qq.com</email>
+  <url>https://www.hnysnet.com/</url>
+</author>
+<source>
+  <name></name>
+  <email></email>
+  <url></url>
+</source>
+<adapted>172955</adapted>
+<version>1.0</version>
+<pubdate>2022-08-10</pubdate>
+<modified>2022-08-10</modified>
+<price>0</price>
+<phpver>5.4</phpver>
+<advanced>
+  <dependency></dependency>
+  <rewritefunctions></rewritefunctions>
+  <existsfunctions></existsfunctions>
+  <conflict></conflict>
+</advanced>
+<sidebars>
+  <sidebar1></sidebar1>
+  <sidebar2></sidebar2>
+  <sidebar3></sidebar3>
+  <sidebar4></sidebar4>
+  <sidebar5></sidebar5>
+  <sidebar6></sidebar6>
+  <sidebar7></sidebar7>
+  <sidebar8></sidebar8>
+  <sidebar9></sidebar9>
+</sidebars>
+</plugin>

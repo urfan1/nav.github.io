@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<plugin version="php">
+<id>MiniShow</id>
+<name>手机站广告神器</name>
+<url>http://www.yiwuku.com</url>
+<note>移动端专用广告位插件，支持第三方广告代码</note>
+<description>支持固顶、固底悬浮等手机站经典位置广告强势插入展示</description>
+<path>main.php</path>
+<include>include.php</include>
+<level>1</level>
+<author>
+  <name>尔今</name>
+  <email>erx@qq.com</email>
+  <url>http://www.yiwuku.com/</url>
+</author>
+<source>
+  <name></name>
+  <email></email>
+  <url></url>
+</source>
+<adapted>151603</adapted>
+<version>1.0</version>
+<pubdate>2017-01-06</pubdate>
+<modified>2017-01-11</modified>
+<price>0</price>
+<advanced>
+  <dependency></dependency>
+  <rewritefunctions></rewritefunctions>
+  <conflict>MiniShow_vip</conflict>
+</advanced>
+<sidebars>
+  <sidebar1></sidebar1>
+  <sidebar2></sidebar2>
+  <sidebar3></sidebar3>
+  <sidebar4></sidebar4>
+  <sidebar5></sidebar5>
+</sidebars>
+</plugin>

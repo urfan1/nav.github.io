@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<theme version="php">
+    <id>suiranx_nav</id>
+    <name>响应式导航网址目录主题</name>
+    <url/>
+    <note>自适应导航网址目录主题</note>
+    <description>
+
+VG5wWmVrNVVVVFJPVkdkMFdXcG5lRTVETURCUFYxVXpURmRKZVZwdFVYUlpiVmsxVDFkVk5VMXRXbXBPUjAwd1RHcEZNazFxU1RSUFJFRXhUMVJaZDA1VVFUMHVkbGRPTmxaMGIwTm5iVmRNVmtreWVGUndZMVUxVmpKbGJEVjNQUT09</description>
+    <path>main.php?act=base_set</path>
+    <include>include.php</include>
+    <level>1</level>
+    <author>
+  <name>模板著</name>
+  <email>691322528@qq.com</email>
+  <url>https://www.mobanzhu.com/419.html</url>
+    </author>
+    <source>
+        <name/>
+        <email/>
+        <url/>
+    </source>
+    <adapted>151935</adapted>
+    <version>3.9.1</version>
+    <pubdate>2019-07-12</pubdate>
+    <modified>2021-06-02</modified>
+    <price>178</price>
+    <phpver>5.2</phpver>
+    <advanced>
+        <dependency/>
+        <rewritefunctions/>
+        <existsfunctions/>
+        <conflict/>
+    </advanced>
+    <sidebars>
+        <sidebar1/>
+        <sidebar2/>
+        <sidebar3/>
+        <sidebar4/>
+        <sidebar5/>
+        <sidebar6/>
+        <sidebar7/>
+        <sidebar8/>
+        <sidebar9/>
+    </sidebars>
+</theme>

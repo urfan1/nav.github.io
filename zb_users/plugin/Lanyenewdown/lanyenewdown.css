@@ -1,0 +1,23 @@
+/* by 蓝叶 lanyes.org */
+.newfujian{margin:10px auto;border:1px solid #cedebd;background:#fdfefb;width:auto;-webkit-border-radius:3px;-moz-border-radius:3px;border-radius:3px;padding:10px;overflow:hidden;}
+.fileico{width:35px;height:44px;background: url(fileico.png) -400px 0;float:left;}
+.newfujian .img,.newfujian .jpg,.newfujian .jpeg,.newfujian .gif,.newfujian .png{background-position: 0 0;}
+.newfujian .pdf{background-position: -40px 0;}
+.newfujian .doc,.newfujian .docx{background-position: -80px 0;}
+.newfujian .xls,.newfujian .xlsx{background-position: -120px 0;}
+.newfujian .txt{background-position: -160px 0;}
+.newfujian .audio,.newfujian .mp3,.newfujian .m4a{background-position: -200px 0;}
+.newfujian .video,.newfujian .mp4,.newfujian .flv,.newfujian .swf{background-position: -240px 0;}
+.newfujian .ppt,.newfujian .pptx{background-position: -280px 0;}
+.newfujian .exe{background-position: -360px 0;}
+.newfujian .torrent{background-position: -520px 0;}
+.newfujian .apk{background-position:-440px 0;}
+.filecont{float:left;padding:0 0 0 10px;}
+.filecont .filetit{height:27px;font-size:14px;line-height:25px;letter-spacing:1px;font-family:Microsoft Yahei;}
+.filecont .filetit em{font-size:12px;color:#999;margin-left:10px;float:left;font-family:arial;letter-spacing:0;font-style: normal;}
+.filecont .filetit a{color:#666;text-decoration:none;display:block;max-width:230px;overflow:hidden;white-space:nowrap;float:left;text-overflow: ellipsis;}
+.filecont .filetit a:hover{text-decoration:underline;}
+.filecont .fileaq{height:15px;background:url(fileaq.png) no-repeat;padding-left:18px;font-size:12px;color:#73B010;letter-spacing:0;line-height:14px;font-family:arial;}
+.down_2{float:right;}
+.down_2 a{width:130px;height:42px;display:block;background:url(filedown.jpg) no-repeat -2px -1px;overflow:hidden;}
+.down_2 a:hover{background:url(filedown.jpg) no-repeat -2px -46px;}

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<plugin version="php">
+<id>ly_qq</id>
+<name>LY-QQ互联登录</name>
+<url>https://www.lyplugin.com/post/4</url>
+<note>QQ互联授权注册、登录网站，用户使用QQ头像。</note>
+<description>LY-QQ互联插件，QQ登录授权注册、登录网站自动登录网站，登录页、留言评论页智能判断自动插入QQ登录链接，当此用户QQ第一次登录就会自动注册网站用户，在评论列表、用户后台均调用QQ登录的QQ头像，可选是否限制登录后才能评论留言。</description>
+<path>main.php</path>
+<include>include.php</include>
+<level>1</level>
+<author>
+  <name>老阳</name>
+  <email>1261211881@qq.com</email>
+  <url>https://www.lyplugin.com/</url>
+</author>
+<source>
+  <name></name>
+  <email></email>
+  <url></url>
+</source>
+<adapted>162090</adapted>
+<version>1.0.4</version>
+<pubdate>2022-03-18</pubdate>
+<modified>2022-08-26</modified>
+<price>0</price>
+<phpver>5.4</phpver>
+<advanced>
+  <dependency></dependency>
+  <rewritefunctions></rewritefunctions>
+  <existsfunctions></existsfunctions>
+  <conflict></conflict>
+</advanced>
+<sidebars>
+  <sidebar1></sidebar1>
+  <sidebar2></sidebar2>
+  <sidebar3></sidebar3>
+  <sidebar4></sidebar4>
+  <sidebar5></sidebar5>
+  <sidebar6></sidebar6>
+  <sidebar7></sidebar7>
+  <sidebar8></sidebar8>
+  <sidebar9></sidebar9>
+</sidebars>
+</plugin>

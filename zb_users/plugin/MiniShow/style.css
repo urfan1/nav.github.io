@@ -1,0 +1,15 @@
+@charset "utf-8";
+/*-------------------
+*Description:        By www.yiwuku.com
+*Website:            https://app.zblogcn.com/?auth=115
+*Author:             尔今 erx@qq.com
+*update:             2017-01-06(Last:2017-01-06)
+-------------------*/
+
+.mnshow{display:none;margin:0;padding:0;width:100%;line-height:1;z-index:9999}
+.mnshow a,.mnshow img{display:block;width:100%;margin:0 !important;padding:0 !important;}
+.mns-close{position:absolute;top:6px;right:6px;width:18px;height:18px;line-height:18px;text-align:center;color:#ddd;font-size:16px;background:rgba(0,0,0,.3);border-radius:50%}
+.mnshow.mnsblock{display:block;}
+.mnstop{position:absolute;top:0;left:0;}
+.mnsbot{position:fixed;bottom:0;left:0;}
+.mnstop-blank,.mnsbot-blank{width:100%;overflow:hidden;clear:both;}

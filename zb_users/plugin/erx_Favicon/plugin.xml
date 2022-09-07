@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<plugin version="php">
+<id>erx_Favicon</id>
+<name>Favicon站标设置</name>
+<url>http://www.yiwuku.com</url>
+<note>网站浏览器标题栏小图标|收藏夹logo标志|favicon.ico站标一键设置</note>
+<description>《益吾库》尔今作品，定制修改服务【联系QQ77940140】</description>
+<path>main.php</path>
+<include>include.php</include>
+<level>1</level>
+<author>
+  <name>尔今</name>
+  <email>erx@qq.com</email>
+  <url>http://www.yiwuku.com/</url>
+</author>
+<source>
+  <name></name>
+  <email></email>
+  <url></url>
+</source>
+<adapted>151740</adapted>
+<version>1.1</version>
+<pubdate>2019-09-02</pubdate>
+<modified>2019-10-02</modified>
+<price>0</price>
+<advanced>
+  <dependency></dependency>
+  <rewritefunctions></rewritefunctions>
+  <conflict></conflict>
+</advanced>
+<sidebars>
+  <sidebar1></sidebar1>
+  <sidebar2></sidebar2>
+  <sidebar3></sidebar3>
+  <sidebar4></sidebar4>
+  <sidebar5></sidebar5>
+</sidebars>
+</plugin>

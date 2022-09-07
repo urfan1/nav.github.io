@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<plugin version="php">
+<id>MobanzhuHappy</id>
+<name>启用任意应用-专为ZBlog而生</name>
+<url>https://www.mobanzhu.com/</url>
+<note>启用任意应用-专为ZBlog而生 模板著Www.Mobanzhu.Com欢迎您的光临！</note>
+<description></description>
+<path></path>
+<include>include.php</include>
+<level>1</level>
+<author>
+  <name>模板著</name>
+  <email></email>
+  <url>https://www.mobanzhu.com/</url>
+</author>
+<source>
+  <name></name>
+  <email></email>
+  <url></url>
+</source>
+<adapted>151935</adapted>
+<version>1.0</version>
+<pubdate>2021-06-06</pubdate>
+<modified>2021-06-16</modified>
+<price>0</price>
+<phpver>7.4</phpver>
+<advanced>
+  <dependency>AppCentre</dependency>
+  <rewritefunctions></rewritefunctions>
+  <existsfunctions></existsfunctions>
+  <conflict></conflict>
+</advanced>
+<sidebars>
+  <sidebar1></sidebar1>
+  <sidebar2></sidebar2>
+  <sidebar3></sidebar3>
+  <sidebar4></sidebar4>
+  <sidebar5></sidebar5>
+</sidebars>
+</plugin>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<plugin version="php">
+<id>yk_slide_kefu</id>
+<name>在线客服+置顶+二维码插件</name>
+<url>https://www.ykbkw.top/post/125.html</url>
+<note>侧边在线客服、置顶、QQ、微信插件</note>
+<description></description>
+<path>main.php</path>
+<include>include.php</include>
+<level>1</level>
+<author>
+  <name>勇康博客网</name>
+  <email>909199238@qq.com</email>
+  <url>https://www.ykbkw.top</url>
+</author>
+<source>
+  <name></name>
+  <email></email>
+  <url></url>
+</source>
+<adapted>173050</adapted>
+<version>1.1.1</version>
+<pubdate>2022-07-22</pubdate>
+<modified>2022-07-23</modified>
+<price>0</price>
+<phpver>5.3</phpver>
+<advanced>
+  <dependency></dependency>
+  <rewritefunctions></rewritefunctions>
+  <existsfunctions></existsfunctions>
+  <conflict></conflict>
+</advanced>
+<sidebars>
+  <sidebar1></sidebar1>
+  <sidebar2></sidebar2>
+  <sidebar3></sidebar3>
+  <sidebar4></sidebar4>
+  <sidebar5></sidebar5>
+  <sidebar6></sidebar6>
+  <sidebar7></sidebar7>
+  <sidebar8></sidebar8>
+  <sidebar9></sidebar9>
+</sidebars>
+</plugin>

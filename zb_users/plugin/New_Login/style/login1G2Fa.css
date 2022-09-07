@@ -1,0 +1,224 @@
+.bg {
+    display: flex;
+    height: 100vh;
+    background: #E91E63;
+}
+
+.logo {
+    margin: 60px auto;
+    -webkit-animation-name: move;
+    animation-name: move;
+    -webkit-animation-duration: .4s;
+    animation-duration: .4s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+    -webkit-animation-delay: 2.1s;
+    animation-delay: 2.1s;
+}
+
+#wrapper {
+    overflow: hidden;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    -webkit-animation-name: left;
+    animation-name: left;
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+    -webkit-animation-delay: 1s;
+    animation-delay: 1s;
+    width: auto;
+}
+
+.right {
+    flex: 1;
+    background-color: black;
+    transition: 1s;
+    background-image: url(../images/photo.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.login {
+    max-width: 80%;
+    width: auto;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.login dd {
+    -webkit-animation-name: move;
+    animation-name: move;
+    -webkit-animation-duration: .4s;
+    animation-duration: .4s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+    -webkit-animation-delay: 2s;
+    animation-delay: 2s;
+}
+
+.login dd.submit, .login dd.password, .login dd.username {
+    width: 100%;
+}
+
+.login dd.submit {
+    -webkit-animation-delay: 2.5s;
+    animation-delay: 2.5s;
+}
+
+.login dd.checkbox {
+    margin: 0;
+    color: #fff;    
+    -webkit-animation-delay: 2.4s;
+    animation-delay: 2.4s;
+}
+
+.login dd.password {
+    -webkit-animation-delay: 2.3s;
+    animation-delay: 2.3s;
+}
+
+.login dd.username {
+    -webkit-animation-delay: 2.2s;
+    animation-delay: 2.2s;
+}
+
+.login input[type="text"], .login input[type="password"] {
+    height: 46px;
+    padding: 0 16px;
+    border: 2px solid #ddd;
+    border-radius: 4px;
+    font-family: 'Rubik', sans-serif;
+    outline: 0;
+    transition: .2s;
+    margin-top: 20px;
+    width: 100%;
+}
+
+.login input[type="text"]:focus, .login input[type="password"]:focus {
+    animation: glow 800ms ease-out infinite alternate;
+}
+
+.login dd.password label, .login dd.username label {
+    display: none;
+}
+
+.button {
+    padding: 12px 10px;
+    float: none;
+    width: 100%;
+    height: auto;
+    border: 0;
+    background: linear-gradient(to right, #de48b5 0%, #0097ff 100%);
+    border-radius: 3px;
+    margin-top: 10px;
+    color: #fff;
+    letter-spacing: 1px;
+    font-family: 'Rubik', sans-serif;
+    cursor: pointer;
+}
+
+.button:hover {
+    background: linear-gradient(to right, #0097ff 0%, #de48b5 100%);
+}
+.jqkeyboard {
+	position: absolute;
+}
+#button-hint {
+	position: fixed;
+	width: 100%; height: 100%;
+	top: 0; left: 0;
+	pointer-events: none;
+}
+
+#balloon {
+	position: fixed;
+	background: #FFF;
+	width: 200px; height: 200px;
+	bottom: -30px; right: -20px;
+	border-radius: 100px;
+	transition: 0.7s ease;
+}
+
+#balloon.shrink {
+	width: 100px; height: 100px;
+}
+
+#info-txt {
+    position: fixed;
+    bottom: 15px;
+    right: 100px;
+    font-weight: bold;
+    font-size: 17px;
+    color: #FFF;
+    display: none;
+}
+
+@keyframes glow {
+    0% {
+        border-color: #de48b5;
+        box-shadow: 0 0 5px rgba(222, 72, 181,.2), inset 0 0 5px rgba(222, 72, 181,.1), 0 1px 0 #de48b5;
+    }
+    100% {
+        border-color: #0097ff;
+        box-shadow: 0 0 20px rgba(0, 151, 255,.6), inset 0 0 10px rgba(0, 151, 255,.4), 0 1px 0 #0097ff;
+    }
+}
+
+@-webkit-keyframes move {
+  0% {
+    opacity: 0;
+    visibility: hidden;
+    -webkit-transform: translateY(-40px);
+            transform: translateY(-40px);
+  }
+  100% {
+    opacity: 1;
+    visibility: visible;
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
+
+@keyframes move {
+  0% {
+    opacity: 0;
+    visibility: hidden;
+    -webkit-transform: translateY(-40px);
+            transform: translateY(-40px);
+  }
+  100% {
+    opacity: 1;
+    visibility: visible;
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
+
+@-webkit-keyframes left {
+  0% {
+    opacity: 0;
+    width: 0;
+  }
+  100% {
+    opacity: 1;
+    padding: 20px 40px;
+    width: 440px;
+  }
+}
+@keyframes left {
+  0% {
+    opacity: 0;
+    width: 0;
+  }
+  100% {
+    opacity: 1;
+    padding: 20px 40px;
+    width: 440px;
+  }
+}

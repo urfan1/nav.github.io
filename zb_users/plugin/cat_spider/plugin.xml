@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<plugin version="php">
+<id>cat_spider</id>
+<name>蜘蛛日志记录插件</name>
+<url>https://www.tou5.cn/zblog/23.html</url>
+<note>蜘蛛日志/爬虫日志/分析插件</note>
+<description>记录爬虫/蜘蛛日志/死链提交</description>
+<path>main.php?act=option</path>
+<include>include.php</include>
+<level>1</level>
+<author>
+  <name>猫贝</name>
+  <email>admin@tou5.cn</email>
+  <url>https://www.tou5.cn/</url>
+</author>
+<source>
+  <name></name>
+  <email></email>
+  <url></url>
+</source>
+<adapted>172900</adapted>
+<version>1.0.4</version>
+<pubdate>2021-12-05</pubdate>
+<modified>2022-06-23</modified>
+<price>0</price>
+<phpver>5.4</phpver>
+<advanced>
+  <dependency></dependency>
+  <rewritefunctions></rewritefunctions>
+  <existsfunctions></existsfunctions>
+  <conflict></conflict>
+</advanced>
+<sidebars>
+  <sidebar1></sidebar1>
+  <sidebar2></sidebar2>
+  <sidebar3></sidebar3>
+  <sidebar4></sidebar4>
+  <sidebar5></sidebar5>
+  <sidebar6></sidebar6>
+  <sidebar7></sidebar7>
+  <sidebar8></sidebar8>
+  <sidebar9></sidebar9>
+</sidebars>
+</plugin>

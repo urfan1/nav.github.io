@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<plugin version="php">
+<id>Lanyenewdown</id>
+<name>蓝叶清新下载样式</name>
+<url>http://lanyes.org/</url>
+<note>蓝叶清新下载样式。</note>
+<description>蓝叶清新下载样式是一个编辑器插件，通过它可以很方便的插入好看的下载样式。</description>
+<path></path>
+<include>include.php</include>
+<level>1</level>
+<author>
+  <name>蓝叶</name>
+  <email>w@lanyes.org</email>
+  <url>http://lanyes.org</url>
+</author>
+<source>
+  <name></name>
+  <email></email>
+  <url></url>
+</source>
+<adapted>150101</adapted>
+<version>2.1</version>
+<pubdate>2016-04-05</pubdate>
+<modified>2016-02-09</modified>
+<price>0</price>
+<advanced>
+  <dependency></dependency>
+  <rewritefunctions></rewritefunctions>
+  <conflict></conflict>
+</advanced>
+<sidebars>
+  <sidebar1></sidebar1>
+  <sidebar2></sidebar2>
+  <sidebar3></sidebar3>
+  <sidebar4></sidebar4>
+  <sidebar5></sidebar5>
+</sidebars>
+</plugin><!-- app_host:http://localhost/;app_email:ahxcw@qq.com;app_user:蓝叶; -->

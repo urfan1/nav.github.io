@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<plugin version="php">
+<id>MyhkPlayer</id>
+<name>明月浩空音乐播放器</name>
+<url>https://myhkw.cn</url>
+<note>明月浩空-浮窗音乐播放器是基于音乐歌曲ID全自动解析的Html5音乐播放器，程序依靠服务器强大的接口功能，只需要一个歌曲ID既可获取歌曲全部信息，同时播放器主体会跟随专辑图片主色值自动变色，歌词跟随MP3播放动态滚动...</note>
+<description></description>
+<path>main.php</path>
+<include>include.php</include>
+<level>1</level>
+<author>
+  <name>明月浩空</name>
+  <email>48939749@qq.com</email>
+  <url>https://lmih.cn/</url>
+</author>
+<source>
+  <name></name>
+  <email></email>
+  <url></url>
+</source>
+<adapted>131221</adapted>
+<version>20210214</version>
+<pubdate>2021-02-14</pubdate>
+<modified>2021-02-14</modified>
+<price>0</price>
+<phpver>5.2</phpver>
+<advanced>
+  <dependency></dependency>
+  <rewritefunctions></rewritefunctions>
+  <existsfunctions></existsfunctions>
+  <conflict></conflict>
+</advanced>
+<sidebars>
+  <sidebar1></sidebar1>
+  <sidebar2></sidebar2>
+  <sidebar3></sidebar3>
+  <sidebar4></sidebar4>
+  <sidebar5></sidebar5>
+  <sidebar6></sidebar6>
+  <sidebar7></sidebar7>
+  <sidebar8></sidebar8>
+  <sidebar9></sidebar9>
+</sidebars>
+</plugin>
