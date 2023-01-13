@@ -1,602 +1,1774 @@
-<!DOCTYPE html>
-<!--
+<!DOCTYPE html><html><!-- This web page is copied by the "https://bazhan.wang" --><head><meta charset="utf-8">
 
-
-
-
-
-
-⣿⣿⣿⣿⣿⣿⣧⢸⡿⣟⣿⡇⢸⣯⣟⣮⢧⡈⢿⣞⡿⣦⠘⠏⣹⣿⣽⢿⣿⣿⣿⣿⣯⣿⣿⣿⡇⢸⣿⣿⣾⡆⠹⢀⣠⣾⣟⣷⡈⢿
-⣿⣿⣿⣿⣿⣿⣿⡈⣿⢿⣽⡇⠘⠛⠛⠛⠓⠓⠈⠛⠛⠟⠇⢀⢿⣻⣿⣯⢿⣿⣿⣿⣷⢿⣿⣿⠁⣾⣿⣿⣿⣧⡄⠇⣹⣿⣾⣯⣿⡄
-⣿⣿⣿⣿⣿⣿⣿⡇⢹⣿⡽⡇⢸⣿⣿⣿⣿⣿⣞⣆⠰⣶⣶⡄⢀⢻⡿⣯⣿⡽⣿⣿⣿⢯⣟⡿⢀⣿⣿⣿⣿⣿⣧⠐⣸⣿⣿⣷⣿⣿
-⣿⣿⣿⣿⣿⣿⣿⣿⠘⣯⡿⡇⢸⣿⣿⣿⣿⣿⣿⣿⣧⡈⢿⣳⠘⡄⠻⣿⢾⣽⣟⡿⣿⢯⣿⡇⢸⣿⣿⣿⣿⣿⣿⡀⢾⣿⣿⣿⣿⣿
-⣿⣿⣿⣿⣿⣿⣿⣿⡇⢹⣿⠇⢸⣿⣿⣿⣿⣿⣿⣿⣿⣷⣄⠻⡇⢹⣆⠹⣟⣾⣽⣻⣟⣿⣽⠁⣾⣿⣿⣿⣿⣿⣿⣇⣿⣿⠿⠛⠛⠉
-⣿⣿⣿⣿⣿⣿⣿⣿⣿⡈⣿⡃⢼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣦⡙⠌⣿⣆⠘⣿⣞⡿⣞⡿⡞⢠⣿⣿⣿⣿⣿⡿⠛⠉⠁⢀⣀⣠⣤⣤
-⣿⣿⣿⣿⣿⣿⣿⣿⡿⠃⠘⠁⠉⠉⠉⠉⠉⠉⠉⠉⠉⠙⠛⠛⢿⣄⢻⣿⣧⠘⢯⣟⡿⣽⠁⣾⣿⣿⣿⣿⣿⡃⢀⢀⠘⠛⠿⢿⣻⣟
-⣿⣿⣿⣟⣿⣿⣿⣿⣶⣶⡆⢀⣿⣾⣿⣾⣷⣿⣶⠿⠚⠉⢀⢀⣤⣿⣷⣿⣿⣷⡈⢿⣻⢃⣼⣿⣿⣿⣿⣻⣿⣿⣿⡶⣦⣤⣄⣀⡀⠉
-⣿⢿⣿⣿⣻⣿⣿⣿⣿⣿⡿⠐⣿⣿⣿⣿⠿⠋⠁⢀⢀⣤⣾⣿⣿⣿⣿⣿⣿⣿⣿⣌⣥⣾⡿⣿⣿⣷⣿⣿⢿⣷⣿⣿⣟⣾⣽⣳⢯⣟
-⣿⣻⣿⣿⡷⣿⣿⣿⣿⣿⡗⣦⠸⡿⠋⠁⢀⢀⣠⣴⢿⣿⣽⣻⢽⣾⣟⣷⣿⣟⣿⣿⣿⣳⠿⣵⣧⣼⣿⣿⣿⣿⣿⣾⣿⣿⣿⣿⣿⣽
-⣿⢷⣻⣿⣿⣷⣻⣿⣿⣿⡷⠛⣁⢀⣀⣤⣶⣿⣛⡿⣿⣮⣽⡻⣿⣮⣽⣻⢯⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
-⠸⣟⣯⣿⣿⣷⢿⣽⣿⣿⣷⣿⣷⣆⠹⣿⣶⣯⠿⣿⣶⣟⣻⢿⣷⣽⣻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
-⣇⠹⣟⣾⣻⣿⣿⢾⡽⣿⣿⣿⣿⣿⣆⢹⣶⣿⣻⣷⣯⣟⣿⣿⣽⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
-⣿⣆⠹⣷⡻⣽⣿⣯⢿⣽⣻⣿⣿⣿⣿⣆⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠛⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
-⡙⠾⣆⠹⣿⣦⠛⣿⢯⣷⢿⡽⣿⣿⣿⣿⣆⠻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠃⠎⢸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
-⣿⣷⡌⢦⠙⣿⣿⣌⠻⣽⢯⣿⣽⣻⣿⣿⣿⣧⠩⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡏⢰⢣⠘⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
-⣿⣽⣆⠹⣧⠘⣿⣿⡷⣌⠙⢷⣯⡷⣟⣿⣿⣿⣷⡀⡹⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⣈⠃⣸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
-⢻⣽⣿⡄⢻⣷⡈⢿⣿⣿⢧⢀⠙⢿⣻⡾⣽⣻⣿⣿⣄⠌⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠛
-⡄⢿⣿⣷⢀⠹⣟⣆⠻⣿⣿⣆⢀⣀⠉⠻⣿⡽⣯⣿⣿⣷⣈⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠋⢀⣠
-
- Time: 2021-11-3   原创：庞金明
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
--->
-
-
-
-<html lang="zh-CN">
-<head>
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Anle | 一款酷黑风个人引导页</title>  
-<!--页面核心样式-->
-<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
-<link rel="stylesheet" type="text/css" href="css/style.css"/>
-<!--页面核心JS-->
-<script type="text/javascript" src="js/uaredirect.js"></script>
-<script type="text/javascript">browserRedirect("/m");</script>
-<script src="https://libs.baidu.com/jquery/1.10.2/jquery.min.js"></script>
-<script type="text/javascript" src="js/respond.min.js"></script>
+<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta http-equiv="Expires" content="-1">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Cache-control" content="no-cache">
+<meta http-equiv="Cache" content="no-cache">
+<title>优设导航官网 - 设计导航 - 国内专业设计师网址导航</title>
+<meta content="设计导航2013年上线至今，是优设网旗下最专业好用的设计师导航网站！设计导航为设计师提供UI设计、设计教程、素材下载、高清图库、配色方案、App设计、网页设计等设计网站导航指引。设计导航每周更新，设计风向标就看优设网！" name="description">
+<meta content="设计导航，设计师网站导航，设计师网址导航，优设导航，设计师导航，SDC设计师导航，UI设计，ps教程，设计教程，优秀网页设计，素材下载，用户体验" name="Keywords">
+<link rel="stylesheet" href="css/fontello.css">
+<link rel="stylesheet" href="css/styles.css"><script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?7aeefdb15fe9aede961eee611c7e48a5";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
 </head>
-<body>
-<div class="container slideTxtBox">
-    <div class="header flex flex-pack-justify flex-align-center">
-    <div class="user-info flex flex-align-center">
-        <div class="portrait"><img src="https://www.x6g.com/static/images/logo.png" ></div>
-        <div class="name PangMenZhengDao">小刀娱乐网</div><!--左上角 Logo+站名-->
-    </div>
-    <div class="link te_c p_r hd">
-		<ul class="flex flex-align-center">
-			<li class="p_r"><a href="javascript:void(0);" class="transition OPPOSans-R di_bl">关于我</a></li>
-			<li class="p_r"><a href="javascript:void(0);" class="transition OPPOSans-R di_bl">朋友们</a></li>
-		</ul>
-		<div class="move-bg"></div><!--右上方 部件-->
-	</div>
-	</div>
-
-<!--页面内容-->	
-<div class="bd">
-<!--左侧小部件-MacBook Air-->
-<div class="content p_r">
-	<div class="en_box flex flex-align-center flex-pack-center">
-	<div class="macbook">
-  <div class="inner">
-    <div class="screen">
-      <div class="face-one">
-        <div class="camera"></div>
-        <div class="display">
-          <div class="shade"></div>
+<body class="body-home body-website">
+<div class="header ">
+  <div class="container">
+    <h1 class="logo">
+      <strong> <a href="https://hao.uisdc.com" title="优设导航 - 学设计从这里开始"> <img src="img/logo.png" alt="设计师网址导航"> </a> </strong>
+      <span class="arrow"><i class="icon-play-circled"></i><em></em></span>
+      <ul class="subnav">
+        <li> <a href="https://hao.uisdc.com/book" target="_blank">优设图书导航</a> </li><li> <a href="https://hao.uisdc.com/shop" target="_blank">优设电商导航</a> </li><li> <a href="https://color.uisdc.com" target="_blank">优设色彩导航</a> </li><li> <a href="https://color.uisdc.com/pick.html" target="_blank">优设配色导航</a> </li>      </ul>
+    </h1>
+    <div class="primary-menus">
+      <ul class="selects">
+        <li> 常用 </li>
+        <li class="current" data-target="baidu-search"> <span>百度</span> </li>
+        <li data-target="google-search"> <span>google</span> </li>
+        <li data-target="uisdc2-search"> <span>优设网</span> </li>
+        <li data-target="uiii-search"> <span>优优教程</span> </li>
+        <li> <span> <a href="https://uiiiuiii.com/tool/typeface?from=hao" target="_blank"> 免费字体 </a></span> </li>
+      </ul>
+      <div class="cont">
+        <div class="right-link">
+          <a href="https://hao.uisdc.com" class="add_fav" target="_blank"><i class="icon-heart"></i>Ctrl+D收藏导航</a>
+          <a href="https://www.uisdc.com/about" target="_blank"><i class="icon-pen-01"></i>联系我们</a>
+          <a href="https://translate.google.cn/" target="_blank">&nbsp;翻译工具</a>
+        </div>
+        <div class="left-cont">
+          <form class="search" id="baidu-search" action="https://www.baidu.com/s" method="get" target="_blank">
+            <input type="text" autocomplete="off" name="wd" class="s" value="优设网 学设计从这里开始">
+            <button type="submit" name="submit" class="btn">百度一下</button>
+          </form>
+          <form class="search hidden" id="google-search" action="https://www.google.com/search" method="get" target="_blank">
+            <input type="text" autocomplete="off" name="q" class="s" value="优设网 学设计从这里开始">
+            <button type="submit" name="submit" class="btn">Google</button>
+          </form>
+          <form class="search hidden" id="uisdc2-search" action="https://www.uisdc.com/" method="get" target="_blank">
+            <input type="text" name="s" class="s" autocomplete="off" value="优设网 学设计从这里开始">
+            <button type="submit" name="submit" class="btn">优设搜索</button>
+          </form>
+          <form class="search hidden" id="uiii-search" action="https://uiiiuiii.com" method="get" target="_blank">
+            <input type="text" name="s" class="s" value="优设网 学设计从这里开始" autocomplete="off">
+            <button type="submit" name="submit" class="btn">优优搜索</button>
+          </form>
         </div>
       </div>
-      <img src="http://www.clker.com/cliparts/i/s/H/f/4/T/apple-logo-white.svg" class="logo">
-    </div>
-    <div class="body">
-      <div class="face-one">
-        <div class="touchpad">
-        </div>
-        <div class="keyboard">
-          <div class="key"></div>
-          <div class="key"></div>
-          <div class="key"></div>
-          <div class="key"></div>
-          <div class="key"></div>
-          <div class="key space"></div>
-          <div class="key"></div>
-          <div class="key"></div>
-          <div class="key"></div>
-          <div class="key"></div>
-          <div class="key"></div>
-          <div class="key"></div>
-          <div class="key"></div>
-          <div class="key"></div>
-          <div class="key"></div>
-          <div class="key"></div>
-          <div class="key"></div>
-          <div class="key"></div>
-          <div class="key"></div>
-          <div class="key"></div>
-          <div class="key"></div>
-          <div class="key"></div>
-          <div class="key"></div>
-          <div class="key"></div>
-          <div class="key"></div>
-          <div class="key"></div>
-          <div class="key"></div>
-          <div class="key"></div>
-          <div class="key"></div>
-          <div class="key"></div>
-          <div class="key"></div>
-          <div class="key"></div>
-          <div class="key"></div>
-          <div class="key"></div>
-          <div class="key"></div>
-          <div class="key"></div>
-          <div class="key"></div>
-          <div class="key"></div>
-          <div class="key"></div>
-          <div class="key"></div>
-          <div class="key"></div>
-          <div class="key"></div>
-          <div class="key"></div>
-          <div class="key"></div>
-          <div class="key"></div>
-          <div class="key"></div>
-          <div class="key"></div>
-          <div class="key"></div>
-          <div class="key"></div>
-          <div class="key"></div>
-          <div class="key"></div>
-          <div class="key"></div>
-          <div class="key"></div>
-          <div class="key"></div>
-          <div class="key"></div>
-          <div class="key"></div>
-          <div class="key"></div>
-          <div class="key"></div>
-          <div class="key"></div>
-          <div class="key f"></div>
-          <div class="key f"></div>
-          <div class="key f"></div>
-          <div class="key f"></div>
-          <div class="key f"></div>
-          <div class="key f"></div>
-          <div class="key f"></div>
-          <div class="key f"></div>
-          <div class="key f"></div>
-          <div class="key f"></div>
-          <div class="key f"></div>
-          <div class="key f"></div>
-          <div class="key f"></div>
-          <div class="key f"></div>
-          <div class="key f"></div>
-          <div class="key f"></div>
-        </div>
-      </div>
-      <div class="pad one"></div>
-      <div class="pad two"></div>
-      <div class="pad three"></div>
-      <div class="pad four"></div>
     </div>
   </div>
-  <div class="shadow"></div>
+  </div>
+<div class="header-bar">
+  <div class="container">
+    <div class="bar-left">
+      <ul class="">
+        <li><a href="https://www.uisdc.com" target="_blank">优设官网</a></li><li><a href="https://hao.uisdc.com/" target="_blank">优设导航</a></li><li><a href="https://hao.uisdc.com/shop/" target="_blank">电商导航</a></li><li><a href="https://uiiiuiii.com/" target="_blank">优优教程网</a></li><li><a href="https://uiiiuiii.com/screen/ios.htm" target="_blank">iOS设计规范</a></li><li><a href="https://www.uisdc.com/tag/%E7%A5%9E%E5%99%A8%E6%8E%A8%E8%8D%90" target="_blank">神器推荐</a></li><li><a href="https://pro.uisdc.com/index" target="_blank">自学好课</a></li><li><a href="https://www.uisdc.com/zt" target="_blank">设计专题</a></li><li><a href="https://www.uisdc.com/news" target="_blank">优设读报</a></li>      </ul>
+    </div>
+    <div class="bar-right ">
+      <span>特别推荐</span>
+      <a href="https://xue.uisdc.com/detail?id=5cb6ff4c0f29d0571d4fb7e4" target="_blank"><i><img src="img/dh-pic-6.png" alt="学UI"></i>学UI</a><a href="https://xue.uisdc.com/detail?id=5cb700d30f29d0571d4fb7ea" target="_blank"><i><img src="img/dh-pic-3.png" alt="学手绘"></i>学手绘</a><a href="https://xue.uisdc.com/?c=Navigation-3" target="_blank"><i><img src="img/nav-dkt-new2018.jpeg" alt="优设大课堂"></i>优设大课堂</a>    </div>
+  </div>
 </div>
+<div class="header-recommend">
+  <div class="container">
+    <div class="focus ">
+      <span>大家正在关注：</span>
+      <a class="" href="https://www.uisdc.com/comment-prize" target="_blank">优设每天都在送书哟！</a> <a class="" href="https://www.uisdc.com/designer-self-study-2" target="_blank">设计师完全自学指南</a> <a class="" href="https://pro.uisdc.com/index" target="_blank">火什么看这里！好课风向标</a> <a class="" href="http://weibo.com/1773655610/DBAGHE7bU" target="_blank">高质量免费图库</a> <a class="hide" href="https://space.bilibili.com/13487641" target="_blank">优设官方B站！欢迎关注</a> <a class="hide" href="https://www.uisdc.com/tag/%E9%85%8D%E8%89%B2" target="_blank">网页配色基础</a> <a class="hide" href="https://www.uisdc.com/category/hot-download/texture-and-background" target="_blank">纹理打包下载</a> <a class="hide" href="https://uiiiuiii.com/tool/typeface" target="_blank">2022最新免费字体</a>     </div>
+    <div class="link ">
+      <a class="" href="https://www.uisdc.com/talk" target="_blank"><i class="icon-fire"></i> 优设问答！有问必答，你的职场经验书</a><a class="hide" href="https://uiiiuiii.com/" target="_blank"><i class="icon-fire"></i> 免费自学PS、AI、AE、C4D ！ 学教程找灵感就上优优网</a>    </div>
+  </div>
 </div>
-
-<!--居中内容-->
-<div class="r_content">	
-	<div class="con p_r flex">
-	 <!--你的名字-->   
-	<div class="name flex flex-align-center flex-pack-center OPPOSans-M p_r" id="one_part">
-	XDAO
-	<div class="tips te_c OPPOSans-B transition"><span class="p_r c1">455px</span></div>
-	</div>
-	
-	<!--小部件-GIF-->
-	<div class="flex flex-align-center flex-pack-center iphone"><img src="images/icon_APP.gif"></div>
-	<div class="flex flex-align-center flex-pack-center web"><img src="images/icon_WEB.gif"></div>
-	<div class="flex flex-align-center flex-pack-center vr"><img src="images/icon_VR.gif"></div>
-	</div>
-	
-	<!--个人定位-->
-    <div class="p_r flex con1">
-	<div class="txt_box p_r">
-	<div class="txt_con p_r flex">
-	<div class="ui flex flex-align-center flex-pack-center p_r OPPOSans-M flex-1" id="two_part">
-	前端爱好者
-	<div class="tips transition te_c OPPOSans-B transition flex flex-align-center flex-pack-center">
-	<span class="p_r">127px</span>
-	</div>
-	</div>
-	
-	<!--小部件-音乐-->
-    <div class="wx flex flex-align-center flex-pack-center p_r" id="three_part">
-    <audio src="https://m8.music.126.net/20211103183235/79c21ea30480cb2566d5bd8709ef4fc5/ymusic/3b1d/91a2/887d/e4830ab3e11f0421964838effd3c6bfd.mp3" controls="controls" preload id="music1" hidden>
-    </audio>
-    <span class="holder" id="bf" onclick="bf();">Music</span>
-    <div class="tips te_c OPPOSans-B transition">
-	<span class="p_r c2">70px</span>
-	</div>
-	</div>
-	</div>
-	
-	<!--个人简介-->
-	<div class="text OPPOSans-M p_r transition" id="four_part">
-	<span class="p_r di_in">2021年，秋 我终究还是没能改掉这个毛病</span>
-	</div>
-	</div>
-	
-	<!--个人头像-->
-	<div class="pic flex flex-align-center flex-pack-center " id="five_part">
-	    <img src="https://q1.qlogo.cn/g?b=qq&nk=476666&s=640" >
-	</div>
-	                          <!--触发器-->
-					<div class="focus p_r OPPOSans-M">
-						<div class="txt" style="display: block;" id="default">
-							position: <span class="c1">absolute</span>;<br>
-							width: <span class="c2">0px</span>;<br>
-							height: <span class="c2">0px</span>;<br>
-							left: <span class="c2">0px</span>;<br>
-							top: <span class="c2">0px</span>;<br>
-							font-family: <span class="c1">OPPOSans</span>;<br>
-							font-style: <span class="c1">normal</span>;<br>
-							font-weight: <span class="c2">0</span>;<br>
-							font-size: <span class="c2">0px</span>;<br>
-							line-height: <span class="c2">0px</span>;
-						</div>
-						<div class="txt" id="one">
-							position: <span class="c1">absolute</span>;<br>
-							width: <span class="c2">357px</span>;<br>
-							height: <span class="c2">157px</span>;<br>
-							left: <span class="c2">336px</span>;<br>
-							top: <span class="c2">101px</span>;<br>
-							font-family: <span class="c1">OPPOSans</span>;<br>
-							font-style: <span class="c2">normal</span>;<br>
-							font-weight: <span class="c2">500</span>;<br>
-							font-size: <span class="c2">119px</span>;<br>
-							line-height: <span class="c2">157px</span>
-						</div>
-						<div class="txt" id="two">
-							position: <span class="c1">absolute</span>;<br>
-							width: <span class="c2">194px</span>;<br>
-							height: <span class="c2">63px</span>;<br>
-							left: <span class="c2">336px</span>;<br>
-							top: <span class="c2">312px</span>;<br>
-							font-family: <span class="c1">OPPOSans</span>;<br>
-							font-style: <span class="c1">normal</span>;<br>
-							font-weight: <span class="c2">500</span>;<br>
-							font-size: <span class="c2">48px</span>;<br>
-							line-height: <span class="c2">63px</span>;
-						</div>
-						<div class="txt" id="three">
-							position: <span class="c1">absolute</span>;<br>
-							width: <span class="c2">78px</span>;<br>
-							height: <span class="c2">58px</span>;<br>
-							left: <span class="c2">621px</span>;<br>
-							top: <span class="c2">315px</span>;<br>
-							Wechat: <span class="c1">Joreking8</span>;
-						</div>
-						<div class="txt" id="four">
-							position: <span class="c1">absolute</span>;<br>
-							width: <span class="c2">375px</span>;<br>
-							height: <span class="c2">75px</span>;<br>
-							left: <span class="c2">336px</span>;<br>
-							top: <span class="c2">439px</span>;<br>
-							font-family: <span class="c1">OPPOSans</span>;<br>
-							font-style: <span class="c2">normal</span>;<br>
-							font-weight: <span class="c2">500</span>;<br>
-							font-size: <span class="c2">16px</span>;<br>
-							line-height: <span class="c2">149.1%</span>;
-						</div>
-<!--头像触发器-->						
-<div class="txt" id="five">
-	<br>
-	喜欢别人家的老婆~
-	<br>
-	<br>
-	╭∞━━━╮.oO◎
-	<br>
-	┃  ┃
-	<br>
-	┃● ●┃
-	<br>
-	┃﹋  ε  ﹋ ┃
-	<br>
-	○━━━━╯
+<div class="content">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-1 sidebar">
+        <div class="content-sidebar ">
+  <dl id="goto">
+      </dl>
 </div>
+      </div>
+      <div class="col-md-11">
+        <div class="part" id="hot" data-title="热门推荐"><h2 class="has_link "><strong>热门推荐</strong><a href="https://hao.uisdc.com/goods/" target="_blank">更多 &gt;</a></h2><div class="items "><div class="row"><div class="col-xs-6 col-sm-4 col-md-2">
+  <div class="item">
+  <a href="https://www.iconfont.cn/" target="_blank">
+  <img src="img/uisdc-nav-iconfont.png" alt="IconFont">
+  <h3>IconFont</h3>
+  <p>国内最著名的图标搜索及管理平台，300万个图标下载</p>
+  </a>
+  </div>
+  </div><div class="col-xs-6 col-sm-4 col-md-2">
+  <div class="item">
+  <a href="https://www.freepik.com/?ref=uisdc.com" target="_blank">
+  <img src="img/nav-freepik.png" alt="FreePik">
+  <h3>FreePik</h3>
+  <p>知名设计素材站！PSD、矢量图、图库应有尽有</p>
+  </a>
+  </div>
+  </div><div class="col-xs-6 col-sm-4 col-md-2">
+  <div class="item">
+  <a href="https://uiiiuiii.com/inspiration" target="_blank">
+  <img src="img/sdcnav-1-uu2.png" alt="每日灵感">
+  <h3>每日灵感</h3>
+  <p>优设旗下灵感频道，每日都有新灵感</p>
+  </a>
+  </div>
+  </div><div class="col-xs-6 col-sm-4 col-md-2">
+  <div class="item">
+  <a href="http://699pic.com/?from=54" target="_blank">
+  <img src="img/sdcnav-1-4.png" alt="摄图网">
+  <h3>摄图网</h3>
+  <p>1000万+图片、插画、视频、模板，免费下载</p>
+  </a>
+  </div>
+  </div><div class="col-xs-6 col-sm-4 col-md-2">
+  <div class="item">
+  <a href="https://www.uisdc.com/hunter" target="_blank">
+  <img src="img/nav-ui-hunter.png" alt="细节猎人">
+  <h3>细节猎人</h3>
+  <p>推荐！每日必看热门产品设计灵感，优设超人气频道</p>
+  </a>
+  </div>
+  </div><div class="col-xs-6 col-sm-4 col-md-2">
+  <div class="item">
+  <a href="https://mastergo.com/?utm_source=youshe&amp;utm_medium=toufang&amp;utm_campaign=rementuijian&amp;utm_term=&amp;utm_content=" target="_blank">
+  <img src="img/sdcnav-1-mastergo-1.png" alt="MasterGo设计神器">
+  <h3>MasterGo设计神器</h3>
+  <p>推荐！海量免费资源，更专业的云端UI设计工具</p>
+  </a>
+  </div>
+  </div><div class="col-xs-6 col-sm-4 col-md-2">
+  <div class="item">
+  <a href="https://www.hellofont.cn?from=UISDC:uisdc-w" target="_blank">
+  <img src="img/hellofont.png" alt="字由商用字体">
+  <h3>字由商用字体</h3>
+  <p>推荐！近1000款免费商用字体一键拥有，设计师必备</p>
+  </a>
+  </div>
+  </div><div class="col-xs-6 col-sm-4 col-md-2">
+  <div class="item">
+  <a href="https://www.uisdc.com/news" target="_blank">
+  <img src="img/nav-news-03192.png" alt="优设读报">
+  <h3>优设读报</h3>
+  <p>每日必读！设计新闻大事小事全知道</p>
+  </a>
+  </div>
+  </div><div class="col-xs-6 col-sm-4 col-md-2">
+  <div class="item">
+  <a href="https://ibaotu.com/guanggao/1-0-0-0-3-1.html?spm=uisdc" target="_blank">
+  <img src="img/sdcnav-1-11.png" alt="包图网">
+  <h3>包图网</h3>
+  <p>推荐！1000万套原创品质商用素材，效率神器</p>
+  </a>
+  </div>
+  </div><div class="col-xs-6 col-sm-4 col-md-2">
+  <div class="item">
+  <a href="https://dribbble.com/" target="_blank">
+  <img src="img/sdcnav-4-1.png" alt="Dribbble">
+  <h3>Dribbble</h3>
+  <p>国际知名设计站点！资深设计师必备</p>
+  </a>
+  </div>
+  </div><div class="col-xs-6 col-sm-4 col-md-2">
+  <div class="item">
+  <a href="https://js.design/?source=uisdc&amp;plan=rmtj" target="_blank">
+  <img src="img/nav-js-design.png" alt="即时设计">
+  <h3>即时设计</h3>
+  <p>推荐！免费专业级UI设计工具，可云端协作的Sketch</p>
+  </a>
+  </div>
+  </div><div class="col-xs-6 col-sm-4 col-md-2">
+  <div class="item">
+  <a href="https://huaban.com/" target="_blank">
+  <img src="img/sdcnav-8-2.png" alt="花瓣网">
+  <h3>花瓣网</h3>
+  <p>设计师寻找灵感的必备站点，启发设计灵感</p>
+  </a>
+  </div>
+  </div></div></div></div><div class="part" id="photo" data-title="高清图库"><h2 class="has_link "><strong>高清图库</strong><a href="https://hao.uisdc.com/photo/" target="_blank">更多 &gt;</a></h2><div class="items "><div class="row"><div class="col-xs-6 col-sm-4 col-md-2">
+  <div class="item">
+  <a href="https://wallhaven.cc/" target="_blank">
+  <img src="img/sdcnav-3-1.png" alt="WallHaven">
+  <h3>WallHaven</h3>
+  <p>WallBase创办人失联后，前成员推出的网站</p>
+  </a>
+  </div>
+  </div><div class="col-xs-6 col-sm-4 col-md-2">
+  <div class="item">
+  <a href="https://www.paixin.com/?uisdc" target="_blank">
+  <img src="img/paixin-ico-nav.png" alt="拍信海量创意图片">
+  <h3>拍信海量创意图片</h3>
+  <p>推荐！超1亿张全球精选潮流图片，有版权全网可商用</p>
+  </a>
+  </div>
+  </div><div class="col-xs-6 col-sm-4 col-md-2">
+  <div class="item">
+  <a href="https://unsplash.com/" target="_blank">
+  <img src="img/sdcnav-3-unsplash.png" alt="Unsplash">
+  <h3>Unsplash</h3>
+  <p>知名免费图库，免费下载高分辨率照片，可商用</p>
+  </a>
+  </div>
+  </div><div class="col-xs-6 col-sm-4 col-md-2">
+  <div class="item">
+  <a href="https://pngimg.com/" target="_blank">
+  <img src="img/sdcnav-3-png.png" alt="PNG素材库">
+  <h3>PNG素材库</h3>
+  <p>推荐！最知名的PNG优质素材库。透明的、感动的</p>
+  </a>
+  </div>
+  </div><div class="col-xs-6 col-sm-4 col-md-2">
+  <div class="item">
+  <a href="https://www.allhistory.com/painting" target="_blank">
+  <img src="img/nav2020-qls.png" alt="全画作">
+  <h3>全画作</h3>
+  <p>强烈推荐！几十万张超高分辨率艺术作品欣赏</p>
+  </a>
+  </div>
+  </div><div class="col-xs-6 col-sm-4 col-md-2">
+  <div class="item">
+  <a href="https://www.splitshire.com/" target="_blank">
+  <img src="img/sdcnav-3-6.png" alt="SplitShire">
+  <h3>SplitShire</h3>
+  <p>免费可商用的图片库，更有视频素材资源</p>
+  </a>
+  </div>
+  </div><div class="col-xs-6 col-sm-4 col-md-2">
+  <div class="item">
+  <a href="https://www.vcg.com/creative/?utm_source=youshewang" target="_blank">
+  <img src="img/nav-vcg-0812.png" alt="视觉中国创意图片">
+  <h3>视觉中国创意图片</h3>
+  <p>推荐！2亿+全球精选正版图片、音视频素材</p>
+  </a>
+  </div>
+  </div><div class="col-xs-6 col-sm-4 col-md-2">
+  <div class="item">
+  <a href="https://www.yestone.com/?ref=768164" target="_blank">
+  <img src="img/sdcnav-3-2.png" alt="Yestone创意图片库">
+  <h3>Yestone创意图片库</h3>
+  <p>每天3万张上新，全部正版商用授权，品质高到挑花眼</p>
+  </a>
+  </div>
+  </div><div class="col-xs-6 col-sm-4 col-md-2">
+  <div class="item">
+  <a href="https://cn.bing.com/images/trending" target="_blank">
+  <img src="img/sdcnav-3-8.png" alt="微软Bing图库">
+  <h3>微软Bing图库</h3>
+  <p>推荐！帮你探索收集那些精美的图像，可按色彩检索</p>
+  </a>
+  </div>
+  </div><div class="col-xs-6 col-sm-4 col-md-2">
+  <div class="item">
+  <a href="https://www.pexels.com/" target="_blank">
+  <img src="img/sdcnav-3-9.png" alt="Pexels">
+  <h3>Pexels</h3>
+  <p>推荐！提供高清尺寸且品质优良的免费照片网站</p>
+  </a>
+  </div>
+  </div><div class="col-xs-6 col-sm-4 col-md-2">
+  <div class="item">
+  <a href="https://500px.com/popular" target="_blank">
+  <img src="img/sdcnav-3-11.png" alt="500px">
+  <h3>500px</h3>
+  <p>有着世界上最好的照片分享，你值得拥有</p>
+  </a>
+  </div>
+  </div><div class="col-xs-6 col-sm-4 col-md-2">
+  <div class="item">
+  <a href="https://pixabay.com/" target="_blank">
+  <img src="img/sdcnav-3-12.png" alt="Pixabay">
+  <h3>Pixabay</h3>
+  <p>百万张免费高清图片，高质量可商用</p>
+  </a>
+  </div>
+  </div></div></div></div><div class="part" id="jiaocheng" data-title="设计教程"><h2 class=""><strong>设计教程</strong></h2><div class="items "><div class="row"><div class="col-xs-6 col-sm-4 col-md-2">
+  <div class="item">
+  <a href="https://uiiiuiii.com/" target="_blank">
+  <img src="img/sdcnav-1-uu3.png" alt="优优教程网">
+  <h3>优优教程网</h3>
+  <p>超人气的优质中文教程网站，PS、AI、AE、C4D</p>
+  </a>
+  </div>
+  </div><div class="col-xs-6 col-sm-4 col-md-2">
+  <div class="item">
+  <a href="https://design.tutsplus.com/" target="_blank">
+  <img src="img/sdcnav-2-1.png" alt="PSDTuts+">
+  <h3>PSDTuts+</h3>
+  <p>Photoshop教程，从初学者到高级进阶，应有尽有</p>
+  </a>
+  </div>
+  </div><div class="col-xs-6 col-sm-4 col-md-2">
+  <div class="item">
+  <a href="https://create.adobe.com/" target="_blank">
+  <img src="img/sdcnav-2-2.png" alt="Adobe 设计周报">
+  <h3>Adobe 设计周报</h3>
+  <p>Adobe官方站！大神们通过全家桶创作过程的经验总结</p>
+  </a>
+  </div>
+  </div><div class="col-xs-6 col-sm-4 col-md-2">
+  <div class="item">
+  <a href="https://photoshopvip.net/" target="_blank">
+  <img src="img/sdcnav-2-3.png" alt="PhotoshopVIP">
+  <h3>PhotoshopVIP</h3>
+  <p>日本超人气设计站点，网站很多干货</p>
+  </a>
+  </div>
+  </div><div class="col-xs-6 col-sm-4 col-md-2">
+  <div class="item">
+  <a href="https://www.smashingmagazine.com/" target="_blank">
+  <img src="img/sdcnav-2-4.png" alt="Smashing Magazine">
+  <h3>Smashing Magazine</h3>
+  <p>国外最著名的设计博客，许多高大上的设计文章</p>
+  </a>
+  </div>
+  </div><div class="col-xs-6 col-sm-4 col-md-2">
+  <div class="item">
+  <a href="https://www.digitalartsonline.co.uk/tutorials/" target="_blank">
+  <img src="img/sdcnav-2-5.png" alt="数字艺术在线">
+  <h3>数字艺术在线</h3>
+  <p>教程都很棒！你更会爱上网站展现教程的回廊方式</p>
+  </a>
+  </div>
+  </div><div class="col-xs-6 col-sm-4 col-md-2">
+  <div class="item">
+  <a href="https://www.uisdc.com/" target="_blank">
+  <img src="img/sdcnav-2-7.png" alt="优设网">
+  <h3>优设网</h3>
+  <p>与大师零距离接触，一线设计师、总监的干货分享地</p>
+  </a>
+  </div>
+  </div><div class="col-xs-6 col-sm-4 col-md-2">
+  <div class="item">
+  <a href="https://www.photoshoplady.com/" target="_blank">
+  <img src="img/sdcnav-2-6.png" alt="Photoshop Lady">
+  <h3>Photoshop Lady</h3>
+  <p>提供各种详细的photoshop教程，优设联盟站点</p>
+  </a>
+  </div>
+  </div><div class="col-xs-6 col-sm-4 col-md-2">
+  <div class="item">
+  <a href="http://psd.fanextra.com/" target="_blank">
+  <img src="img/sdcnav-2-9.png" alt="PSD爱好者">
+  <h3>PSD爱好者</h3>
+  <p>提供Photoshop教程、设计文章和资源下载</p>
+  </a>
+  </div>
+  </div><div class="col-xs-6 col-sm-4 col-md-2">
+  <div class="item">
+  <a href="https://www.zcool.com.cn/" target="_blank">
+  <img src="img/sdcnav-2-10.png" alt="站酷">
+  <h3>站酷</h3>
+  <p>综合性设计分享网站，原创设计交流平台</p>
+  </a>
+  </div>
+  </div><div class="col-xs-6 col-sm-4 col-md-2">
+  <div class="item">
+  <a href="https://abduzeedo.com/" target="_blank">
+  <img src="img/sdcnav-2-11.png" alt="Abduzeedo">
+  <h3>Abduzeedo</h3>
+  <p>汇集大量视觉灵感和酷炫PS教程的设计博客</p>
+  </a>
+  </div>
+  </div><div class="col-xs-6 col-sm-4 col-md-2">
+  <div class="item">
+  <a href="https://coliss.com/" target="_blank">
+  <img src="img/sdcnav-2-12.png" alt="Coliss">
+  <h3>Coliss</h3>
+  <p>日本有名站点！大量网站制作相关的设计技巧和神器</p>
+  </a>
+  </div>
+  </div></div></div></div><div class="part" id="design" data-title="界面设计"><h2 class=""><strong>界面设计</strong></h2><div class="items "><div class="row"><div class="col-xs-6 col-sm-4 col-md-2">
+  <div class="item">
+  <a href="https://dribbble.com/" target="_blank">
+  <img src="img/sdcnav-4-1.png" alt="Dribbble">
+  <h3>Dribbble</h3>
+  <p>设计师必备站点，国内顶尖的设计师都在上面</p>
+  </a>
+  </div>
+  </div><div class="col-xs-6 col-sm-4 col-md-2">
+  <div class="item">
+  <a href="https://www.behance.net/" target="_blank">
+  <img src="img/sdcnav-4-2.png" alt="Behance">
+  <h3>Behance</h3>
+  <p>全球领先的创意设计类聚合平台</p>
+  </a>
+  </div>
+  </div><div class="col-xs-6 col-sm-4 col-md-2">
+  <div class="item">
+  <a href="https://ui8.net/" target="_blank">
+  <img src="img/sdcnav-4-3.png" alt="UI8">
+  <h3>UI8</h3>
+  <p>聚集世界各地优秀设计师的界面源文件</p>
+  </a>
+  </div>
+  </div><div class="col-xs-6 col-sm-4 col-md-2">
+  <div class="item">
+  <a href="https://flatui.com/" target="_blank">
+  <img src="img/sdcnav-4-4.png" alt="Flat UI">
+  <h3>Flat UI</h3>
+  <p>扁平化UI设计灵感，采集扁平化相关的App、网页等</p>
+  </a>
+  </div>
+  </div><div class="col-xs-6 col-sm-4 col-md-2">
+  <div class="item">
+  <a href="https://uimovement.com/" target="_blank">
+  <img src="img/sdcnav-4-5.png" alt="UI Movement">
+  <h3>UI Movement</h3>
+  <p>展示世界最有才华设计师的界面动效设计作品</p>
+  </a>
+  </div>
+  </div><div class="col-xs-6 col-sm-4 col-md-2">
+  <div class="item">
+  <a href="https://365psd.com/" target="_blank">
+  <img src="img/sdcnav-4-6.png" alt="365psd">
+  <h3>365psd</h3>
+  <p>兢兢业业每天更新着用户界面相关的PSD</p>
+  </a>
+  </div>
+  </div><div class="col-xs-6 col-sm-4 col-md-2">
+  <div class="item">
+  <a href="https://collectui.com/" target="_blank">
+  <img src="img/sdcnav-4-7.png" alt="CollectUI">
+  <h3>CollectUI</h3>
+  <p>UI设计必备！100多个分类，不用发愁没灵感了</p>
+  </a>
+  </div>
+  </div><div class="col-xs-6 col-sm-4 col-md-2">
+  <div class="item">
+  <a href="https://uiiiuiii.com/inspirations/ui" target="_blank">
+  <img src="img/sdcnav-1-uu.png" alt="UI 设计">
+  <h3>UI 设计</h3>
+  <p>超赞！为您精挑细选的界面设计频道</p>
+  </a>
+  </div>
+  </div><div class="col-xs-6 col-sm-4 col-md-2">
+  <div class="item">
+  <a href="https://www.pixeden.com/" target="_blank">
+  <img src="img/sdcnav-4-9.png" alt="Pixeden">
+  <h3>Pixeden</h3>
+  <p>赞！免费优质界面设计源文件及有网站模板</p>
+  </a>
+  </div>
+  </div><div class="col-xs-6 col-sm-4 col-md-2">
+  <div class="item">
+  <a href="https://www.siteinspire.com/" target="_blank">
+  <img src="img/sdcnav-4-10.png" alt="Site Inspire">
+  <h3>Site Inspire</h3>
+  <p>致力于分享推荐优秀网页及交互设计案例</p>
+  </a>
+  </div>
+  </div><div class="col-xs-6 col-sm-4 col-md-2">
+  <div class="item">
+  <a href="https://designmodo.com/" target="_blank">
+  <img src="img/sdcnav-4-11.png" alt="Designmodo">
+  <h3>Designmodo</h3>
+  <p>所有高质量UI工具包都在这里可以找到，部分免费下载</p>
+  </a>
+  </div>
+  </div><div class="col-xs-6 col-sm-4 col-md-2">
+  <div class="item">
+  <a href="https://www.uisdc.com/category/uiicon" target="_blank">
+  <img src="img/nav-ui-2022.png" alt="UI 设计文章精选">
+  <h3>UI 设计文章精选</h3>
+  <p>推荐！前沿有料的UI设计文章在此集结</p>
+  </a>
+  </div>
+  </div></div></div></div><div class="part" id="inspiration" data-title="灵感创意"><h2 class=""><strong>灵感创意</strong></h2><div class="items "><div class="row"><div class="col-xs-6 col-sm-4 col-md-2">
+  <div class="item">
+  <a href="https://www.pinterest.com/" target="_blank">
+  <img src="img/sdcnav-8-1.png" alt="Pinterest">
+  <h3>Pinterest</h3>
+  <p>一个受世界瞩目的，全球最大的创意灵感图片分享网站</p>
+  </a>
+  </div>
+  </div><div class="col-xs-6 col-sm-4 col-md-2">
+  <div class="item">
+  <a href="https://huaban.com/" target="_blank">
+  <img src="img/sdcnav-8-2.png" alt="花瓣">
+  <h3>花瓣</h3>
+  <p>采集你喜欢的美好事物，发现新知，启发设计灵感</p>
+  </a>
+  </div>
+  </div><div class="col-xs-6 col-sm-4 col-md-2">
+  <div class="item">
+  <a href="https://uiiiuiii.com/inspiration" target="_blank">
+  <img src="img/sdcnav-1-uu2.png" alt="UiiiUiii 灵感频道">
+  <h3>UiiiUiii 灵感频道</h3>
+  <p>推荐！超人气的灵感库，优优教程网旗下产品</p>
+  </a>
+  </div>
+  </div><div class="col-xs-6 col-sm-4 col-md-2">
+  <div class="item">
+  <a href="https://www.designspiration.com/" target="_blank">
+  <img src="img/designspiration-nav-2020.png" alt="Designspiration">
+  <h3>Designspiration</h3>
+  <p>提供设计灵感、插画摄影、时尚以及艺术相关的一切</p>
+  </a>
+  </div>
+  </div><div class="col-xs-6 col-sm-4 col-md-2">
+  <div class="item">
+  <a href="https://www.producthunt.com/" target="_blank">
+  <img src="img/sdcnav-8-5.png" alt="Product Hunt">
+  <h3>Product Hunt</h3>
+  <p>每天发现有趣的创新产品，离硅谷最近的眼睛</p>
+  </a>
+  </div>
+  </div><div class="col-xs-6 col-sm-4 col-md-2">
+  <div class="item">
+  <a href="https://scene360.com/" target="_blank">
+  <img src="img/sdcnav-8-6.png" alt="幻觉">
+  <h3>幻觉</h3>
+  <p>展示最惊人的创作，涵盖艺术、设计、摄影和视频</p>
+  </a>
+  </div>
+  </div><div class="col-xs-6 col-sm-4 col-md-2">
+  <div class="item">
+  <a href="https://www.artstation.com/" target="_blank">
+  <img src="img/sdcnav-8-12.png" alt="ArtStation">
+  <h3>ArtStation</h3>
+  <p>强烈推荐！一个收录世界顶级插画作品的社区</p>
+  </a>
+  </div>
+  </div><div class="col-xs-6 col-sm-4 col-md-2">
+  <div class="item">
+  <a href="https://www.uisdc.com/gallery" target="_blank">
+  <img src="img/nav-gallery.png" alt="优设琅琊榜">
+  <h3>优设琅琊榜</h3>
+  <p>顶尖设计师聚集地！令人惊艳的作品集</p>
+  </a>
+  </div>
+  </div><div class="col-xs-6 col-sm-4 col-md-2">
+  <div class="item">
+  <a href="https://www.booooooom.com/" target="_blank">
+  <img src="img/sdcnav-8-7.png" alt="BOOOOOOOM">
+  <h3>BOOOOOOOM</h3>
+  <p>发人深省的创意图片，博客设计简约但内容丰富</p>
+  </a>
+  </div>
+  </div><div class="col-xs-6 col-sm-4 col-md-2">
+  <div class="item">
+  <a href="https://theinspirationgrid.com/" target="_blank">
+  <img src="img/sdcnav-8-8.png" alt="灵感网络">
+  <h3>灵感网络</h3>
+  <p>推荐！聚合来自世界各地的创意人才，每天汲取灵感</p>
+  </a>
+  </div>
+  </div><div class="col-xs-6 col-sm-4 col-md-2">
+  <div class="item">
+  <a href="https://www.lapa.ninja/" target="_blank">
+  <img src="img/sdcnav-8-9.png" alt="Lapa网页灵感图库">
+  <h3>Lapa网页灵感图库</h3>
+  <p>设计网站前，推荐来这里找灵感，有贴心全屏预览图</p>
+  </a>
+  </div>
+  </div><div class="col-xs-6 col-sm-4 col-md-2">
+  <div class="item">
+  <a href="https://www.onepagemania.com/" target="_blank">
+  <img src="img/sdcnav-8-10.png" alt="迷你单页狂热者">
+  <h3>迷你单页狂热者</h3>
+  <p>流行的网页趋势！不可不知的迷你站点大全</p>
+  </a>
+  </div>
+  </div></div></div></div><div class="part" id="tool" data-title="设计工具"><h2 class=""><strong>设计工具</strong></h2><div class="items "><div class="row"><div class="col-xs-6 col-sm-4 col-md-2">
+  <div class="item">
+  <a href="https://www.uisdc.com/category/hot-download/tools-download" target="_blank">
+  <img src="img/sdcnav-9-1.png" alt="神器推荐专栏">
+  <h3>神器推荐专栏</h3>
+  <p>优设网神器推荐专栏，全球设计工具全收录</p>
+  </a>
+  </div>
+  </div><div class="col-xs-6 col-sm-4 col-md-2">
+  <div class="item">
+  <a href="https://mastergo.com?utm_source=youshe&amp;utm_medium=wangzhidaohang&amp;utm_campaign=shejigongju&amp;utm_term=&amp;utm_content=" target="_blank">
+  <img src="img/sdcnav-1-mastergo-1.png" alt="MasterGo设计神器">
+  <h3>MasterGo设计神器</h3>
+  <p>推荐！海量免费资源，更专业的云端UI设计工具</p>
+  </a>
+  </div>
+  </div><div class="col-xs-6 col-sm-4 col-md-2">
+  <div class="item">
+  <a href="https://ac.aliyun.com/application/webdesign/sumei?source=5176.11533457&amp;userCode=itzns7ko" target="_blank">
+  <img src="img/nav-aliyun-202018.png" alt="阿里云建站神器">
+  <h3>阿里云建站神器</h3>
+  <p>1034套PC+手机站网站模板！会打字就会建网站</p>
+  </a>
+  </div>
+  </div><div class="col-xs-6 col-sm-4 col-md-2">
+  <div class="item">
+  <a href="https://www.uisdc.com/ppt-artifact-islide" target="_blank">
+  <img src="img/sdcnav-9-3.png" alt="PPT神器 iSlide">
+  <h3>PPT神器 iSlide</h3>
+  <p>一键优化！你和PPT高手之间就差这个插件了</p>
+  </a>
+  </div>
+  </div><div class="col-xs-6 col-sm-4 col-md-2">
+  <div class="item">
+  <a href="https://jdrd.jd.com/" target="_blank">
+  <img src="img/jdr-design-nav.png" alt="京东JDR Design">
+  <h3>京东JDR Design</h3>
+  <p>推荐！京东设计团队的设计神器都在这里了</p>
+  </a>
+  </div>
+  </div><div class="col-xs-6 col-sm-4 col-md-2">
+  <div class="item">
+  <a href="https://uiiiuiii.com/software/5103.html" target="_blank">
+  <img src="img/sdcnav-9-6.png" alt="Adobe全家桶">
+  <h3>Adobe全家桶</h3>
+  <p>官方试用版下载链接，PS AI AE全都有，你懂得</p>
+  </a>
+  </div>
+  </div><div class="col-xs-6 col-sm-4 col-md-2">
+  <div class="item">
+  <a href="https://www.sitestar.cn/" target="_blank">
+  <img src="img/sdcnav-9-7.png" alt="建站之星 SiteStar">
+  <h3>建站之星 SiteStar</h3>
+  <p>国内著名建站品牌，PC+手机+小程序网站快速生成</p>
+  </a>
+  </div>
+  </div><div class="col-xs-6 col-sm-4 col-md-2">
+  <div class="item">
+  <a href="https://www.uisdc.com/fococlipping" target="_blank">
+  <img src="img/nav-fococlipping.png" alt="FocoClipping 在线抠图">
+  <h3>FocoClipping 在线抠图</h3>
+  <p>强大的在线抠图神器！3秒出图全自动超方便</p>
+  </a>
+  </div>
+  </div><div class="col-xs-6 col-sm-4 col-md-2">
+  <div class="item">
+  <a href="https://www.epub360.com/?utm_source=uisdc&amp;utm_medium=ad&amp;utm_campaign=hao" target="_blank">
+  <img src="img/nav-1107-epub.png" alt="H5制作神器">
+  <h3>H5制作神器</h3>
+  <p>推荐！专业级H5制作神器，在线设计，无需编程</p>
+  </a>
+  </div>
+  </div><div class="col-xs-6 col-sm-4 col-md-2">
+  <div class="item">
+  <a href="https://www.uisdc.com/category/tools-download" target="_blank">
+  <img src="img/sdcnav-9-2.png" alt="设计师神器">
+  <h3>设计师神器</h3>
+  <p>推荐！优设主编整理的设计师神器栏目</p>
+  </a>
+  </div>
+  </div><div class="col-xs-6 col-sm-4 col-md-2">
+  <div class="item">
+  <a href="https://www.pslkzs.com/" target="_blank">
+  <img src="img/pslkzs.png" alt="PS拉框助手">
+  <h3>PS拉框助手</h3>
+  <p>一款人气PS插件！可快速生成各类图表及UI控件</p>
+  </a>
+  </div>
+  </div><div class="col-xs-6 col-sm-4 col-md-2">
+  <div class="item">
+  <a href="https://vectormagic.com/" target="_blank">
+  <img src="img/nav-vectormagic.png" alt="Vector Magic">
+  <h3>Vector Magic</h3>
+  <p>1秒钟在线位图转矢量！好用的转矢量神器</p>
+  </a>
+  </div>
+  </div></div></div></div><div class="part" id="resource" data-title="素材资源"><h2 class=""><strong>素材资源</strong></h2><div class="items "><div class="row"><div class="col-xs-6 col-sm-4 col-md-2">
+  <div class="item">
+  <a href="https://www.gaoding.com/utms/f10839263a60c1c447c75fcbe10183c2" target="_blank">
+  <img src="img/sdcnav-gdsj-12.png" alt="稿定设计">
+  <h3>稿定设计</h3>
+  <p>提供海量免费素材，多场景商业视觉在线设计平台</p>
+  </a>
+  </div>
+  </div><div class="col-xs-6 col-sm-4 col-md-2">
+  <div class="item">
+  <a href="https://www.textureking.com/category/all-textures/" target="_blank">
+  <img src="img/sdcnav-sc-1.png" alt="纹理王">
+  <h3>纹理王</h3>
+  <p>免费的高分辨率顶尖纹理，可以商用</p>
+  </a>
+  </div>
+  </div><div class="col-xs-6 col-sm-4 col-md-2">
+  <div class="item">
+  <a href="https://freebiesbug.com/" target="_blank">
+  <img src="img/sdcnav-sc-2.png" alt="freebiesbug">
+  <h3>freebiesbug</h3>
+  <p>最新的免费设计资源</p>
+  </a>
+  </div>
+  </div><div class="col-xs-6 col-sm-4 col-md-2">
+  <div class="item">
+  <a href="https://logopond.com/" target="_blank">
+  <img src="img/sdcnav-sc-3.png" alt="LogoPond">
+  <h3>LogoPond</h3>
+  <p>高端logo集萃，设计前必须来池子里泡一泡</p>
+  </a>
+  </div>
+  </div><div class="col-xs-6 col-sm-4 col-md-2">
+  <div class="item">
+  <a href="https://www.iconfont.cn/" target="_blank">
+  <img src="img/sdcnav-1-1.png" alt="阿里图标库">
+  <h3>阿里图标库</h3>
+  <p>国内最著名的图标搜索及管理平台，300万个图标下载</p>
+  </a>
+  </div>
+  </div><div class="col-xs-6 col-sm-4 col-md-2">
+  <div class="item">
+  <a href="https://worldvectorlogo.com/" target="_blank">
+  <img src="img/sdcnav-sc-5.png" alt="矢量Logo下载">
+  <h3>矢量Logo下载</h3>
+  <p>超赞！知名Logo矢量资源下载</p>
+  </a>
+  </div>
+  </div></div></div></div><div class="part" id="font" data-title="字体设计"><h2 class=""><strong>字体设计</strong></h2><div class="items "><div class="row"><div class="col-xs-6 col-sm-4 col-md-2">
+  <div class="item">
+  <a href="https://uiiiuiii.com/tool/typeface" target="_blank">
+  <img src="img/sdcnav-10-1.png" alt="免费商用字体">
+  <h3>免费商用字体</h3>
+  <p>超全！免费可商用中文+英文字体，含应用场景</p>
+  </a>
+  </div>
+  </div><div class="col-xs-6 col-sm-4 col-md-2">
+  <div class="item">
+  <a href="https://www.dafont.com/" target="_blank">
+  <img src="img/sdcnav-font-28.png" alt="DaFont">
+  <h3>DaFont</h3>
+  <p>国际知名站点！提供大量的免费英文字体下载</p>
+  </a>
+  </div>
+  </div><div class="col-xs-6 col-sm-4 col-md-2">
+  <div class="item">
+  <a href="https://www.zitijia.com/" target="_blank">
+  <img src="img/sdcnav-font-ztj.png" alt="字体家">
+  <h3>字体家</h3>
+  <p>万款字体免费下载！专业提供正版授权字体下载</p>
+  </a>
+  </div>
+  </div><div class="col-xs-6 col-sm-4 col-md-2">
+  <div class="item">
+  <a href="https://www.hellofont.cn/" target="_blank">
+  <img src="img/sdcnav-10-4.png" alt="字由">
+  <h3>字由</h3>
+  <p>设计师必备字体利器，国内外上千款精选字体</p>
+  </a>
+  </div>
+  </div><div class="col-xs-6 col-sm-4 col-md-2">
+  <div class="item">
+  <a href="https://www.fontspace.com/" target="_blank">
+  <img src="img/sdcnav-font-85.png" alt="字体宇宙">
+  <h3>字体宇宙</h3>
+  <p>超过6万免费字体下载，网站体验不错</p>
+  </a>
+  </div>
+  </div><div class="col-xs-6 col-sm-4 col-md-2">
+  <div class="item">
+  <a href="https://www.fontfabric.com/" target="_blank">
+  <img src="img/sdcnav-10-6.png" alt="Font Fabric">
+  <h3>Font Fabric</h3>
+  <p>免费高品质字体打包下载</p>
+  </a>
+  </div>
+  </div><div class="col-xs-6 col-sm-4 col-md-2">
+  <div class="item">
+  <a href="https://www.qiuziti.com/" target="_blank">
+  <img src="img/sdcnav-10-7.png" alt="求字体">
+  <h3>求字体</h3>
+  <p>找字体神器，并提供中文和英文字体库下载</p>
+  </a>
+  </div>
+  </div><div class="col-xs-6 col-sm-4 col-md-2">
+  <div class="item">
+  <a href="https://www.fonts.net.cn/" target="_blank">
+  <img src="img/2019-nav-fontcn.png" alt="字体天下">
+  <h3>字体天下</h3>
+  <p>推荐！超过3万个中英文字体免费下载</p>
+  </a>
+  </div>
+  </div><div class="col-xs-6 col-sm-4 col-md-2">
+  <div class="item">
+  <a href="https://www.yestone.com/fonts/?ref=768164" target="_blank">
+  <img src="img/sdcnav-10-3.png" alt="云字库">
+  <h3>云字库</h3>
+  <p>最适合中小型设计团队的字体商用解决方案</p>
+  </a>
+  </div>
+  </div><div class="col-xs-6 col-sm-4 col-md-2">
+  <div class="item">
+  <a href="http://www.ziticq.com/" target="_blank">
+  <img src="img/sdcnav-10-10.png" alt="字体传奇">
+  <h3>字体传奇</h3>
+  <p>字体品牌设计师交流网，字体相关的教程、讲座等</p>
+  </a>
+  </div>
+  </div><div class="col-xs-6 col-sm-4 col-md-2">
+  <div class="item">
+  <a href="http://www.losttype.com/browse/" target="_blank">
+  <img src="img/sdcnav-10-11.png" alt="Lost Type">
+  <h3>Lost Type</h3>
+  <p>推荐！字体都非常漂亮，展示方式悦目清新</p>
+  </a>
+  </div>
+  </div><div class="col-xs-6 col-sm-4 col-md-2">
+  <div class="item">
+  <a href="https://www.fontsquirrel.com/" target="_blank">
+  <img src="img/sdcnav-10-12.png" alt="字体松鼠">
+  <h3>字体松鼠</h3>
+  <p>100%免费下载可商用！专为设计师精心挑选</p>
+  </a>
+  </div>
+  </div></div></div></div><div class="part" id="web" data-title="酷站模版"><h2 class=""><strong>酷站模版</strong></h2><div class="items "><div class="row"><div class="col-xs-6 col-sm-4 col-md-2">
+  <div class="item">
+  <a href="https://www.awwwards.com/" target="_blank">
+  <img src="img/sdcnav-7-1.png" alt="Awwwards">
+  <h3>Awwwards</h3>
+  <p>精挑细选世界各地的最佳网站！并对其打分颁奖</p>
+  </a>
+  </div>
+  </div><div class="col-xs-6 col-sm-4 col-md-2">
+  <div class="item">
+  <a href="http://4db.cc/" target="_blank">
+  <img src="img/sdcnav-7-3.png" alt="日本 4db">
+  <h3>日本 4db</h3>
+  <p>推荐！搜集日本各行各业、各地区的优秀网站</p>
+  </a>
+  </div>
+  </div><div class="col-xs-6 col-sm-4 col-md-2">
+  <div class="item">
+  <a href="https://www.templatemonster.com/cn/" target="_blank">
+  <img src="img/sdcnav-6-1.png" alt="网页模版巨人">
+  <h3>网页模版巨人</h3>
+  <p>著名的网页模版库，借鉴和学习网页趋势的宝地</p>
+  </a>
+  </div>
+  </div><div class="col-xs-6 col-sm-4 col-md-2">
+  <div class="item">
+  <a href="https://www.webdesignclip.com/" target="_blank">
+  <img src="img/sdcnav-7-8.png" alt="酷站剪报">
+  <h3>酷站剪报</h3>
+  <p>强烈推荐！用心收集日本酷站，右侧二级栏目非常棒</p>
+  </a>
+  </div>
+  </div><div class="col-xs-6 col-sm-4 col-md-2">
+  <div class="item">
+  <a href="https://onepagelove.com/" target="_blank">
+  <img src="img/sdcnav-6-2.png" alt="迷你网站模版分享">
+  <h3>迷你网站模版分享</h3>
+  <p>推荐！提供海量单页模版展示和素材资源的网站</p>
+  </a>
+  </div>
+  </div><div class="col-xs-6 col-sm-4 col-md-2">
+  <div class="item">
+  <a href="http://www.dreamtemplate.com/" target="_blank">
+  <img src="img/sdcnav-6-5.png" alt="梦幻模板">
+  <h3>梦幻模板</h3>
+  <p>超过7000个梦幻般的网站模板及Flash模板下载</p>
+  </a>
+  </div>
+  </div><div class="col-xs-6 col-sm-4 col-md-2">
+  <div class="item">
+  <a href="https://www.landingfolio.com/" target="_blank">
+  <img src="img/nav-web-2022.png" alt="优质登录页模版网">
+  <h3>优质登录页模版网</h3>
+  <p>推荐！整合了各个行业的网站登录页面模版资源</p>
+  </a>
+  </div>
+  </div><div class="col-xs-6 col-sm-4 col-md-2">
+  <div class="item">
+  <a href="https://www.wix.com/" target="_blank">
+  <img src="img/sdcnav-6-7.png" alt="享誉全球的 WIX">
+  <h3>享誉全球的 WIX</h3>
+  <p>超赞！该站全球排名378！可以帮你免费定制网站</p>
+  </a>
+  </div>
+  </div><div class="col-xs-6 col-sm-4 col-md-2">
+  <div class="item">
+  <a href="https://io3000.com/" target="_blank">
+  <img src="img/nav-io3000-2022.png" alt="网页设计画廊">
+  <h3>网页设计画廊</h3>
+  <p>精选了富有创意的网页设计作品</p>
+  </a>
+  </div>
+  </div><div class="col-xs-6 col-sm-4 col-md-2">
+  <div class="item">
+  <a href="http://bm.straightline.jp/" target="_blank">
+  <img src="img/sdcnav-7-12.png" alt="日本酷站索引">
+  <h3>日本酷站索引</h3>
+  <p>近6000个！av大合集也没这么全，酷站集合</p>
+  </a>
+  </div>
+  </div><div class="col-xs-6 col-sm-4 col-md-2">
+  <div class="item">
+  <a href="https://thefwa.com/" target="_blank">
+  <img src="img/sdcnav-7-fwa.png" alt="The FWA">
+  <h3>The FWA</h3>
+  <p>强烈推荐！超高水准的互动网站设计案例</p>
+  </a>
+  </div>
+  </div><div class="col-xs-6 col-sm-4 col-md-2">
+  <div class="item">
+  <a href="https://81-web.com/" target="_blank">
+  <img src="img/sdcnav-7-9.png" alt="81 web">
+  <h3>81 web</h3>
+  <p>推荐！日本优秀出色的站点大集合</p>
+  </a>
+  </div>
+  </div></div></div></div><div class="part" id="color" data-title="配色方案"><h2 class=""><strong>配色方案</strong></h2><div class="items "><div class="row"><div class="col-xs-6 col-sm-4 col-md-2">
+  <div class="item">
+  <a href="https://color.adobe.com/zh/" target="_blank">
+  <img src="img/sdcnav-5-1.png" alt="Kuler">
+  <h3>Kuler</h3>
+  <p>网页设计师配色的最佳之选</p>
+  </a>
+  </div>
+  </div><div class="col-xs-6 col-sm-4 col-md-2">
+  <div class="item">
+  <a href="https://www.colourlovers.com/" target="_blank">
+  <img src="img/sdcnav-5-2.png" alt="COLOURlovers">
+  <h3>COLOURlovers</h3>
+  <p>交流颜色、色彩趋势和配色方案的超人气社区</p>
+  </a>
+  </div>
+  </div><div class="col-xs-6 col-sm-4 col-md-2">
+  <div class="item">
+  <a href="https://coolors.co/browser/latest/1" target="_blank">
+  <img src="img/sdcnav-5-3.png" alt="Coolors">
+  <h3>Coolors</h3>
+  <p>实用！成千上万的配色方案</p>
+  </a>
+  </div>
+  </div><div class="col-xs-6 col-sm-4 col-md-2">
+  <div class="item">
+  <a href="https://uigradients.com/" target="_blank">
+  <img src="img/sdcnav-5-4.png" alt="漂亮的渐变颜色">
+  <h3>漂亮的渐变颜色</h3>
+  <p>今年流行的渐变！点击屏幕两侧按钮可选更多色彩</p>
+  </a>
+  </div>
+  </div><div class="col-xs-6 col-sm-4 col-md-2">
+  <div class="item">
+  <a href="https://www.csswinner.com/colorsearch/blue" target="_blank">
+  <img src="img/sdcnav-5-5.png" alt="CssWinner网页色彩分类">
+  <h3>CssWinner网页色彩分类</h3>
+  <p>CSS画廊，可根据右侧颜色块展现最流行的网页</p>
+  </a>
+  </div>
+  </div><div class="col-xs-6 col-sm-4 col-md-2">
+  <div class="item">
+  <a href="https://colorhunt.co/" target="_blank">
+  <img src="img/sdcnav-5-6.png" alt="色彩猎人">
+  <h3>色彩猎人</h3>
+  <p>每天收集并策划发布美丽的配色方案</p>
+  </a>
+  </div>
+  </div><div class="col-xs-6 col-sm-4 col-md-2">
+  <div class="item">
+  <a href="https://color.uisdc.com/" target="_blank">
+  <img src="img/sdcnav-5-7.png" alt="中国色彩大辞典">
+  <h3>中国色彩大辞典</h3>
+  <p>中国/日本传统色彩命名，点击色彩可直接吸取色值</p>
+  </a>
+  </div>
+  </div><div class="col-xs-6 col-sm-4 col-md-2">
+  <div class="item">
+  <a href="https://color.uisdc.com/pick.html" target="_blank">
+  <img src="img/sdcnav-5-8.png" alt="配色导航">
+  <h3>配色导航</h3>
+  <p>推荐！流行配色方案，可一键复制喜欢的颜色</p>
+  </a>
+  </div>
+  </div><div class="col-xs-6 col-sm-4 col-md-2">
+  <div class="item">
+  <a href="https://colors.dopely.top/" target="_blank">
+  <img src="img/nav-colors-dopely.png" alt="DopelyColors">
+  <h3>DopelyColors</h3>
+  <p>一款实用的获取漂亮渐变方案的工具</p>
+  </a>
+  </div>
+  </div><div class="col-xs-6 col-sm-4 col-md-2">
+  <div class="item">
+  <a href="https://www.materialui.co/" target="_blank">
+  <img src="img/sdcnav-5-10.png" alt="MaterialUI">
+  <h3>MaterialUI</h3>
+  <p>推荐！帮助设计师们快速选到自己喜爱的配色方案</p>
+  </a>
+  </div>
+  </div><div class="col-xs-6 col-sm-4 col-md-2">
+  <div class="item">
+  <a href="https://colordrop.io/" target="_blank">
+  <img src="img/sdcnav-5-11.png" alt="ColorDrop">
+  <h3>ColorDrop</h3>
+  <p>让寻找配色方案成为信手拈来的事情</p>
+  </a>
+  </div>
+  </div><div class="col-xs-6 col-sm-4 col-md-2">
+  <div class="item">
+  <a href="https://www.fashiontrendsetter.com/" target="_blank">
+  <img src="img/sdcnav-5-12.png" alt="Fashion Trendsetter">
+  <h3>Fashion Trendsetter</h3>
+  <p>帮你关注每年最流行的颜色搭配</p>
+  </a>
+  </div>
+  </div></div></div></div><div class="part" id="acgn" data-title="二次元"><h2 class=""><strong>二次元</strong></h2><div class="items "><div class="row"><div class="col-xs-6 col-sm-4 col-md-2">
+  <div class="item">
+  <a href="https://www.bilibili.com/" target="_blank">
+  <img src="img/sdcnav-15-8.png" alt="B站">
+  <h3>B站</h3>
+  <p>国内知名视频弹幕网站，有最及时的动漫新番</p>
+  </a>
+  </div>
+  </div><div class="col-xs-6 col-sm-4 col-md-2">
+  <div class="item">
+  <a href="https://www.acfun.cn/" target="_blank">
+  <img src="img/sdcnav-15-6.png" alt="A站">
+  <h3>A站</h3>
+  <p>AcFun作为弹幕视频网站，国内二次元文化的开创者</p>
+  </a>
+  </div>
+  </div><div class="col-xs-6 col-sm-4 col-md-2">
+  <div class="item">
+  <a href="https://bcy.net/" target="_blank">
+  <img src="img/nav2020-bcy.png" alt="半次元">
+  <h3>半次元</h3>
+  <p>ACG爱好者社区</p>
+  </a>
+  </div>
+  </div><div class="col-xs-6 col-sm-4 col-md-2">
+  <div class="item">
+  <a href="https://ac.qq.com/" target="_blank">
+  <img src="img/sdcnav-15-32.png" alt="腾讯动漫">
+  <h3>腾讯动漫</h3>
+  <p>中国最大最权威的正版动漫网站</p>
+  </a>
+  </div>
+  </div><div class="col-xs-6 col-sm-4 col-md-2">
+  <div class="item">
+  <a href="https://www.dmzj.com/" target="_blank">
+  <img src="img/nav2020-dmzj.png" alt="动漫之家">
+  <h3>动漫之家</h3>
+  <p>国内最全最专业的在线漫画</p>
+  </a>
+  </div>
+  </div><div class="col-xs-6 col-sm-4 col-md-2">
+  <div class="item">
+  <a href="https://zh.moegirl.org/Mainpage" target="_blank">
+  <img src="img/nav2020-meng.png" alt="萌娘百科">
+  <h3>萌娘百科</h3>
+  <p>万物皆可萌的百科全书</p>
+  </a>
+  </div>
+  </div><div class="col-xs-6 col-sm-4 col-md-2">
+  <div class="item">
+  <a href="https://www.u17.com/" target="_blank">
+  <img src="img/nav2020-yyq.png" alt="有妖气">
+  <h3>有妖气</h3>
+  <p>中国唯一且最大的纯原创漫画网站</p>
+  </a>
+  </div>
+  </div><div class="col-xs-6 col-sm-4 col-md-2">
+  <div class="item">
+  <a href="https://www.8kana.com/" target="_blank">
+  <img src="img/nav2020-bkn.png" alt="不可能的世界">
+  <h3>不可能的世界</h3>
+  <p>中国最大的二次元小说平台</p>
+  </a>
+  </div>
+  </div><div class="col-xs-6 col-sm-4 col-md-2">
+  <div class="item">
+  <a href="https://www.douyu.com/" target="_blank">
+  <img src="img/nav2020-douyu.png" alt="斗鱼">
+  <h3>斗鱼</h3>
+  <p>知名弹幕式直播平台</p>
+  </a>
+  </div>
+  </div><div class="col-xs-6 col-sm-4 col-md-2">
+  <div class="item">
+  <a href="https://www.huya.com/" target="_blank">
+  <img src="img/nav2020-huya.png" alt="虎牙">
+  <h3>虎牙</h3>
+  <p>弹幕式互动直播平台</p>
+  </a>
+  </div>
+  </div><div class="col-xs-6 col-sm-4 col-md-2">
+  <div class="item">
+  <a href="https://store.steampowered.com/" target="_blank">
+  <img src="img/nav2020-steam.png" alt="Steam">
+  <h3>Steam</h3>
+  <p>全球综合性数字游戏社交平台，请勿沉迷</p>
+  </a>
+  </div>
+  </div><div class="col-xs-6 col-sm-4 col-md-2">
+  <div class="item">
+  <a href="https://www.pixiv.net/" target="_blank">
+  <img src="img/nav2020-pixiv.png" alt="P站">
+  <h3>P站</h3>
+  <p>需爬梯！全球知名的插画作品分享站</p>
+  </a>
+  </div>
+  </div></div></div></div><div class="part" id="photography" data-title="摄影美图"><h2 class=""><strong>摄影美图</strong></h2><div class="items "><div class="row"><div class="col-xs-6 col-sm-4 col-md-2">
+  <div class="item">
+  <a href="https://burst.shopify.com/" target="_blank">
+  <img src="img/sdcnav-12-burst.png" alt="BURST">
+  <h3>BURST</h3>
+  <p>知名Shopify旗下摄影图库！每周更新优质照片素材</p>
+  </a>
+  </div>
+  </div><div class="col-xs-6 col-sm-4 col-md-2">
+  <div class="item">
+  <a href="https://www.poco.cn/" target="_blank">
+  <img src="img/poco-nav-2020.png" alt="POCO摄影图片社区">
+  <h3>POCO摄影图片社区</h3>
+  <p>领先的时尚摄影平台，分享作品和技巧首选</p>
+  </a>
+  </div>
+  </div><div class="col-xs-6 col-sm-4 col-md-2">
+  <div class="item">
+  <a href="http://photo.sina.com.cn/" target="_blank">
+  <img src="img/sdcnav-14-3.png" alt="新浪图片">
+  <h3>新浪图片</h3>
+  <p>有温度的视觉，摄影师成长平台，影像记录中国</p>
+  </a>
+  </div>
+  </div><div class="col-xs-6 col-sm-4 col-md-2">
+  <div class="item">
+  <a href="https://www.fengniao.com/" target="_blank">
+  <img src="img/sdcnav-14-4.png" alt="蜂鸟网">
+  <h3>蜂鸟网</h3>
+  <p>摄影爱好者分享摄影技巧和作品的中国影像门户</p>
+  </a>
+  </div>
+  </div><div class="col-xs-6 col-sm-4 col-md-2">
+  <div class="item">
+  <a href="http://www.dili360.com/" target="_blank">
+  <img src="img/sdcnav-14-5.png" alt="中国国家地理网">
+  <h3>中国国家地理网</h3>
+  <p>最专业的深度旅游体验平台，最具特色的互动社区</p>
+  </a>
+  </div>
+  </div><div class="col-xs-6 col-sm-4 col-md-2">
+  <div class="item">
+  <a href="http://www.trends.com.cn/" target="_blank">
+  <img src="img/sdcnav-14-6.png" alt="时尚网">
+  <h3>时尚网</h3>
+  <p>美图看不完！高端时尚白领生活专属领地</p>
+  </a>
+  </div>
+  </div><div class="col-xs-6 col-sm-4 col-md-2">
+  <div class="item">
+  <a href="https://tuchong.com/" target="_blank">
+  <img src="img/sdcnav-14-10.png" alt="图虫网">
+  <h3>图虫网</h3>
+  <p>图虫网，中国最专业的web2.0摄影社区</p>
+  </a>
+  </div>
+  </div><div class="col-xs-6 col-sm-4 col-md-2">
+  <div class="item">
+  <a href="https://www.style-arena.jp/ch/" target="_blank">
+  <img src="img/sdcnav-14-8.png" alt="Style-Arena">
+  <h3>Style-Arena</h3>
+  <p>日本街拍帅哥美女一览无余！东京街头时尚网</p>
+  </a>
+  </div>
+  </div><div class="col-xs-6 col-sm-4 col-md-2">
+  <div class="item">
+  <a href="https://www.chiphell.com/portal.php?mod=list&amp;catid=3" target="_blank">
+  <img src="img/sdcnav-chiphell.png" alt="Chiphell">
+  <h3>Chiphell</h3>
+  <p>专业的发烧友社区，里面的摄影专区也不错</p>
+  </a>
+  </div>
+  </div><div class="col-xs-6 col-sm-4 col-md-2">
+  <div class="item">
+  <a href="http://news.163.com/photo" target="_blank">
+  <img src="img/sdcnav-14-7.png" alt="网易图片">
+  <h3>网易图片</h3>
+  <p>网易新闻中心图片频道，24小时热图实时推送</p>
+  </a>
+  </div>
+  </div><div class="col-xs-6 col-sm-4 col-md-2">
+  <div class="item">
+  <a href="https://www.behance.net/galleries/Photography" target="_blank">
+  <img src="img/sdcnav-14-11.png" alt="Photography Served">
+  <h3>Photography Served</h3>
+  <p>全球顶尖创意平台Behance旗下的摄影服务栏目</p>
+  </a>
+  </div>
+  </div><div class="col-xs-6 col-sm-4 col-md-2">
+  <div class="item">
+  <a href="https://vision.xitek.com/sight/" target="_blank">
+  <img src="img/sdcnav-14-12.png" alt="无忌视界">
+  <h3>无忌视界</h3>
+  <p>国内外优秀摄影师的线上展览平台，开阔眼界</p>
+  </a>
+  </div>
+  </div></div></div></div><div class="part" id="website" data-title="行业视野"><h2 class=""><strong>行业视野</strong></h2><div class="items "><div class="row"><div class="col-xs-6 col-sm-4 col-md-2">
+  <div class="item">
+  <a href="https://cdc.tencent.com/" target="_blank">
+  <img src="img/sdcnav-11-1-1.png" alt="腾讯CDC">
+  <h3>腾讯CDC</h3>
+  <p>腾讯用户研究与体验设计中心，腾讯的核心部门之一</p>
+  </a>
+  </div>
+  </div><div class="col-xs-6 col-sm-4 col-md-2">
+  <div class="item">
+  <a href="https://www.huxiu.com/" target="_blank">
+  <img src="img/sdcnav-16-2-1.png" alt="虎嗅网">
+  <h3>虎嗅网</h3>
+  <p>一个有视角的、个性化商业资讯与交流平台</p>
+  </a>
+  </div>
+  </div><div class="col-xs-6 col-sm-4 col-md-2">
+  <div class="item">
+  <a href="https://36kr.com/" target="_blank">
+  <img src="img/sdcnav-16-3-1.png" alt="36氪">
+  <h3>36氪</h3>
+  <p>互联网领先新商业媒体，让一部分人先看到未来</p>
+  </a>
+  </div>
+  </div><div class="col-xs-6 col-sm-4 col-md-2">
+  <div class="item">
+  <a href="https://www.w3.org/" target="_blank">
+  <img src="img/sdcnav-w3c-1.png" alt="W3C官网">
+  <h3>W3C官网</h3>
+  <p>这是互联网的基础，推荐及时了解前端最新资讯</p>
+  </a>
+  </div>
+  </div><div class="col-xs-6 col-sm-4 col-md-2">
+  <div class="item">
+  <a href="http://www.geekpark.net/" target="_blank">
+  <img src="img/sdcnav-16-5-1.png" alt="极客公园">
+  <h3>极客公园</h3>
+  <p>报道互联网热门趋势、热点产品的深度分析</p>
+  </a>
+  </div>
+  </div><div class="col-xs-6 col-sm-4 col-md-2">
+  <div class="item">
+  <a href="https://www.ifanr.com/" target="_blank">
+  <img src="img/sdcnav-16-6-1.png" alt="爱范儿">
+  <h3>爱范儿</h3>
+  <p>发现创新价值的科技媒体，全景关注移动互联网</p>
+  </a>
+  </div>
+  </div><div class="col-xs-6 col-sm-4 col-md-2">
+  <div class="item">
+  <a href="https://www.uisdc.com/news" target="_blank">
+  <img src="img/sdcnav-16-7-1.png" alt="优设读报">
+  <h3>优设读报</h3>
+  <p>极具影响力的设计师新闻频道，行业资讯一站知晓</p>
+  </a>
+  </div>
+  </div><div class="col-xs-6 col-sm-4 col-md-2">
+  <div class="item">
+  <a href="https://www.cnbeta.com/" target="_blank">
+  <img src="img/sdcnav-16-8-1.png" alt="cnBeta中文IT资讯站">
+  <h3>cnBeta中文IT资讯站</h3>
+  <p>提供最新最快的IT业界资讯</p>
+  </a>
+  </div>
+  </div><div class="col-xs-6 col-sm-4 col-md-2">
+  <div class="item">
+  <a href="https://www.leiphone.com/" target="_blank">
+  <img src="img/sdcnav-16-9-1.png" alt="雷锋网">
+  <h3>雷锋网</h3>
+  <p>专注于移动互联网创业及创新的人气科技博客</p>
+  </a>
+  </div>
+  </div><div class="col-xs-6 col-sm-4 col-md-2">
+  <div class="item">
+  <a href="https://tech.163.com/" target="_blank">
+  <img src="img/sdcnav-16-10-1.png" alt="网易科技">
+  <h3>网易科技</h3>
+  <p>有态度！以独特视角呈现科技圈内大事小事</p>
+  </a>
+  </div>
+  </div><div class="col-xs-6 col-sm-4 col-md-2">
+  <div class="item">
+  <a href="http://www.newhua.com/" target="_blank">
+  <img src="img/sdcnav-16-11-1.png" alt="牛华网">
+  <h3>牛华网</h3>
+  <p>华军软件园旗下网站，第一时间提供最具价值IT资讯</p>
+  </a>
+  </div>
+  </div><div class="col-xs-6 col-sm-4 col-md-2">
+  <div class="item">
+  <a href="https://www.donews.com/" target="_blank">
+  <img src="img/sdcnav-16-12.png" alt="DoNews">
+  <h3>DoNews</h3>
+  <p>中国互联网从业人士交流最权威的平台</p>
+  </a>
+  </div>
+  </div></div></div></div><div class="part" id="video" data-title="短视频"><h2 class=""><strong>短视频</strong></h2><div class="items "><div class="row"><div class="col-xs-6 col-sm-4 col-md-2">
+  <div class="item">
+  <a href="https://lv.ulikecam.com/" target="_blank">
+  <img src="img/sdcnav-ulikecam.png" alt="剪映">
+  <h3>剪映</h3>
+  <p>强悍的手机短视频制作神器！由抖音官方推出</p>
+  </a>
+  </div>
+  </div><div class="col-xs-6 col-sm-4 col-md-2">
+  <div class="item">
+  <a href="https://miao.wondershare.cn/" target="_blank">
+  <img src="img/sdcnav-wondershare.png" alt="万兴喵影">
+  <h3>万兴喵影</h3>
+  <p>好用易上手的国产剪辑神器，功能强大</p>
+  </a>
+  </div>
+  </div><div class="col-xs-6 col-sm-4 col-md-2">
+  <div class="item">
+  <a href="https://www.chanmama.com/" target="_blank">
+  <img src="img/sdcnav-chanmama.png" alt="蝉妈妈">
+  <h3>蝉妈妈</h3>
+  <p>推荐！为短视频内容创作团队提供竞品分析和爆款研究</p>
+  </a>
+  </div>
+  </div><div class="col-xs-6 col-sm-4 col-md-2">
+  <div class="item">
+  <a href="https://www.ixigua.com/" target="_blank">
+  <img src="img/sdcnav-ixigua.png" alt="西瓜视频">
+  <h3>西瓜视频</h3>
+  <p>字节跳动旗下视频平台！给你新鲜好看</p>
+  </a>
+  </div>
+  </div><div class="col-xs-6 col-sm-4 col-md-2">
+  <div class="item">
+  <a href="https://www.xiaohongshu.com/" target="_blank">
+  <img src="img/sdcnav-xiaohongshu.png" alt="小红书">
+  <h3>小红书</h3>
+  <p>标记生活，一起分享和发现世界的精彩</p>
+  </a>
+  </div>
+  </div><div class="col-xs-6 col-sm-4 col-md-2">
+  <div class="item">
+  <a href="https://www.videezy.com/" target="_blank">
+  <img src="img/sdcnav-videezy.png" alt="Videezy">
+  <h3>Videezy</h3>
+  <p>推荐！提供大量免费高画质HD、4K影片素材</p>
+  </a>
+  </div>
+  </div><div class="col-xs-6 col-sm-4 col-md-2">
+  <div class="item">
+  <a href="https://www.jamendo.com/start" target="_blank">
+  <img src="img/sdcnav-jamendo.png" alt="Jamendo Music">
+  <h3>Jamendo Music</h3>
+  <p>质量很高的免费音乐素材下载平台</p>
+  </a>
+  </div>
+  </div><div class="col-xs-6 col-sm-4 col-md-2">
+  <div class="item">
+  <a href="https://www.bensound.com/" target="_blank">
+  <img src="img/sdcnav-bensound.png" alt="Bensound">
+  <h3>Bensound</h3>
+  <p>独特有质感的免费背景音乐素材站点</p>
+  </a>
+  </div>
+  </div><div class="col-xs-6 col-sm-4 col-md-2">
+  <div class="item">
+  <a href="https://toobigdata.com/" target="_blank">
+  <img src="img/sdcnav-toobigdata.png" alt="TooBigData">
+  <h3>TooBigData</h3>
+  <p>短视频网红排行，KOL一网打尽</p>
+  </a>
+  </div>
+  </div><div class="col-xs-6 col-sm-4 col-md-2">
+  <div class="item">
+  <a href="https://www.premiumbeat.com/zh/" target="_blank">
+  <img src="img/sdcnav-premiumbeat.png" alt="PremiumBeat">
+  <h3>PremiumBeat</h3>
+  <p>创意人士的短视频配乐佳选，有可商用音乐库</p>
+  </a>
+  </div>
+  </div><div class="col-xs-6 col-sm-4 col-md-2">
+  <div class="item">
+  <a href="https://www.douyin.com/" target="_blank">
+  <img src="img/sdcnav-douyin.png" alt="抖音">
+  <h3>抖音</h3>
+  <p>音乐创意短视频社交软件，记录美好生活</p>
+  </a>
+  </div>
+  </div><div class="col-xs-6 col-sm-4 col-md-2">
+  <div class="item">
+  <a href="https://www.kuaishou.com/" target="_blank">
+  <img src="img/sdcnav-kuaishou.png" alt="快手">
+  <h3>快手</h3>
+  <p>国民短视频社区，记录世界记录你</p>
+  </a>
+  </div>
+  </div></div></div></div><div class="part" id="learn" data-title="设计培训"><h2 class=""><strong>设计培训</strong></h2><div class="items "><div class="row"><div class="col-xs-6 col-sm-4 col-md-2">
+  <div class="item">
+  <a href="https://xue.uisdc.com/?c=train" target="_blank">
+  <img src="img/sdcnav-px-1.png" alt="优设大课堂">
+  <h3>优设大课堂</h3>
+  <p>零基础课程，设计师涨薪就业职场直达</p>
+  </a>
+  </div>
+  </div><div class="col-xs-6 col-sm-4 col-md-2">
+  <div class="item">
+  <a href="https://xue.uisdc.com/detail?id=5f365ff7dbd5ea3cf97cee73" target="_blank">
+  <img src="img/sdcnav-px-3.png" alt="推荐！态爷手绘提高课">
+  <h3>推荐！态爷手绘提高课</h3>
+  <p>央视合作画师，绝无仅有的手绘课程</p>
+  </a>
+  </div>
+  </div><div class="col-xs-6 col-sm-4 col-md-2">
+  <div class="item">
+  <a href="https://uiiiuiii.com/other/1212116139.html" target="_blank">
+  <img src="img/sdcnav-pm-9.png" alt="优设平面设计实战营">
+  <h3>优设平面设计实战营</h3>
+  <p>高薪第1步！大家都在学的平面设计必修课</p>
+  </a>
+  </div>
+  </div><div class="col-xs-6 col-sm-4 col-md-2">
+  <div class="item">
+  <a href="https://xue.uisdc.com/detail?id=5d133b69d8071825ebce60c5&amp;c=train-2" target="_blank">
+  <img src="img/sdcnav-px-3.png" alt="零基础手绘就业班">
+  <h3>零基础手绘就业班</h3>
+  <p>超人气课程！设计师必备基础课，从入门到专业</p>
+  </a>
+  </div>
+  </div><div class="col-xs-6 col-sm-4 col-md-2">
+  <div class="item">
+  <a href="https://pro.uisdc.com/" target="_blank">
+  <img src="img/sdcnav-px-5.png" alt="优设自学好课">
+  <h3>优设自学好课</h3>
+  <p>每周更新！好课风向标，学什么看这里</p>
+  </a>
+  </div>
+  </div><div class="col-xs-6 col-sm-4 col-md-2">
+  <div class="item">
+  <a href="https://xue.uisdc.com/detail?id=5dcc1b4cddb4671468955397" target="_blank">
+  <img src="img/dkt-uisdc-200209.png" alt="青爵版式设计全能班">
+  <h3>青爵版式设计全能班</h3>
+  <p>爆款课程！站酷600W超人气青爵直播授课</p>
+  </a>
+  </div>
+  </div><div class="col-xs-6 col-sm-4 col-md-2">
+  <div class="item">
+  <a href="https://xue.uisdc.com/detail?id=5cb6ff4c0f29d0571d4fb7e4&amp;c=train-7" target="_blank">
+  <img src="img/sdcnav-px-9.png" alt="零基础UI设计就业班">
+  <h3>零基础UI设计就业班</h3>
+  <p>优设官方培训课程，从基础到专业特训班</p>
+  </a>
+  </div>
+  </div><div class="col-xs-6 col-sm-4 col-md-2">
+  <div class="item">
+  <a href="https://xue.uisdc.com/detail?id=5d133ad1d8071825ebce60c1&amp;c=train-6" target="_blank">
+  <img src="img/sdcnav-px-8.png" alt="零基础C4D特训营">
+  <h3>零基础C4D特训营</h3>
+  <p>升职加薪筹码，让晋升之路畅通无阻</p>
+  </a>
+  </div>
+  </div><div class="col-xs-6 col-sm-4 col-md-2">
+  <div class="item">
+  <a href="https://uiiiuiii.com/other/1212116455.html" target="_blank">
+  <img src="img/sdcnav-xj-92.png" alt="设计师就业衔接班">
+  <h3>设计师就业衔接班</h3>
+  <p>60天从PS、AI、AE入门到设计入行！把握就业薪风向</p>
+  </a>
+  </div>
+  </div><div class="col-xs-6 col-sm-4 col-md-2">
+  <div class="item">
+  <a href="https://uiiiuiii.com/other/1212113189.html" target="_blank">
+  <img src="img/sdcnav-px-3.png" alt="优设手绘就业衔接班">
+  <h3>优设手绘就业衔接班</h3>
+  <p>6000人都选择的手绘课，助力升职加薪</p>
+  </a>
+  </div>
+  </div><div class="col-xs-6 col-sm-4 col-md-2">
+  <div class="item">
+  <a href="https://xue.uisdc.com/detail?id=5cc55404bdc6da1b2b9c932e&amp;c=train-8" target="_blank">
+  <img src="img/sdcnav-px-10.png" alt="动效设计特训营">
+  <h3>动效设计特训营</h3>
+  <p>火热报名！优设官方开展的动效设计视觉培训课程</p>
+  </a>
+  </div>
+  </div><div class="col-xs-6 col-sm-4 col-md-2">
+  <div class="item">
+  <a href="https://xue.uisdc.com/detail?id=5cb700d30f29d0571d4fb7ea&amp;c=train-5" target="_blank">
+  <img src="img/sdcnav-px-12.png" alt="小光的手绘课堂">
+  <h3>小光的手绘课堂</h3>
+  <p>超人气课程！名师授课，商业手绘必学课程</p>
+  </a>
+  </div>
+  </div></div></div></div><div class="part" id="frontweb" data-title="前端开发"><h2 class=""><strong>前端开发</strong></h2><div class="items "><div class="row"><div class="col-xs-6 col-sm-4 col-md-2">
+  <div class="item">
+  <a href="https://www.w3school.com.cn/" target="_blank">
+  <img src="img/sdcnav-16-4-1.png" alt="w3school在线教程">
+  <h3>w3school在线教程</h3>
+  <p>必备！全球最大的中文Web技术教程</p>
+  </a>
+  </div>
+  </div><div class="col-xs-6 col-sm-4 col-md-2">
+  <div class="item">
+  <a href="https://aotu.io/" target="_blank">
+  <img src="img/sdcnav-13-4.png" alt="凹凸实验室">
+  <h3>凹凸实验室</h3>
+  <p>推荐！沉淀与分享前端开发、页面制作技巧</p>
+  </a>
+  </div>
+  </div><div class="col-xs-6 col-sm-4 col-md-2">
+  <div class="item">
+  <a href="https://codepen.io/" target="_blank">
+  <img src="img/sdcnav-13-2.png" alt="代码笔">
+  <h3>代码笔</h3>
+  <p>超赞！面向前端设计人员的圣地</p>
+  </a>
+  </div>
+  </div><div class="col-xs-6 col-sm-4 col-md-2">
+  <div class="item">
+  <a href="https://www.w3ctech.com/" target="_blank">
+  <img src="img/2018-w3ctech-0906.png" alt="w3ctech">
+  <h3>w3ctech</h3>
+  <p>推荐！中国最大的前端技术社区</p>
+  </a>
+  </div>
+  </div><div class="col-xs-6 col-sm-4 col-md-2">
+  <div class="item">
+  <a href="https://hao.uisdc.com/cssmagic/" target="_blank">
+  <img src="img/sdcnav-13-10.png" alt="4分钟网页">
+  <h3>4分钟网页</h3>
+  <p>经典教学案例！教你4分钟变戏法式制作一个网页</p>
+  </a>
+  </div>
+  </div><div class="col-xs-6 col-sm-4 col-md-2">
+  <div class="item">
+  <a href="https://www.bootcss.com/" target="_blank">
+  <img src="img/sdcnav-b-12.png" alt="Bootstrap中文网">
+  <h3>Bootstrap中文网</h3>
+  <p>简洁、直观、强悍的响应式前端开发框架</p>
+  </a>
+  </div>
+  </div></div></div></div><div class="part" id="architecture" data-title="室内设计"><h2 class=""><strong>室内设计</strong></h2><div class="items "><div class="row"><div class="col-xs-6 col-sm-4 col-md-2">
+  <div class="item">
+  <a href="https://www.houzz.com" target="_blank">
+  <img src="img/nav-architecture-1.png" alt="Houzz">
+  <h3>Houzz</h3>
+  <p>全球最著名的装修和室内设计平台</p>
+  </a>
+  </div>
+  </div><div class="col-xs-6 col-sm-4 col-md-2">
+  <div class="item">
+  <a href="https://www.architecturaldigest.com/" target="_blank">
+  <img src="img/nav-architecture-5.png" alt="AD">
+  <h3>AD</h3>
+  <p>AD在室内设计领域具有不可估量的影响力</p>
+  </a>
+  </div>
+  </div><div class="col-xs-6 col-sm-4 col-md-2">
+  <div class="item">
+  <a href="https://www.shejijia.com/" target="_blank">
+  <img src="img/nav-architecture-3.png" alt="躺平设计家">
+  <h3>躺平设计家</h3>
+  <p>国内一流的室内设计平台</p>
+  </a>
+  </div>
+  </div><div class="col-xs-6 col-sm-4 col-md-2">
+  <div class="item">
+  <a href="https://www.hgtv.com/" target="_blank">
+  <img src="img/nav-architecture-2.png" alt="美国家园频道">
+  <h3>美国家园频道</h3>
+  <p>致力于家庭装修、园艺、手工艺和家庭改造方案</p>
+  </a>
+  </div>
+  </div><div class="col-xs-6 col-sm-4 col-md-2">
+  <div class="item">
+  <a href="https://www.archdaily.com" target="_blank">
+  <img src="img/nav-architecture-6.png" alt="ArchDaily">
+  <h3>ArchDaily</h3>
+  <p>世界最受欢迎的建筑网站</p>
+  </a>
+  </div>
+  </div><div class="col-xs-6 col-sm-4 col-md-2">
+  <div class="item">
+  <a href="https://design-milk.com/" target="_blank">
+  <img src="img/nav-architecture-4.png" alt="设计牛奶">
+  <h3>设计牛奶</h3>
+  <p>一本致力于现代设计的在线灵感杂志</p>
+  </a>
+  </div>
+  </div></div></div></div><div class="part" id="media" data-title="设计媒体"><h2 class=""><strong>设计媒体</strong></h2><div class="items "><div class="row"><div class="col-xs-6 col-sm-4 col-md-2">
+  <div class="item">
+  <a href="https://weibo.com/uisdc2012" target="_blank">
+  <img src="img/nav-yes-0209.png" alt="优设">
+  <h3>优设</h3>
+  <p>这是我们优设的官方品牌微博，强烈推荐</p>
+  </a>
+  </div>
+  </div><div class="col-xs-6 col-sm-4 col-md-2">
+  <div class="item">
+  <a href="https://weibo.com/uisdcjichuying" target="_blank">
+  <img src="img/sdcnav-19-4.png" alt="优设基础训练营">
+  <h3>优设基础训练营</h3>
+  <p>每日推荐优质Ps Ai Ae教程，优优网官博</p>
+  </a>
+  </div>
+  </div><div class="col-xs-6 col-sm-4 col-md-2">
+  <div class="item">
+  <a href="https://weibo.com/uiiiuiii" target="_blank">
+  <img src="img/sdcnav-1-uu3.png" alt="优优教程网">
+  <h3>优优教程网</h3>
+  <p>优设旗下网站，优优教程网官方微博</p>
+  </a>
+  </div>
+  </div><div class="col-xs-6 col-sm-4 col-md-2">
+  <div class="item">
+  <a href="https://weibo.com/edddesign" target="_blank">
+  <img src="img/sdcnav-design-box.png" alt="设计师的百宝箱">
+  <h3>设计师的百宝箱</h3>
+  <p>精挑细选受设计师欢迎的网站，都是奇珍异宝</p>
+  </a>
+  </div>
+  </div><div class="col-xs-6 col-sm-4 col-md-2">
+  <div class="item">
+  <a href="https://weibo.com/honghaier555" target="_blank">
+  <img src="img/sdcnav-19-1.png" alt="你丫才美工">
+  <h3>你丫才美工</h3>
+  <p>严格意义来讲，打水印和打码一样，都是下流的凑性</p>
+  </a>
+  </div>
+  </div><div class="col-xs-6 col-sm-4 col-md-2">
+  <div class="item">
+  <a href="https://weibo.com/mdabao" target="_blank">
+  <img src="img/sdcnav-19-8.png" alt="意匠id">
+  <h3>意匠id</h3>
+  <p>最精致的微博拥有最好的粉丝，分享美好，分享生活</p>
+  </a>
+  </div>
+  </div><div class="col-xs-6 col-sm-4 col-md-2">
+  <div class="item">
+  <a href="https://weibo.com/uidesign" target="_blank">
+  <img src="img/nav-uisdc-0209.png" alt="优秀网页设计">
+  <h3>优秀网页设计</h3>
+  <p>设计干货微博！每日更新及时，推荐关注</p>
+  </a>
+  </div>
+  </div><div class="col-xs-6 col-sm-4 col-md-2">
+  <div class="item">
+  <a href="https://weibo.com/u/6021844857" target="_blank">
+  <img src="img/nav-dkt-0209.png" alt="优设大课堂">
+  <h3>优设大课堂</h3>
+  <p>跟对老师学知识，优设大课堂官方微博</p>
+  </a>
+  </div>
+  </div><div class="col-xs-6 col-sm-4 col-md-2">
+  <div class="item">
+  <a href="https://weibo.com/u/5317715201" target="_blank">
+  <img src="img/sdcnav-px-4.png" alt="平面版式设计">
+  <h3>平面版式设计</h3>
+  <p>知名设计美学博主，前沿的平面版式设计灵感</p>
+  </a>
+  </div>
+  </div><div class="col-xs-6 col-sm-4 col-md-2">
+  <div class="item">
+  <a href="https://weibo.com/u/3123287587" target="_blank">
+  <img src="img/sdcnav-px-3.png" alt="手绘插画设计">
+  <h3>手绘插画设计</h3>
+  <p>知名设计美学博主</p>
+  </a>
+  </div>
+  </div><div class="col-xs-6 col-sm-4 col-md-2">
+  <div class="item">
+  <a href="https://weibo.com/qiushid" target="_blank">
+  <img src="img/sdcnav-19-11.png" alt="求是设计会">
+  <h3>求是设计会</h3>
+  <p>知名设计美学博主</p>
+  </a>
+  </div>
+  </div><div class="col-xs-6 col-sm-4 col-md-2">
+  <div class="item">
+  <a href="https://weibo.com/desginjob" target="_blank">
+  <img src="img/nav-job-0209.png" alt="招聘设计师">
+  <h3>招聘设计师</h3>
+  <p>可以帮你找工作的微博，准备好简历@她即可</p>
+  </a>
+  </div>
+  </div></div></div></div><div class="content-linkto ">
+  <a class="" href="https://www.uisdc.com/uisdc-vip-2" target="_blank"><img src="img/uisdc-vip-nav.jpeg" alt="img"></a><a class="hide" href="https://xue.uisdc.com/detail?c=uisdc-banner&amp;id=5cb6ff4c0f29d0571d4fb7e4" target="_blank"><img src="img/uisdc-r-dkt10263.jpeg" alt="img"></a></div>
+      </div>
+    </div>
+  </div>
 </div>
-
-<!--右侧内容-->
-<div class="works p_r OPPOSans-M">
-<div class="txt">
-具备Windows、Linux开关机操作，翻墙学习日外语言能力、白嫖熟练度100%，有较强的前端剽窃经验。
-</div>
-<div class="lock transition p_r">
-<input type="text" id="code" value="" placeholder="请输入提取码" class="OPPOSans-M"/>
-<div class="error" id="code_error">提取码错误</div>
-</div>
-<div class="submit" id="btn">
-<a href="javascript:void(0);" class="di_bl te_c my">秘密入口</a>
-<a href="https://www.x6g.com" id="down" class="di_bl te_c down">下载</a>
-</div>
-</div>
-</div>
-
-<!--下方内容-->
-<div class="p_r tool_content flex flex-align-center">
-<div class="sns flex ">
-<div class="flex-center">
-<!--小部件-微信-->
-<i class="fa fa-weixin fa-siz icon-3d wx p_r transition">
-    <div class="erwma transition"><img src="images/vx.png"></div>
-</i>
-<!--小部件-邮箱-->                        
-<a href="javascript:void(0);" class="di_bl copy" data-clipboard-action="copy" data-clipboard-target="#foo" id="mail">		
-<i class="fa fa-envelope-o fa-siz icon-3d mail p_r">
-    <div class="copytxt te_c OPPOSans-M transition" id="copyed">已复制</div>
-    <input id="foo" type="text" value="x6dtousu@gmail.com">
-</i></a>
-<!--小部件-其他-->
-<a href="" target="_blank"><i class="fa fa-github fa-siz icon-3d"></i></a>
-<a href="" target="_blank"><i class="fa fa-qq fa-siz icon-3d"></i></a>
-<a href="" target="_blank"><i class="fa fa-telegram fa-siz icon-3d"></i></a>
-<a href="" target="_blank"><i class="fa fa-weibo fa-siz icon-3d"></i></a>
-</div>
-</div>
-<div class="text OPPOSans-M">然后知生于忧患而死于安乐<br>
-<p>Then know born in sorrow died in peace and happiness</p>
-</div>
-</div>
-</div>
-</div>
-
-<!--翻页内容-->		
-<div class="warp" id="content">
-<div class="txt OPPOSans-R">兴趣使然做的一些小东西</div>
-<ul class="flex flex-warp">
-    <li class="transition">
-        <div class="icon">
-            <a href="https://www.x6g.com" target="_blank"><img src="https://q1.qlogo.cn/g?b=qq&nk=327893&s=640" ></a>
+<div class="footer-widgets">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-1"></div>
+      <div class="col-md-11">
+        <div class="row footer-widgets-items">
+          <div class="col-sm-6 col-md-3">
+            <div class="widget widget-sjs">
+              <h2><a href="https://www.uisdc.com/category/site-recommend" target="_blank">设计师神器</a></h2>
+              <div class="cont">
+                <a href="http://weibo.com/1773655610/ygfSOCdC8" target="_blank" title="玲珑小法器myRuler，屏幕测量工具"><i class="icon-ruler"></i></a>
+                <a href="https://www.uisdc.com/assistor-ps-introduction-1" target="_blank" title="切图标记外挂神器ASSISTOR"><i class="icon-assister"></i></a>
+                <a href="https://www.uisdc.com/bezier-curves-pen-tool-website" target="_blank" title="边玩边学！帮你轻松掌握钢笔工具的游戏酷站"><i class="icon-pen"></i></a>
+                <a href="https://www.uisdc.com/p2735" target="_blank" title="PS 参考线插件GuideGuide下载及使用说明"><i class="icon-guide"></i></a>
+                <a href="https://www.uisdc.com/slicy-mac" target="_blank" title="解放设计师的切图神器Slicy"><i class="icon-slice"></i></a>
+                <a href="http://weibo.com/1773655610/ydkbnoPIH" target="_blank" title="神器推荐：PS磨皮优化滤镜Portraiture2"><i class="icon-ps"></i></a>
+                <a href="http://weibo.com/1773655610/zfUsAhXcM" target="_blank" title="神器推荐：spoon！让你在win7系统也可开IE6测试"><i class="icon-win"></i></a>
+                <a href="http://weibo.com/1773655610/yjK1C9DpH" target="_blank" title="推荐：全能取色神器pixeur"><i class="icon-pick"></i></a>
+                <a href="https://www.uisdc.com/whats-new-for-designers-november" target="_blank" title="20个设计师必备工具推荐"><i class="icon-tool"></i></a>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-md-3">
+            <div class="widget widget-product">
+              <h2><a href="https://www.uisdc.com/hunters" target="_blank">大产品 小细节</a></h2>
+              <div class="cont">
+                <ul>
+                  <li><a href="https://www.uisdc.com/hunter/0221472160.html" target="_blank"><i>1</i>微信终于听到大家的诉求，朋友圈支持修改可见范围了！</a></li><li><a href="https://www.uisdc.com/hunter/0221472183.html" target="_blank"><i>2</i>Confluence如何通过实时预览提升使用效率</a></li><li><a href="https://www.uisdc.com/hunter/0221472138.html" target="_blank"><i>3</i>被拖欠设计费如何通过法律途径线上起诉追款？</a></li><li><a href="https://www.uisdc.com/hunter/0221472126.html" target="_blank"><i>4</i>如何在不影响用户正常的操作路径下做引导？</a></li><li><a href="https://www.uisdc.com/hunter/0221471930.html" target="_blank"><i>5</i>唯品会所见即所得的规格尺码展示方式</a></li><li><a href="https://www.uisdc.com/hunter/0221471935.html" target="_blank"><i>6</i>微信订阅号消息列表的微交互你发现了吗？</a></li><li><a href="https://www.uisdc.com/hunter/0221471885.html" target="_blank"><i>7</i>抖音如何设置防沉迷休息提醒？</a></li><li><a href="https://www.uisdc.com/hunter/0221471880.html" target="_blank"><i>8</i>为避免转发争端，Twitter是如何做转发设计的？</a></li><li><a href="https://www.uisdc.com/hunter/0221471763.html" target="_blank"><i>9</i>Figma的404界面可以当钢笔工具玩？</a></li></ul>
+                                </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-md-3">
+            <div class="widget widget-wechat">
+              <h2>官方微信</h2>
+              <div class="cont">
+                <div class="wechat-img"><img src="img/uisdc-18-qrcode.jpeg" alt="wechat"></div>
+                <p>扫描微信号：<span>youshege</span></p>
+                <p class="p2"><span>每天官微五分钟，一年萌新变大神</span><i>(๑•̀ㅂ•́)و✧</i></p>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-md-3">
+            <div class="widget widget-site ">
+                            <h2>已收录人气酷站</h2>
+              <div class="cont">
+                <div class="count"><strong>520</strong>个 </div>
+                <p><i class="icon-time"></i>导航更新日期 2022-09-12</p>
+                <h4>还有更赞的 <a href="https://www.uisdc.com/comeon" target="_blank"><i class="icon-pen-01"></i> 我来推荐</a> </h4>
+                <h6>Design: <a href="https://weibo.com/p/1005053058062013" target="_blank">@启番</a> <a href="https://weibo.com/u/1834124344" target="_blank">@Xiaobai</a></h6>
+                <h6>Coding: <a href="https://xue.uisdc.com/web2/" target="_blank">@Lizus</a></h6>
+              </div>
+                          </div>
+          </div>
         </div>
-            <h3 class="OPPOSans-M ellipsis"><a href="https://www.x6g.com" target="_blank">小刀</a></h3>
-            <p class="OPPOSans-M ellipsis">小刀娱乐网</p>
-    </li>
-</ul>
-<style>
-
-</style>
-<canvas id="background"></canvas>
+      </div>
+    </div>
+  </div>
 </div>
+<div class="footer-copyright ">
+  <div class="container">
+    <p>本网站所有数据及文档均受《著作权法》及相关法律法规保护，任何组织及个人不得侵权，违者本公司将依法追究侵权责任，特此声明。优设网法律顾问：刘杰律师</p>
+    <p>
+      <span><a href="https://www.uisdc.com/friendlink" target="_blank">友情链接</a></span> <span><a href="https://www.uisdc.com/ad" target="_blank">广告合作</a></span> <span><a href="https://www.uisdc.com/contact" target="_blank">联系我们</a></span> <span><a href="https://www.uisdc.com/about" target="_blank">关于我们</a></span> <span><a href="https://weibo.com/uidesign" target="_blank">@优秀网页设计</a></span> <span><a href="https://uiiiuiii.com/" target="_blank">优优网</a></span>       <span>优设微信号: youshege</span>
+    </p>
+    <p>Copyright © 2022 优设(UISDC) - <a href="https://beian.miit.gov.cn/" target="_blank">鄂ICP备16005435号-1</a></p>
+  </div>
+  </div>
+<div class="fixed-bar">
+	<a class="fixed-weibo" href="https://weibo.com/uidesign" target="_blank"><span><i class="icon-sina"></i></span></a>
+	<a class="fixed-wechat" href="#"><span><i class="icon-wechat"></i></span>
+		<div class="wechat_div">
+			<div class="thumb">
+				<img src="img/hao_wechat.jpeg" alt="wechat">
+			</div>
+			<div class="wechat_info">
+				<h3>优设官方微信</h3>
+				<h4>100万设计师关注</h4>
+				<p>微信号：youshege</p>
+			</div>
+		</div>
+	</a>
+	<div id="back-top"><a href="#" alt="返回顶部"><span><i class="icon-up"></i></span></a></div>
 </div>
-</div>
+<script src="js/hao.js" charset="utf-8"></script>
 
-<script src="js/jquery.SuperSlide.2.1.1.js"></script>
-<script>jQuery(".slideTxtBox").slide({});</script>
-<!-- 滑动效果 -->
-<script src="js/jquery.movebg.js"></script>
-<script>
-$(function(){
-	$(".link").movebg({width:125/*滑块的大小*/,extra:40/*额外反弹的距离*/,speed:300/*滑块移动的速度*/,rebound_speed:400/*滑块反弹的速度*/});
-})
-</script>
-<link rel="stylesheet" type="text/css" href="css/font.css"/>
-<script src="js/clipboard.min.js"></script>
-<script>//复制
-	var clipboard = new Clipboard('.copy');
-	clipboard.on('success', function(e) {
-		console.log(e);
-	});
-	clipboard.on('error', function(e) {
-		console.log(e);
-	});
-	$('#mail').click(function(){
-		$('#copyed').css('opacity',1)
-			setTimeout(function(){
-			$('#copyed').css('opacity',0)
-		},2000)
-	})
-	$('#one_part,#two_part,#three_part,#four_part,#five_part').hover(function(){
-		var that = $(this)
-		var target = that.attr('id').replace('_part','')
-		$('.focus .txt').hide()
-		$('#'+target).show()
-	},function(){
-		$('.focus .txt').hide()
-		$('#default').show()
-	})
-	$('#code').focus(function(){
-		$('#code').attr('placeholder','请输入提取码')
-		$('#code_error').hide()
-	})
-	$('#down').click(function(){
-		var that = $(this)
-		var code = $('#code').val();
-		if(code != 'anlenotes'){ //提取码
-			$('#code').attr('placeholder','').val('')
-			$('#code_error').show()
-			return false;
-		}
-		that.attr('href','https://www.x6g.com')//提取码成功跳转地址
-		that.attr('target','_blank')
-	})
-</script>
-<!-- 下载 -->
-<script>
-	const btn = document.querySelector("#btn");
-	const item = document.querySelectorAll(".lock");
-	let showCard = (event) => {
-		btn.classList.toggle("is-rotate");
-		for (var i = 0; i < item.length; i++) {
-			item[i].classList.toggle(`on`);
-		}
-	}
-	btn.addEventListener("click", showCard);
-</script>
-<!--音乐-->
-<script>
-function rbf(){
- var audio = document.getElementById('music1'); 
- audio.currentTime = 0;
-}
-function bf(){
- var audio = document.getElementById('music1'); 
- if(audio!==null){             
-     alert(audio.paused);
-  if(audio.paused)                     {                 
-      audio.play('播放');  
-  }else{
-   audio.pause('暂停');
-  }
- } 
-}
-   
-</script>
-<script>
-try {
-	if (/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
-
-	} else {
-
-			var canvas = document.querySelector('canvas'),
-				ctx = canvas.getContext('2d')
-				canvas.width = window.innerWidth;
-			canvas.height = window.innerHeight;
-			ctx.lineWidth = .3;
-			ctx.strokeStyle = (new Color(150)).style;
-
-			var mousePosition = {
-				x: 30 * canvas.width / 100,
-				y: 30 * canvas.height / 100
-			};
-
-			var dots = {
-				nb: 250,
-				distance: 100,
-				d_radius: 150,
-				array: []
-			};
-
-			function colorValue(min) {
-				return Math.floor(Math.random() * 255 + min);
-			}
-
-			function createColorStyle(r, g, b) {
-				return 'rgba(' + r + ',' + g + ',' + b + ', 0.8)';
-			}
-
-			function mixComponents(comp1, weight1, comp2, weight2) {
-				return (comp1 * weight1 + comp2 * weight2) / (weight1 + weight2);
-			}
-
-			function averageColorStyles(dot1, dot2) {
-				var color1 = dot1.color,
-					color2 = dot2.color;
-
-				var r = mixComponents(color1.r, dot1.radius, color2.r, dot2.radius),
-					g = mixComponents(color1.g, dot1.radius, color2.g, dot2.radius),
-					b = mixComponents(color1.b, dot1.radius, color2.b, dot2.radius);
-				return createColorStyle(Math.floor(r), Math.floor(g), Math.floor(b));
-			}
-
-			function Color(min) {
-				min = min || 0;
-				this.r = colorValue(min);
-				this.g = colorValue(min);
-				this.b = colorValue(min);
-				this.style = createColorStyle(this.r, this.g, this.b);
-			}
-
-			function Dot() {
-				this.x = Math.random() * canvas.width;
-				this.y = Math.random() * canvas.height;
-
-				this.vx = -.5 + Math.random();
-				this.vy = -.5 + Math.random();
-
-				this.radius = Math.random() * 2;
-
-				this.color = new Color();
-				console.log(this);
-			}
-
-			Dot.prototype = {
-				draw: function() {
-					ctx.beginPath();
-					ctx.fillStyle = this.color.style;
-					ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false);
-					ctx.fill();
-				}
-			};
-
-			function createDots() {
-				for (i = 0; i < dots.nb; i++) {
-					dots.array.push(new Dot());
-				}
-			}
-
-			function moveDots() {
-				for (i = 0; i < dots.nb; i++) {
-
-					var dot = dots.array[i];
-
-					if (dot.y < 0 || dot.y > canvas.height) {
-						dot.vx = dot.vx;
-						dot.vy = -dot.vy;
-					} else if (dot.x < 0 || dot.x > canvas.width) {
-						dot.vx = -dot.vx;
-						dot.vy = dot.vy;
-					}
-					dot.x += dot.vx;
-					dot.y += dot.vy;
-				}
-			}
-
-			function connectDots() {
-				for (i = 0; i < dots.nb; i++) {
-					for (j = 0; j < dots.nb; j++) {
-						i_dot = dots.array[i];
-						j_dot = dots.array[j];
-
-						if ((i_dot.x - j_dot.x) < dots.distance && (i_dot.y - j_dot.y) < dots.distance && (i_dot.x - j_dot.x) > -dots.distance && (i_dot.y - j_dot.y) > -dots.distance) {
-							if ((i_dot.x - mousePosition.x) < dots.d_radius && (i_dot.y - mousePosition.y) < dots.d_radius && (i_dot.x - mousePosition.x) > -dots.d_radius && (i_dot.y - mousePosition.y) > -dots.d_radius) {
-								ctx.beginPath();
-								ctx.strokeStyle = averageColorStyles(i_dot, j_dot);
-								ctx.moveTo(i_dot.x, i_dot.y);
-								ctx.lineTo(j_dot.x, j_dot.y);
-								ctx.stroke();
-								ctx.closePath();
-							}
-						}
-					}
-				}
-			}
-
-			function drawDots() {
-				for (i = 0; i < dots.nb; i++) {
-					var dot = dots.array[i];
-					dot.draw();
-				}
-			}
-
-			function animateDots() {
-				ctx.clearRect(0, 0, canvas.width, canvas.height);
-				moveDots();
-				//connectDots();
-				drawDots();
-
-				requestAnimationFrame(animateDots);
-			}
-
-
-			createDots();
-			requestAnimationFrame(animateDots);
-
-	}
-} catch (e) {}
-</script>
-</body>
-</html>
+</body></html>
