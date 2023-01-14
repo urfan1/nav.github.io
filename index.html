@@ -1,602 +1,855 @@
-<!DOCTYPE html>
-<!--
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml"><!-- This web page is copied by the "https://bazhan.wang" --><head><meta charset="utf-8">
 
-
-
-
-
-
-⣿⣿⣿⣿⣿⣿⣧⢸⡿⣟⣿⡇⢸⣯⣟⣮⢧⡈⢿⣞⡿⣦⠘⠏⣹⣿⣽⢿⣿⣿⣿⣿⣯⣿⣿⣿⡇⢸⣿⣿⣾⡆⠹⢀⣠⣾⣟⣷⡈⢿
-⣿⣿⣿⣿⣿⣿⣿⡈⣿⢿⣽⡇⠘⠛⠛⠛⠓⠓⠈⠛⠛⠟⠇⢀⢿⣻⣿⣯⢿⣿⣿⣿⣷⢿⣿⣿⠁⣾⣿⣿⣿⣧⡄⠇⣹⣿⣾⣯⣿⡄
-⣿⣿⣿⣿⣿⣿⣿⡇⢹⣿⡽⡇⢸⣿⣿⣿⣿⣿⣞⣆⠰⣶⣶⡄⢀⢻⡿⣯⣿⡽⣿⣿⣿⢯⣟⡿⢀⣿⣿⣿⣿⣿⣧⠐⣸⣿⣿⣷⣿⣿
-⣿⣿⣿⣿⣿⣿⣿⣿⠘⣯⡿⡇⢸⣿⣿⣿⣿⣿⣿⣿⣧⡈⢿⣳⠘⡄⠻⣿⢾⣽⣟⡿⣿⢯⣿⡇⢸⣿⣿⣿⣿⣿⣿⡀⢾⣿⣿⣿⣿⣿
-⣿⣿⣿⣿⣿⣿⣿⣿⡇⢹⣿⠇⢸⣿⣿⣿⣿⣿⣿⣿⣿⣷⣄⠻⡇⢹⣆⠹⣟⣾⣽⣻⣟⣿⣽⠁⣾⣿⣿⣿⣿⣿⣿⣇⣿⣿⠿⠛⠛⠉
-⣿⣿⣿⣿⣿⣿⣿⣿⣿⡈⣿⡃⢼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣦⡙⠌⣿⣆⠘⣿⣞⡿⣞⡿⡞⢠⣿⣿⣿⣿⣿⡿⠛⠉⠁⢀⣀⣠⣤⣤
-⣿⣿⣿⣿⣿⣿⣿⣿⡿⠃⠘⠁⠉⠉⠉⠉⠉⠉⠉⠉⠉⠙⠛⠛⢿⣄⢻⣿⣧⠘⢯⣟⡿⣽⠁⣾⣿⣿⣿⣿⣿⡃⢀⢀⠘⠛⠿⢿⣻⣟
-⣿⣿⣿⣟⣿⣿⣿⣿⣶⣶⡆⢀⣿⣾⣿⣾⣷⣿⣶⠿⠚⠉⢀⢀⣤⣿⣷⣿⣿⣷⡈⢿⣻⢃⣼⣿⣿⣿⣿⣻⣿⣿⣿⡶⣦⣤⣄⣀⡀⠉
-⣿⢿⣿⣿⣻⣿⣿⣿⣿⣿⡿⠐⣿⣿⣿⣿⠿⠋⠁⢀⢀⣤⣾⣿⣿⣿⣿⣿⣿⣿⣿⣌⣥⣾⡿⣿⣿⣷⣿⣿⢿⣷⣿⣿⣟⣾⣽⣳⢯⣟
-⣿⣻⣿⣿⡷⣿⣿⣿⣿⣿⡗⣦⠸⡿⠋⠁⢀⢀⣠⣴⢿⣿⣽⣻⢽⣾⣟⣷⣿⣟⣿⣿⣿⣳⠿⣵⣧⣼⣿⣿⣿⣿⣿⣾⣿⣿⣿⣿⣿⣽
-⣿⢷⣻⣿⣿⣷⣻⣿⣿⣿⡷⠛⣁⢀⣀⣤⣶⣿⣛⡿⣿⣮⣽⡻⣿⣮⣽⣻⢯⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
-⠸⣟⣯⣿⣿⣷⢿⣽⣿⣿⣷⣿⣷⣆⠹⣿⣶⣯⠿⣿⣶⣟⣻⢿⣷⣽⣻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
-⣇⠹⣟⣾⣻⣿⣿⢾⡽⣿⣿⣿⣿⣿⣆⢹⣶⣿⣻⣷⣯⣟⣿⣿⣽⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
-⣿⣆⠹⣷⡻⣽⣿⣯⢿⣽⣻⣿⣿⣿⣿⣆⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠛⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
-⡙⠾⣆⠹⣿⣦⠛⣿⢯⣷⢿⡽⣿⣿⣿⣿⣆⠻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠃⠎⢸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
-⣿⣷⡌⢦⠙⣿⣿⣌⠻⣽⢯⣿⣽⣻⣿⣿⣿⣧⠩⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡏⢰⢣⠘⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
-⣿⣽⣆⠹⣧⠘⣿⣿⡷⣌⠙⢷⣯⡷⣟⣿⣿⣿⣷⡀⡹⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⣈⠃⣸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
-⢻⣽⣿⡄⢻⣷⡈⢿⣿⣿⢧⢀⠙⢿⣻⡾⣽⣻⣿⣿⣄⠌⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠛
-⡄⢿⣿⣷⢀⠹⣟⣆⠻⣿⣿⣆⢀⣀⠉⠻⣿⡽⣯⣿⣿⣷⣈⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠋⢀⣠
-
- Time: 2021-11-3   原创：庞金明
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
--->
-
-
-
-<html lang="zh-CN">
-<head>
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Anle | 一款酷黑风个人引导页</title>  
-<!--页面核心样式-->
-<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
-<link rel="stylesheet" type="text/css" href="css/style.css"/>
-<!--页面核心JS-->
-<script type="text/javascript" src="js/uaredirect.js"></script>
-<script type="text/javascript">browserRedirect("/m");</script>
-<script src="https://libs.baidu.com/jquery/1.10.2/jquery.min.js"></script>
-<script type="text/javascript" src="js/respond.min.js"></script>
-</head>
-<body>
-<div class="container slideTxtBox">
-    <div class="header flex flex-pack-justify flex-align-center">
-    <div class="user-info flex flex-align-center">
-        <div class="portrait"><img src="https://www.x6g.com/static/images/logo.png" ></div>
-        <div class="name PangMenZhengDao">小刀娱乐网</div><!--左上角 Logo+站名-->
-    </div>
-    <div class="link te_c p_r hd">
-		<ul class="flex flex-align-center">
-			<li class="p_r"><a href="javascript:void(0);" class="transition OPPOSans-R di_bl">关于我</a></li>
-			<li class="p_r"><a href="javascript:void(0);" class="transition OPPOSans-R di_bl">朋友们</a></li>
-		</ul>
-		<div class="move-bg"></div><!--右上方 部件-->
-	</div>
-	</div>
+<title>无版权字体下载站</title>
+<meta name="Keywords" content="美化鸭,ios美化,安卓美化,iOS主题,安卓主题,微信主题,微信气泡,主题美化,输入法皮肤,百度输入法皮肤,讯飞输入法皮肤,搜狗输入法皮肤">
+<meta name="description" content="美化鸭 - 让你手机变好看的网站，专注iPhone、iPad以及Android安卓手机美化,提供免费微信主题，微信气泡，主题美化，美化鸭，输入法皮肤，百度输入法皮肤，讯飞输入法皮肤，搜狗输入法皮肤、教程等资源。">
+<link rel="shortcut icon" href="favicon.ico" type="images/x-icon">
+<link rel="stylesheet" type="text/css" href="css/style.css">
+    <link href="css/media_time.css" rel="stylesheet" type="text/css">
+      <link rel="stylesheet" type="text/css" href="css/iconfont.css">
+  <script src="js/jquery.min.js"></script>
+  <script src="js/commonn.js" type="text/javascript"></script>
+<link rel="stylesheet" type="text/css" href="css/style_1.css">
 
-<!--页面内容-->	
-<div class="bd">
-<!--左侧小部件-MacBook Air-->
-<div class="content p_r">
-	<div class="en_box flex flex-align-center flex-pack-center">
-	<div class="macbook">
-  <div class="inner">
-    <div class="screen">
-      <div class="face-one">
-        <div class="camera"></div>
-        <div class="display">
-          <div class="shade"></div>
-        </div>
-      </div>
-      <img src="http://www.clker.com/cliparts/i/s/H/f/4/T/apple-logo-white.svg" class="logo">
-    </div>
-    <div class="body">
-      <div class="face-one">
-        <div class="touchpad">
-        </div>
-        <div class="keyboard">
-          <div class="key"></div>
-          <div class="key"></div>
-          <div class="key"></div>
-          <div class="key"></div>
-          <div class="key"></div>
-          <div class="key space"></div>
-          <div class="key"></div>
-          <div class="key"></div>
-          <div class="key"></div>
-          <div class="key"></div>
-          <div class="key"></div>
-          <div class="key"></div>
-          <div class="key"></div>
-          <div class="key"></div>
-          <div class="key"></div>
-          <div class="key"></div>
-          <div class="key"></div>
-          <div class="key"></div>
-          <div class="key"></div>
-          <div class="key"></div>
-          <div class="key"></div>
-          <div class="key"></div>
-          <div class="key"></div>
-          <div class="key"></div>
-          <div class="key"></div>
-          <div class="key"></div>
-          <div class="key"></div>
-          <div class="key"></div>
-          <div class="key"></div>
-          <div class="key"></div>
-          <div class="key"></div>
-          <div class="key"></div>
-          <div class="key"></div>
-          <div class="key"></div>
-          <div class="key"></div>
-          <div class="key"></div>
-          <div class="key"></div>
-          <div class="key"></div>
-          <div class="key"></div>
-          <div class="key"></div>
-          <div class="key"></div>
-          <div class="key"></div>
-          <div class="key"></div>
-          <div class="key"></div>
-          <div class="key"></div>
-          <div class="key"></div>
-          <div class="key"></div>
-          <div class="key"></div>
-          <div class="key"></div>
-          <div class="key"></div>
-          <div class="key"></div>
-          <div class="key"></div>
-          <div class="key"></div>
-          <div class="key"></div>
-          <div class="key"></div>
-          <div class="key"></div>
-          <div class="key"></div>
-          <div class="key"></div>
-          <div class="key"></div>
-          <div class="key f"></div>
-          <div class="key f"></div>
-          <div class="key f"></div>
-          <div class="key f"></div>
-          <div class="key f"></div>
-          <div class="key f"></div>
-          <div class="key f"></div>
-          <div class="key f"></div>
-          <div class="key f"></div>
-          <div class="key f"></div>
-          <div class="key f"></div>
-          <div class="key f"></div>
-          <div class="key f"></div>
-          <div class="key f"></div>
-          <div class="key f"></div>
-          <div class="key f"></div>
-        </div>
-      </div>
-      <div class="pad one"></div>
-      <div class="pad two"></div>
-      <div class="pad three"></div>
-      <div class="pad four"></div>
-    </div>
-  </div>
-  <div class="shadow"></div>
-</div>
-</div>
-
-<!--居中内容-->
-<div class="r_content">	
-	<div class="con p_r flex">
-	 <!--你的名字-->   
-	<div class="name flex flex-align-center flex-pack-center OPPOSans-M p_r" id="one_part">
-	XDAO
-	<div class="tips te_c OPPOSans-B transition"><span class="p_r c1">455px</span></div>
-	</div>
-	
-	<!--小部件-GIF-->
-	<div class="flex flex-align-center flex-pack-center iphone"><img src="images/icon_APP.gif"></div>
-	<div class="flex flex-align-center flex-pack-center web"><img src="images/icon_WEB.gif"></div>
-	<div class="flex flex-align-center flex-pack-center vr"><img src="images/icon_VR.gif"></div>
-	</div>
-	
-	<!--个人定位-->
-    <div class="p_r flex con1">
-	<div class="txt_box p_r">
-	<div class="txt_con p_r flex">
-	<div class="ui flex flex-align-center flex-pack-center p_r OPPOSans-M flex-1" id="two_part">
-	前端爱好者
-	<div class="tips transition te_c OPPOSans-B transition flex flex-align-center flex-pack-center">
-	<span class="p_r">127px</span>
-	</div>
-	</div>
-	
-	<!--小部件-音乐-->
-    <div class="wx flex flex-align-center flex-pack-center p_r" id="three_part">
-    <audio src="https://m8.music.126.net/20211103183235/79c21ea30480cb2566d5bd8709ef4fc5/ymusic/3b1d/91a2/887d/e4830ab3e11f0421964838effd3c6bfd.mp3" controls="controls" preload id="music1" hidden>
-    </audio>
-    <span class="holder" id="bf" onclick="bf();">Music</span>
-    <div class="tips te_c OPPOSans-B transition">
-	<span class="p_r c2">70px</span>
-	</div>
-	</div>
-	</div>
-	
-	<!--个人简介-->
-	<div class="text OPPOSans-M p_r transition" id="four_part">
-	<span class="p_r di_in">2021年，秋 我终究还是没能改掉这个毛病</span>
-	</div>
-	</div>
-	
-	<!--个人头像-->
-	<div class="pic flex flex-align-center flex-pack-center " id="five_part">
-	    <img src="https://q1.qlogo.cn/g?b=qq&nk=476666&s=640" >
-	</div>
-	                          <!--触发器-->
-					<div class="focus p_r OPPOSans-M">
-						<div class="txt" style="display: block;" id="default">
-							position: <span class="c1">absolute</span>;<br>
-							width: <span class="c2">0px</span>;<br>
-							height: <span class="c2">0px</span>;<br>
-							left: <span class="c2">0px</span>;<br>
-							top: <span class="c2">0px</span>;<br>
-							font-family: <span class="c1">OPPOSans</span>;<br>
-							font-style: <span class="c1">normal</span>;<br>
-							font-weight: <span class="c2">0</span>;<br>
-							font-size: <span class="c2">0px</span>;<br>
-							line-height: <span class="c2">0px</span>;
-						</div>
-						<div class="txt" id="one">
-							position: <span class="c1">absolute</span>;<br>
-							width: <span class="c2">357px</span>;<br>
-							height: <span class="c2">157px</span>;<br>
-							left: <span class="c2">336px</span>;<br>
-							top: <span class="c2">101px</span>;<br>
-							font-family: <span class="c1">OPPOSans</span>;<br>
-							font-style: <span class="c2">normal</span>;<br>
-							font-weight: <span class="c2">500</span>;<br>
-							font-size: <span class="c2">119px</span>;<br>
-							line-height: <span class="c2">157px</span>
-						</div>
-						<div class="txt" id="two">
-							position: <span class="c1">absolute</span>;<br>
-							width: <span class="c2">194px</span>;<br>
-							height: <span class="c2">63px</span>;<br>
-							left: <span class="c2">336px</span>;<br>
-							top: <span class="c2">312px</span>;<br>
-							font-family: <span class="c1">OPPOSans</span>;<br>
-							font-style: <span class="c1">normal</span>;<br>
-							font-weight: <span class="c2">500</span>;<br>
-							font-size: <span class="c2">48px</span>;<br>
-							line-height: <span class="c2">63px</span>;
-						</div>
-						<div class="txt" id="three">
-							position: <span class="c1">absolute</span>;<br>
-							width: <span class="c2">78px</span>;<br>
-							height: <span class="c2">58px</span>;<br>
-							left: <span class="c2">621px</span>;<br>
-							top: <span class="c2">315px</span>;<br>
-							Wechat: <span class="c1">Joreking8</span>;
-						</div>
-						<div class="txt" id="four">
-							position: <span class="c1">absolute</span>;<br>
-							width: <span class="c2">375px</span>;<br>
-							height: <span class="c2">75px</span>;<br>
-							left: <span class="c2">336px</span>;<br>
-							top: <span class="c2">439px</span>;<br>
-							font-family: <span class="c1">OPPOSans</span>;<br>
-							font-style: <span class="c2">normal</span>;<br>
-							font-weight: <span class="c2">500</span>;<br>
-							font-size: <span class="c2">16px</span>;<br>
-							line-height: <span class="c2">149.1%</span>;
-						</div>
-<!--头像触发器-->						
-<div class="txt" id="five">
-	<br>
-	喜欢别人家的老婆~
-	<br>
-	<br>
-	╭∞━━━╮.oO◎
-	<br>
-	┃  ┃
-	<br>
-	┃● ●┃
-	<br>
-	┃﹋  ε  ﹋ ┃
-	<br>
-	○━━━━╯
-</div>
-</div>
-
-<!--右侧内容-->
-<div class="works p_r OPPOSans-M">
-<div class="txt">
-具备Windows、Linux开关机操作，翻墙学习日外语言能力、白嫖熟练度100%，有较强的前端剽窃经验。
-</div>
-<div class="lock transition p_r">
-<input type="text" id="code" value="" placeholder="请输入提取码" class="OPPOSans-M"/>
-<div class="error" id="code_error">提取码错误</div>
-</div>
-<div class="submit" id="btn">
-<a href="javascript:void(0);" class="di_bl te_c my">秘密入口</a>
-<a href="https://www.x6g.com" id="down" class="di_bl te_c down">下载</a>
-</div>
-</div>
-</div>
-
-<!--下方内容-->
-<div class="p_r tool_content flex flex-align-center">
-<div class="sns flex ">
-<div class="flex-center">
-<!--小部件-微信-->
-<i class="fa fa-weixin fa-siz icon-3d wx p_r transition">
-    <div class="erwma transition"><img src="images/vx.png"></div>
-</i>
-<!--小部件-邮箱-->                        
-<a href="javascript:void(0);" class="di_bl copy" data-clipboard-action="copy" data-clipboard-target="#foo" id="mail">		
-<i class="fa fa-envelope-o fa-siz icon-3d mail p_r">
-    <div class="copytxt te_c OPPOSans-M transition" id="copyed">已复制</div>
-    <input id="foo" type="text" value="x6dtousu@gmail.com">
-</i></a>
-<!--小部件-其他-->
-<a href="" target="_blank"><i class="fa fa-github fa-siz icon-3d"></i></a>
-<a href="" target="_blank"><i class="fa fa-qq fa-siz icon-3d"></i></a>
-<a href="" target="_blank"><i class="fa fa-telegram fa-siz icon-3d"></i></a>
-<a href="" target="_blank"><i class="fa fa-weibo fa-siz icon-3d"></i></a>
-</div>
-</div>
-<div class="text OPPOSans-M">然后知生于忧患而死于安乐<br>
-<p>Then know born in sorrow died in peace and happiness</p>
-</div>
-</div>
-</div>
-</div>
-
-<!--翻页内容-->		
-<div class="warp" id="content">
-<div class="txt OPPOSans-R">兴趣使然做的一些小东西</div>
-<ul class="flex flex-warp">
-    <li class="transition">
-        <div class="icon">
-            <a href="https://www.x6g.com" target="_blank"><img src="https://q1.qlogo.cn/g?b=qq&nk=327893&s=640" ></a>
-        </div>
-            <h3 class="OPPOSans-M ellipsis"><a href="https://www.x6g.com" target="_blank">小刀</a></h3>
-            <p class="OPPOSans-M ellipsis">小刀娱乐网</p>
-    </li>
-</ul>
-<style>
-
-</style>
-<canvas id="background"></canvas>
-</div>
-</div>
-</div>
-
-<script src="js/jquery.SuperSlide.2.1.1.js"></script>
-<script>jQuery(".slideTxtBox").slide({});</script>
-<!-- 滑动效果 -->
-<script src="js/jquery.movebg.js"></script>
+<!-- eueui.com Baidu tongji analytics -->
 <script>
-$(function(){
-	$(".link").movebg({width:125/*滑块的大小*/,extra:40/*额外反弹的距离*/,speed:300/*滑块移动的速度*/,rebound_speed:400/*滑块反弹的速度*/});
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?5185851172ca4220d80551d1852c40f0";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+</head>
+
+<body>
+
+  <script type="text/javascript">window.onload=getCSS();</script>
+        <div class="top">
+            <div id="dd" class="wrapper-dropdown-5" tabindex="1" style="padding: 0px !important;">
+                <img src="img/nav_icon.png" width="44" height="44">
+                <ul class="dropdown">
+                    <div class="index_nav3">
+                       
+                    </div>
+                </ul>
+            </div>
+            <div class="logo" style="padding: 0px !important;">
+                <img src="img/logo.png" width="44" height="44" title="美化鸭">
+            </div>
+            <div id="pencil" tabindex="1" style="padding: 0px !important;">
+                <a href="Reward.html">
+                    <img src="img/pencil_icon.png" width="44" height="44" title="美化鸭">
+                </a>
+            </div>
+        </div>
+        
+
+
+
+    <div id="menu" class="menu">
+              <div id="three" class="subMenu text-center"><a id="icontext" href="">
+            <p class="menu_img"><i class="icon iconfont icon-ping" style="font-size: 22px;"></i> </p>
+            <div class="menu_name">iOS</div></a>
+        </div>
+        <div id="four" class="subMenu text-center"><a id="icontext2" href="Androidmh.html">
+           <p class="menu_img"><i class="icon iconfont icon-anz" style="font-size: 22px;"></i> </p>
+            <div class="menu_name">安卓</div></a>
+        </div>
+
+        <div id="one" class="subMenu text-center"><a id="icontext2" href="input.html">
+            <p class="menu_img"><i class="icon iconfont icon-jianpan" style="font-size: 22px;"></i> </p>
+            <div class="menu_name">输入法</div></a>
+        </div>
+        <div id="two" class="subMenu text-center"><a id="icontext2" href="weixin.html">
+            <p class="menu_img"><i class="icon iconfont icon-weix" style="font-size: 22px;"></i> </p>
+            <div class="menu_name">微信</div></a>
+        </div>
+
+    </div>
+
+
+
+<div class="zhezhao">
+      <div class="zw_z">
+          <div class="logo_about"><a href="index.html" title="字体库"></a></div>
+          <div class="zw_z_01">
+              <dl>
+                <dd class="zh"><a id="Selectkiss" title="iOS美化">软件库</a></dd>
+                <dd class="eng">iOS beautify</dd>
+              </dl>
+          </div>
+          <div class="zw_z_01">
+              <dl>
+                <dd class="zh"><a href="yesbq.html" title="安卓美化">文章库</a></dd>
+                <dd class="eng">Android beautify</dd>
+              </dl>
+          </div><div class="zw_z_01">
+              <dl>
+                <dd class="zh"><a href="wen01.html" title="输入法皮肤">输入</a></dd>
+                <dd class="eng">skin input</dd>
+              </dl>
+          </div>
+          <div class="zw_z_01">
+              <dl>
+                <dd class="zh"><a href="weixin.html" title="微信美化">微信美化</a></dd>
+                <dd class="eng">WeChat beautify</dd>
+              </dl>
+          </div>
+
+          <div class="zw_z_01">
+              <dl>
+                <dd class="zh"><a href="Reward.html" title="赞助我们">赞助我们</a></dd>
+                <dd class="eng">Sponsor us</dd>
+              </dl>
+          </div>
+
+      </div>
+      <div class="copyright_certificate">© eueui.com<br><a href="https://beian.miit.gov.cn" target="_blank" style="color: #ababab;">蜀ICP备14021999号-2</a></div>
+</div>
+
+      <div class="zw_y">
+    <div class="c-header"><a class="c-brandlogo w-inline-block w--current"><img src="img/jiejin2.png" width="145"></a>
+
+      <p class="c-bann">美化鸭　|　一个让你手机变好看的网站</p>
+    </div>
+
+    <div class="c-flexs">
+<div class="pavilion-container">
+	<div class="pavilion-inner">
+		<ul class="tabs overflow-hide">
+			<dd id="text"><a title="主题">设计导航</a></dd>
+			<dd><a href="ZTL.html" title="状态栏">资源宝库</a></dd>
+			<dd><a href="GJ.html" title="挂件">挂件</a></dd>
+			<dd><a href="QT.html" title="其他">其他</a></dd>
+			<dd><a href="https://nav.urfan.top/" title="其他">更多</a></dd>
+
+			
+		</ul>
+		<div class="tab-content-wrap">
+			<div class="tab-content overflow-hide show" title="主题">
+
+
+       <a href="http://static01.coloros.com/www/public/img/topic7/font-opposans.zip" target="_blank" class="c-flex__itemm is--invisionstudio w-inline-block">
+        <div class="c-tool-logo"> <img data-src="img/guajian-104.jpeg"></div>
+        <div class="c-tool-titles"><h3 class="c-tool-title">OPPO Sans | 免费可商用字体下载</h3> <p id="ban">可商用字体</p></div></a>
+
+        <a href="https://mp.weixin.qq.com/s/ik7UpZ5748pwFYigJ59RVQ" target="_blank" class="c-flex__itemm is--invisionstudio w-inline-block">
+        <div class="c-tool-logo"> <img data-src="img/zhuti-2022092.jpeg"></div>
+        <div class="c-tool-titles"><h3 class="c-tool-title">Muffin Old 主题 | 3D效果，新主题先换上！</h3> <p id="ban">主题美化</p></div></a>
+
+       <a href="https://mp.weixin.qq.com/s/6SVejUK0VjHw789XLNWuEQ" target="_blank" class="c-flex__itemm is--invisionstudio w-inline-block">
+        <div class="c-tool-logo"> <img data-src="img/zhuti-2022091.jpeg"></div>
+        <div class="c-tool-titles"><h3 class="c-tool-title">Parashit 主题 | 浮雕风格，新主题还不错！</h3> <p id="ban">主题美化</p></div></a>
+
+        <a href="https://mp.weixin.qq.com/s/DCrP1kZC8Svb0t0vqg9g9Q" target="_blank" class="c-flex__itemm is--invisionstudio w-inline-block">
+        <div class="c-tool-logo"> <img data-src="img/zhuti-20220824.jpeg"></div>
+        <div class="c-tool-titles"><h3 class="c-tool-title">Parousia 主题 | 扁平条纹风格，有点意思！</h3> <p id="ban">主题美化</p></div></a>
+
+        <a href="https://mp.weixin.qq.com/s/h7ijZpCz4a3tva4jkWkJMg" target="_blank" class="c-flex__itemm is--invisionstudio w-inline-block">
+        <div class="c-tool-logo"> <img data-src="img/zhuti-015.jpeg"></div>
+        <div class="c-tool-titles"><h3 class="c-tool-title">3Dworld 主题 | 3D立体效果，不一样的风格！</h3> <p id="ban">主题美化</p></div></a>
+
+        <a href="https://mp.weixin.qq.com/s/DwPI8ncKTHtGYMjHzJc7Tg" target="_blank" class="c-flex__itemm is--invisionstudio w-inline-block">
+        <div class="c-tool-logo"> <img data-src="img/guajian-11103.jpeg"></div>
+        <div class="c-tool-titles"><h3 class="c-tool-title">Kuro主题 | 黑款描边，与3D遮罩更配！</h3> <p id="ban">主题美化</p></div></a>
+
+        <a href="https://mp.weixin.qq.com/s/G0F2IXdf7VJySEbjDKEvOQ" target="_blank" class="c-flex__itemm is--invisionstudio w-inline-block">
+        <div class="c-tool-logo"> <img data-src="img/zhuti-2022070017.jpeg"></div>
+        <div class="c-tool-titles"><h3 class="c-tool-title">Horias Dark 主题 | 暗黑款，同样好看！</h3> <p id="ban">主题美化</p></div></a>
+
+        <a href="https://mp.weixin.qq.com/s/0W9pgfv2paSgpn0FiCFLRw" target="_blank" class="c-flex__itemm is--invisionstudio w-inline-block">
+        <div class="c-tool-logo"> <img data-src="img/zhuti-2022070016.jpeg"></div>
+        <div class="c-tool-titles"><h3 class="c-tool-title">Muffin Dark 主题 | 暗黑款，炫彩立体效果！</h3> <p id="ban">主题美化</p></div></a>
+  
+        <a href="https://mp.weixin.qq.com/s/xjsm1D8Tszf5xipRMzRHpA" target="_blank" class="c-flex__itemm is--invisionstudio w-inline-block">
+        <div class="c-tool-logo"> <img data-src="img/zhuti-2022070015.jpeg"></div>
+        <div class="c-tool-titles"><h3 class="c-tool-title">主题遮罩 | 水晶玻璃风格，一下变高档！</h3> <p id="ban">主题遮罩</p></div></a>
+  
+        <a href="https://mp.weixin.qq.com/s/ZPnAlC_p_0WADL-jWPxfQw" target="_blank" class="c-flex__itemm is--invisionstudio w-inline-block">
+        <div class="c-tool-logo"> <img data-src="img/zhuti-2022070014.jpeg"></div>
+        <div class="c-tool-titles"><h3 class="c-tool-title">RTX OS主题 | 超级立体风格，酷哦！</h3> <p id="ban">主题美化</p></div></a>
+  
+        <a href="https://mp.weixin.qq.com/s/lH1gTve2hyPI1vWvPltozw" target="_blank" class="c-flex__itemm is--invisionstudio w-inline-block">
+        <div class="c-tool-logo"> <img data-src="img/zhuti-2022070013.jpeg"></div>
+        <div class="c-tool-titles"><h3 class="c-tool-title">Fenix主题 | 暗黑多彩，好看省电！</h3> <p id="ban">主题美化</p></div></a>
+  
+        <a href="https://mp.weixin.qq.com/s/0ivOp1HTsDLfLJREgReK5w" target="_blank" class="c-flex__itemm is--invisionstudio w-inline-block">
+        <div class="c-tool-logo"> <img data-src="img/zhuti-2022070012.jpeg"></div>
+        <div class="c-tool-titles"><h3 class="c-tool-title">主题遮罩 | 立体圆滑风格，让图标变立体！</h3> <p id="ban">主题遮罩</p></div></a>
+  
+        <a href="https://mp.weixin.qq.com/s/RWvuL3QnCA5A92tvQxFHsA" target="_blank" class="c-flex__itemm is--invisionstudio w-inline-block">
+        <div class="c-tool-logo"> <img data-src="img/zhuti-2022070011.jpeg"></div>
+        <div class="c-tool-titles"><h3 class="c-tool-title">Bohemic NOIR | 暗黑多彩主题，图标带立体！</h3> <p id="ban">主题美化</p></div></a>
+  
+        <a href="https://mp.weixin.qq.com/s/5X2VK6DlcnadULa4v80wQw" target="_blank" class="c-flex__itemm is--invisionstudio w-inline-block">
+        <div class="c-tool-logo"> <img data-src="img/zhuti-20220707.jpeg"></div>
+        <div class="c-tool-titles"><h3 class="c-tool-title">Dreamy iOS主题 | 怀旧复古，图标超精细！</h3> <p id="ban">主题美化</p></div></a>
+  
+        <a href="https://mp.weixin.qq.com/s/w_bjVWu5iEMDbRF06QXAfg" target="_blank" class="c-flex__itemm is--invisionstudio w-inline-block">
+        <div class="c-tool-logo"> <img data-src="img/guajian-10674.jpeg"></div>
+        <div class="c-tool-titles"><h3 class="c-tool-title">主题遮罩 | 立体圆线风格，让图标更好看！</h3> <p id="ban">主题遮罩</p></div></a>
+  
+       <a href="https://mp.weixin.qq.com/s/1xftTscYqX9-vsZ1uFWmCQ" target="_blank" class="c-flex__itemm is--invisionstudio w-inline-block">
+        <div class="c-tool-logo"> <img data-src="img/guajian-106.jpeg"></div>
+        <div class="c-tool-titles"><h3 class="c-tool-title">Horias主题 | 超新鲜，图标好看！</h3> <p id="ban">主题美化</p></div></a>
+
+        <a href="https://mp.weixin.qq.com/s/c6vYbyIYYe_xBSmmTKU9bA" target="_blank" class="c-flex__itemm is--invisionstudio w-inline-block">
+        <div class="c-tool-logo"> <img data-src="img/guajian-111041.jpeg"></div>
+        <div class="c-tool-titles"><h3 class="c-tool-title">Lux Dark主题 | 超漂亮的黑，带荧光效果！</h3> <p id="ban">主题美化</p></div></a>
+
+        <a href="https://mp.weixin.qq.com/s/Y1dGdBNKuAQdyPGQHedBGA" target="_blank" class="c-flex__itemm is--invisionstudio w-inline-block">
+        <div class="c-tool-logo"> <img data-src="img/guajian-109801.jpeg"></div>
+        <div class="c-tool-titles"><h3 class="c-tool-title">Memol1fn CC 控制中心美化，很简洁！</h3> <p id="ban">主题美化</p></div></a>
+
+        <a href="https://mp.weixin.qq.com/s/Ha8Rf5huu3njNPnT_pInlw" target="_blank" class="c-flex__itemm is--invisionstudio w-inline-block">
+        <div class="c-tool-logo"> <img data-src="img/guajian-1098.jpeg"></div>
+        <div class="c-tool-titles"><h3 class="c-tool-title">Wudisban主题 | 更年轻的扁平化风格！</h3> <p id="ban">主题美化</p></div></a>
+
+        <a href="https://mp.weixin.qq.com/s/jNv_Fj9EsrFyTH4iIzKXBA" target="_blank" class="c-flex__itemm is--invisionstudio w-inline-block">
+        <div class="c-tool-logo"> <img data-src="img/guajian-1096.jpeg"></div>
+        <div class="c-tool-titles"><h3 class="c-tool-title">Growth绿主题 | 生活带点绿，更护眼！</h3> <p id="ban">主题美化</p></div></a>
+
+        <a href="https://mp.weixin.qq.com/s/UnFCBCLTxWQQEhHGUDmQ5g" target="_blank" class="c-flex__itemm is--invisionstudio w-inline-block">
+        <div class="c-tool-logo"> <img data-src="img/guajian-82.jpeg"></div>
+        <div class="c-tool-titles"><h3 class="c-tool-title">Lucent主题 | 黑暗渐变，多彩好看！！</h3> <p id="ban">主题美化</p></div></a>
+
+       <a href="https://mp.weixin.qq.com/s/O9dY6Lpv_C4ncNWvamVTjA" target="_blank" class="c-flex__itemm is--invisionstudio w-inline-block">
+        <div class="c-tool-logo"> <img data-src="img/guajian-1095.jpeg"></div>
+        <div class="c-tool-titles"><h3 class="c-tool-title">Worst Envy Dark 主题 | 暗黑风格主题，耐看！</h3> <p id="ban">主题美化</p></div></a>
+
+       <a href="https://mp.weixin.qq.com/s/6qtWe43FhfwJ2i7Q0zpCew" target="_blank" class="c-flex__itemm is--invisionstudio w-inline-block">
+        <div class="c-tool-logo"> <img data-src="img/guajian-1094.jpeg"></div>
+        <div class="c-tool-titles"><h3 class="c-tool-title">Bohemic 主题 | 多彩渐变图标，耐看型！</h3> <p id="ban">主题美化</p></div></a>
+
+       <a href="https://mp.weixin.qq.com/s/J1qO44reWveNYb3OLdAOPQ" target="_blank" class="c-flex__itemm is--invisionstudio w-inline-block">
+        <div class="c-tool-logo"> <img data-src="img/guajian-1093.jpeg"></div>
+        <div class="c-tool-titles"><h3 class="c-tool-title">Taffy 主题 | 极简小图标，美观好看！</h3> <p id="ban">主题美化</p></div></a>
+
+       <a href="https://mp.weixin.qq.com/s/uo1USTSIt0LJ3VO5awC-EQ" target="_blank" class="c-flex__itemm is--invisionstudio w-inline-block">
+        <div class="c-tool-logo"> <img data-src="img/guajian-1092.jpeg"></div>
+        <div class="c-tool-titles"><h3 class="c-tool-title">iOS X 主题 | 超原生主题，自带遮罩效果</h3> <p id="ban">主题美化</p></div></a>
+
+       <a href="https://mp.weixin.qq.com/s/_PUiTF0czAAcYQV2EvV0Pw" target="_blank" class="c-flex__itemm is--invisionstudio w-inline-block">
+        <div class="c-tool-logo"> <img data-src="img/guajian-1091.jpeg"></div>
+        <div class="c-tool-titles"><h3 class="c-tool-title">D-sire 主题 | 圆图标主题，无需遮罩也好看！</h3> <p id="ban">主题美化</p></div></a>
+
+       <a href="https://mp.weixin.qq.com/s/qmIbTh7mlY8ZEa9xFNiNeA" target="_blank" class="c-flex__itemm is--invisionstudio w-inline-block">
+        <div class="c-tool-logo"> <img data-src="img/guajian-1090.jpeg"></div>
+        <div class="c-tool-titles"><h3 class="c-tool-title">SunRise 主题 | 扁平复古套装主题！</h3> <p id="ban">主题美化</p></div></a>
+
+       <a href="https://mp.weixin.qq.com/s/6FpBZxBmm2497AFWa0_V4A" target="_blank" class="c-flex__itemm is--invisionstudio w-inline-block">
+        <div class="c-tool-logo"> <img data-src="img/guajian-108.jpeg"></div>
+        <div class="c-tool-titles"><h3 class="c-tool-title">Worst Anna 主题 | 耐看扁平主题！</h3> <p id="ban">主题美化</p></div></a>
+
+        <a href="https://mp.weixin.qq.com/s/47u5in8DpSXJ4jGM-pzoFw" target="_blank" class="c-flex__itemm is--invisionstudio w-inline-block">
+        <div class="c-tool-logo"> <img data-src="img/guajian-11202.jpeg"></div>
+        <div class="c-tool-titles"><h3 class="c-tool-title">AGrisis 单色主题 | 纯黑省电耐看！</h3> <p id="ban">主题美化</p></div></a>
+
+        <a href="https://mp.weixin.qq.com/s/XuXgk3IBOpUw0Unfo2aZiw" target="_blank" class="c-flex__itemm is--invisionstudio w-inline-block">
+        <div class="c-tool-logo"> <img data-src="img/guajian-11201.jpeg"></div>
+        <div class="c-tool-titles"><h3 class="c-tool-title">Taco Deluxe 主题 | 小巧无框，百搭风格！</h3> <p id="ban">主题美化</p></div></a>
+
+        <a href="https://mp.weixin.qq.com/s/It9nd9LDvnDeG-KhxN6vSQ" target="_blank" class="c-flex__itemm is--invisionstudio w-inline-block">
+        <div class="c-tool-logo"> <img data-src="img/guajian-112.jpeg"></div>
+        <div class="c-tool-titles"><h3 class="c-tool-title">Ango 主题 | 超过6000+图标，很全的主题！</h3> <p id="ban">主题美化</p></div></a>
+
+       <a href="https://mp.weixin.qq.com/s/FmEX9109r5-FXmD9TivyBg" target="_blank" class="c-flex__itemm is--invisionstudio w-inline-block">
+        <div class="c-tool-logo"> <img data-src="img/guajian-105.jpeg"></div>
+        <div class="c-tool-titles"><h3 class="c-tool-title">Skittles 主题 | 百搭套装主题！</h3> <p id="ban">主题美化</p></div></a>
+
+       <a href="https://mp.weixin.qq.com/s/DQyc3aStMrGgKQvX5XRFGw" target="_blank" class="c-flex__itemm is--invisionstudio w-inline-block">
+        <div class="c-tool-logo"> <img data-src="img/guajian-114.jpeg"></div>
+        <div class="c-tool-titles"><h3 class="c-tool-title">Arete主题 | 移植主题，图标超多！</h3> <p id="ban">主题美化</p></div></a>
+
+        <a href="https://mp.weixin.qq.com/s/G7Thln0rz7eRqIPDO3necw" target="_blank" class="c-flex__itemm is--invisionstudio w-inline-block">
+        <div class="c-tool-logo"> <img data-src="img/guajian-11106.jpeg"></div>
+        <div class="c-tool-titles"><h3 class="c-tool-title">绿意主题 | 手机也要有春天，黑色风格！</h3> <p id="ban">主题美化</p></div></a>
+
+        <a href="https://mp.weixin.qq.com/s/nN04cqHSyv_DvFENTXCM8g" target="_blank" class="c-flex__itemm is--invisionstudio w-inline-block">
+        <div class="c-tool-logo"> <img data-src="img/guajian-11105.jpeg"></div>
+        <div class="c-tool-titles"><h3 class="c-tool-title">超有趣 | 橡皮泥主题，另类风格！</h3> <p id="ban">主题美化</p></div></a>
+
+        <a href="https://mp.weixin.qq.com/s/oI3jngK5Sh5FUtm-ssGEhA" target="_blank" class="c-flex__itemm is--invisionstudio w-inline-block">
+        <div class="c-tool-logo"> <img data-src="img/guajian-11104.jpeg"></div>
+        <div class="c-tool-titles"><h3 class="c-tool-title">Reflector主题 | 多款遮罩，随意搭配！</h3> <p id="ban">主题美化</p></div></a>
+
+        <a href="https://mp.weixin.qq.com/s/NMXkwX4IV85qOiF1uTtt6g" target="_blank" class="c-flex__itemm is--invisionstudio w-inline-block">
+        <div class="c-tool-logo"> <img data-src="img/guajian-29.jpeg"></div>
+        <div class="c-tool-titles"><h3 class="c-tool-title">夜光主题 | 深色渐变，让手机更省电？</h3> <p id="ban">主题美化</p></div></a>
+
+        <a href="https://mp.weixin.qq.com/s/54aXy0f_TRdSk0Jp1tzmsA" target="_blank" class="c-flex__itemm is--invisionstudio w-inline-block">
+        <div class="c-tool-logo"> <img data-src="img/guajian-11102.jpeg"></div>
+        <div class="c-tool-titles"><h3 class="c-tool-title">KOBU 暗黑版 | 超酷的卡通主题，很精致！</h3> <p id="ban">主题美化</p></div></a>
+
+        <a href="https://mp.weixin.qq.com/s/MPHIDkmSYdKxkZUtZcoW1g" target="_blank" class="c-flex__itemm is--invisionstudio w-inline-block">
+        <div class="c-tool-logo"> <img data-src="img/guajian-111.jpeg"></div>
+        <div class="c-tool-titles"><h3 class="c-tool-title">Gladient 新主题 | 渐变多彩主题！</h3> <p id="ban">主题美化</p></div></a>
+
+        <a href="https://mp.weixin.qq.com/s/4I8jtgDr9UIM1K31V6dklQ" target="_blank" class="c-flex__itemm is--invisionstudio w-inline-block">
+        <div class="c-tool-logo"> <img data-src="img/guajian-1112.jpeg"></div>
+        <div class="c-tool-titles"><h3 class="c-tool-title">3D主题 | 好看的多彩主题！</h3> <p id="ban">主题美化</p></div></a>
+
+       <a href="https://mp.weixin.qq.com/s/hfTc6Ar_dZhGgVf-JGzRug" target="_blank" class="c-flex__itemm is--invisionstudio w-inline-block">
+        <div class="c-tool-logo"> <img data-src="img/guajian-100.jpeg"></div>
+        <div class="c-tool-titles"><h3 class="c-tool-title">双生主题 | 两套风格，黑白随意搭配！</h3> <p id="ban">主题美化</p></div></a>
+
+       <a href="https://mp.weixin.qq.com/s/So8Ca_UDbK_3jORIeOUNJg" target="_blank" class="c-flex__itemm is--invisionstudio w-inline-block">
+        <div class="c-tool-logo"> <img data-src="img/guajian-1007.jpeg"></div>
+        <div class="c-tool-titles"><h3 class="c-tool-title">Poppin | 黑白双色新主题，浮雕效果！</h3> <p id="ban">主题美化</p></div></a>
+   
+       <a href="https://mp.weixin.qq.com/s/CKQII5aooGaWDeWjxnbdQg" target="_blank" class="c-flex__itemm is--invisionstudio w-inline-block">
+        <div class="c-tool-logo"> <img data-src="img/guajian-107.jpeg"></div>
+        <div class="c-tool-titles"><h3 class="c-tool-title">Ccuit | 新主题，尝鲜体验！</h3> <p id="ban">主题美化</p></div></a>
+
+       <a href="https://mp.weixin.qq.com/s/GL-GvhT7Hy8JaC9_23kF6Q" target="_blank" class="c-flex__itemm is--invisionstudio w-inline-block">
+        <div class="c-tool-logo"> <img data-src="img/guajian-103.jpeg"></div>
+        <div class="c-tool-titles"><h3 class="c-tool-title">黑白双主题 | 快乐加倍，随心所变！</h3> <p id="ban">主题美化</p></div></a>
+  
+       <a href="https://mp.weixin.qq.com/s/wX-9aEjUOg7_uh9ZJmIqGg" target="_blank" class="c-flex__itemm is--invisionstudio w-inline-block">
+        <div class="c-tool-logo"> <img data-src="img/guajian-109.jpeg"></div>
+        <div class="c-tool-titles"><h3 class="c-tool-title">Ella 新主题 | 简洁耐看主题！</h3> <p id="ban">主题美化</p></div></a>
+   
+       <a href="https://mp.weixin.qq.com/s/8gumGXHoaGo4nhGDDRMeGA" target="_blank" class="c-flex__itemm is--invisionstudio w-inline-block">
+        <div class="c-tool-logo"> <img data-src="img/guajian-95.jpeg"></div>
+        <div class="c-tool-titles"><h3 class="c-tool-title">Felicity Pro主题，类似 iOS15 简洁图标！</h3> <p id="ban">主题美化</p></div></a>
+  
+       <a href="https://mp.weixin.qq.com/s/ffsTeBSVIUZAmj4lCz49Nw" target="_blank" class="c-flex__itemm is--invisionstudio w-inline-block">
+        <div class="c-tool-logo"> <img data-src="img/guajian-43.jpeg"></div>
+        <div class="c-tool-titles"><h3 class="c-tool-title">Descent UI | 系统渐变风全局UI 套装！</h3> <p id="ban">主题美化</p></div></a>
+
+        <a href="https://mp.weixin.qq.com/s/_0vHtMQw3W1CCmdeH-f4UQ" target="_blank" class="c-flex__itemm is--invisionstudio w-inline-block">
+        <div class="c-tool-logo"> <img data-src="img/guajian-73.jpeg"></div>
+        <div class="c-tool-titles"><h3 class="c-tool-title">超全主题 | 1500+图标，完美覆盖！</h3> <p id="ban">主题美化</p></div></a>
+  
+       <a href="https://mp.weixin.qq.com/s/Yol_bP0MdKMcx6RjRgE8jQ" target="_blank" class="c-flex__itemm is--invisionstudio w-inline-block">
+        <div class="c-tool-logo"> <img data-src="img/guajian-102.jpeg"></div>
+        <div class="c-tool-titles"><h3 class="c-tool-title">移植主题 | 小图标主题，图标超全！</h3> <p id="ban">主题美化</p></div></a>
+  
+       <a href="https://mp.weixin.qq.com/s/soQse00jVgwpg9nSSkt2JA" target="_blank" class="c-flex__itemm is--invisionstudio w-inline-block">
+        <div class="c-tool-logo"> <img data-src="img/guajian-99.jpeg"></div>
+        <div class="c-tool-titles"><h3 class="c-tool-title">Oreo | 黑白双主题，极简百搭风格！</h3> <p id="ban">主题美化</p></div></a>
+    
+        <a href="https://mp.weixin.qq.com/s/gLDRyeuEHfzbjlE_wuc6wQ" target="_blank" class="c-flex__itemm is--invisionstudio w-inline-block">
+        <div class="c-tool-logo"> <img data-src="img/guajian-45.jpeg"></div>
+        <div class="c-tool-titles"><h3 class="c-tool-title">Onys主题 | 超原生，这套渐变更好看！</h3> <p id="ban">主题美化</p></div></a>
+ 
+        <a href="https://mp.weixin.qq.com/s/WueFy3Pn9NV0XXcSpzokag" target="_blank" class="c-flex__itemm is--invisionstudio w-inline-block">
+        <div class="c-tool-logo"> <img data-src="img/guajian-98.jpeg"></div>
+        <div class="c-tool-titles"><h3 class="c-tool-title">Ratna CC 控制中心美化，整套美化版！</h3> <p id="ban">主题美化</p></div></a>
+
+        <a href="https://mp.weixin.qq.com/s/2ysN5TuqYcy3f_e0_-ZNyA" target="_blank" class="c-flex__itemm is--invisionstudio w-inline-block">
+        <div class="c-tool-logo"> <img data-src="img/guajian-81.jpeg"></div>
+        <div class="c-tool-titles"><h3 class="c-tool-title">Puff主题 | 超全的线性主题，图标超好看！</h3> <p id="ban">主题美化</p></div></a>
+
+        <a href="https://mp.weixin.qq.com/s/5yLCNZwa7RFbJUq2lqMLNA" target="_blank" class="c-flex__itemm is--invisionstudio w-inline-block">
+        <div class="c-tool-logo"> <img data-src="img/guajian-97.jpeg"></div>
+        <div class="c-tool-titles"><h3 class="c-tool-title">Peek Dark 暗黑主题 | 多信息展示，另类风格！</h3> <p id="ban">主题美化</p></div></a>
+
+        <a href="https://mp.weixin.qq.com/s/e2qIxG5i_LU1g8wj7IO57g" target="_blank" class="c-flex__itemm is--invisionstudio w-inline-block">
+        <div class="c-tool-logo"> <img data-src="img/guajian-96.jpeg"></div>
+        <div class="c-tool-titles"><h3 class="c-tool-title">Peek主题 | 多信息展示，另类风格！</h3> <p id="ban">主题美化</p></div></a>
+  
+        <a href="https://mp.weixin.qq.com/s/jkoRvCSybGFYhfhUH9tz6A" target="_blank" class="c-flex__itemm is--invisionstudio w-inline-block">
+        <div class="c-tool-logo"> <img data-src="img/guajian-50.jpeg"></div>
+        <div class="c-tool-titles"><h3 class="c-tool-title">Clay UI 全局主题 | 独特和大胆外观！</h3> <p id="ban">主题美化</p></div></a>
+     
+        <a href="https://mp.weixin.qq.com/s/gY2NprCK_WWaqQ-hic100g" target="_blank" class="c-flex__itemm is--invisionstudio w-inline-block">
+        <div class="c-tool-logo"> <img data-src="img/guajian-94.jpeg"></div>
+        <div class="c-tool-titles"><h3 class="c-tool-title">iOS15 Big Sur 3D 主题，尝鲜体验！</h3> <p id="ban">主题美化</p></div></a>
+ 
+        <a href="https://mp.weixin.qq.com/s/RvLD2kzy8xUJbfHckIcmsA" target="_blank" class="c-flex__itemm is--invisionstudio w-inline-block">
+        <div class="c-tool-logo"> <img data-src="img/guajian-93.jpeg"></div>
+        <div class="c-tool-titles"><h3 class="c-tool-title">iKandy主题 | 小立体多彩主题，还行！</h3> <p id="ban">主题美化</p></div></a>
+  
+        <a href="https://mp.weixin.qq.com/s/VkNkEj8OKkq9luZcAkJETw" target="_blank" class="c-flex__itemm is--invisionstudio w-inline-block">
+        <div class="c-tool-logo"> <img data-src="img/guajian-92.jpeg"></div>
+        <div class="c-tool-titles"><h3 class="c-tool-title">Goji Pro | 简约多彩主题，比原版更好看！</h3> <p id="ban">主题美化</p></div></a>
+    
+        <a href="https://mp.weixin.qq.com/s/2iB3ynxj-aUXfRtQ9fclIA" target="_blank" class="c-flex__itemm is--invisionstudio w-inline-block">
+        <div class="c-tool-logo"> <img data-src="img/guajian-666.jpeg"></div>
+        <div class="c-tool-titles"><h3 class="c-tool-title">漫画主题 | 手绘卡通，有点好看！</h3> <p id="ban">主题美化</p></div></a>
+  
+        <a href="https://mp.weixin.qq.com/s/2iB3ynxj-aUXfRtQ9fclIA" target="_blank" class="c-flex__itemm is--invisionstudio w-inline-block">
+        <div class="c-tool-logo"> <img data-src="img/guajian-91.jpeg"></div>
+        <div class="c-tool-titles"><h3 class="c-tool-title">MiniOS | 边角图标主题，另类好看！</h3> <p id="ban">主题美化</p></div></a>
+
+        <a href="https://mp.weixin.qq.com/s/h2JBVgVczH-aZh-xAcKfJQ" target="_blank" class="c-flex__itemm is--invisionstudio w-inline-block">
+        <div class="c-tool-logo"> <img data-src="img/guajian-90.jpeg"></div>
+        <div class="c-tool-titles"><h3 class="c-tool-title">小巧主题 | 图标超好看，爱了吧！</h3> <p id="ban">主题美化</p></div></a>
+
+        <a href="https://mp.weixin.qq.com/s/UQ6VIjzkIz1EjFaND96ysw" target="_blank" class="c-flex__itemm is--invisionstudio w-inline-block">
+        <div class="c-tool-logo"> <img data-src="img/guajian-62.jpeg"></div>
+        <div class="c-tool-titles"><h3 class="c-tool-title">Ratna UI | 系统全局UI套装，这套超好看！</h3> <p id="ban">主题美化</p></div></a>
+
+        <a href="https://mp.weixin.qq.com/s/zUIQbulBt8GQbWsGdtOjsg" target="_blank" class="c-flex__itemm is--invisionstudio w-inline-block">
+        <div class="c-tool-logo"> <img data-src="img/guajian-86.jpeg"></div>
+        <div class="c-tool-titles"><h3 class="c-tool-title">Descent CC 控制中心美化，渐变更好看！</h3> <p id="ban">主题美化</p></div></a>
+
+        <a href="https://mp.weixin.qq.com/s/ULJoaSNf4Tt2Lh5Wbm-LDg" target="_blank" class="c-flex__itemm is--invisionstudio w-inline-block">
+        <div class="c-tool-logo"> <img data-src="img/guajian-665.jpeg"></div>
+        <div class="c-tool-titles"><h3 class="c-tool-title">KOBU Z | 好看的卡通主题，超精致！</h3> <p id="ban">主题美化</p></div></a>
+
+        <a href="https://mp.weixin.qq.com/s/K08e2n3-DOBV2_j3kpX7qQ" target="_blank" class="c-flex__itemm is--invisionstudio w-inline-block">
+        <div class="c-tool-logo"> <img data-src="img/guajian-89.jpeg"></div>
+        <div class="c-tool-titles"><h3 class="c-tool-title">多彩格子 | 安卓移植主题，漂亮！</h3> <p id="ban">主题美化</p></div></a>
+
+        <a href="https://mp.weixin.qq.com/s/gH8zdF6CC-nuPwMKt5p5eg" target="_blank" class="c-flex__itemm is--invisionstudio w-inline-block">
+        <div class="c-tool-logo"> <img data-src="img/guajian-88.jpeg"></div>
+        <div class="c-tool-titles"><h3 class="c-tool-title">KiWi主题 | 新主题，超精致小图标！</h3> <p id="ban">主题美化</p></div></a>
+
+        <a href="https://mp.weixin.qq.com/s/uBOn-bS1TGjdWY5CWLqP5A" target="_blank" class="c-flex__itemm is--invisionstudio w-inline-block">
+        <div class="c-tool-logo"> <img data-src="img/guajian-87.jpeg"></div>
+        <div class="c-tool-titles"><h3 class="c-tool-title">大图标主题 | 新主题，让屏幕更饱满！</h3> <p id="ban">主题美化</p></div></a>
+
+        <a href="https://mp.weixin.qq.com/s/oEEBIAmb-mqPMOXg5O8Yrw" target="_blank" class="c-flex__itemm is--invisionstudio w-inline-block">
+        <div class="c-tool-logo"> <img data-src="img/guajian-664.jpeg"></div>
+        <div class="c-tool-titles"><h3 class="c-tool-title">Miso安卓移植主题，超全图标主题！</h3> <p id="ban">主题美化</p></div></a>
+
+        <a href="https://mp.weixin.qq.com/s/VPc8tcHUfuik36aUHfMh9A" target="_blank" class="c-flex__itemm is--invisionstudio w-inline-block">
+        <div class="c-tool-logo"> <img data-src="img/guajian-85.jpeg"></div>
+        <div class="c-tool-titles"><h3 class="c-tool-title">漏空主题 | 小巧主题，屏幕都变大了！</h3> <p id="ban">主题美化</p></div></a>
+
+        <a href="https://mp.weixin.qq.com/s/F677j9njxyJHuf9mgKoFFQ" target="_blank" class="c-flex__itemm is--invisionstudio w-inline-block">
+        <div class="c-tool-logo"> <img data-src="img/guajian-84.jpeg"></div>
+        <div class="c-tool-titles"><h3 class="c-tool-title">绿魔主题 | 给生活来点绿！</h3> <p id="ban">主题美化</p></div></a>
+
+        <a href="https://mp.weixin.qq.com/s/KqhmgQ_4rNJps0AlBIgDrg" target="_blank" class="c-flex__itemm is--invisionstudio w-inline-block">
+        <div class="c-tool-logo"> <img data-src="img/guajian-19.jpeg"></div>
+        <div class="c-tool-titles"><h3 class="c-tool-title">EchoUI 系统UI | 全局渐变图标！</h3> <p id="ban">主题美化</p></div></a>
+
+        <a href="https://mp.weixin.qq.com/s/-0Q46GYeUQ8UclED11QaSw" target="_blank" class="c-flex__itemm is--invisionstudio w-inline-block">
+        <div class="c-tool-logo"> <img data-src="img/guajian-12.jpeg"></div>
+        <div class="c-tool-titles"><h3 class="c-tool-title">锤子 Smartisan 主题，完美还原！</h3> <p id="ban">主题美化</p></div></a>
+
+        <a href="https://mp.weixin.qq.com/s/NHwemm-kELUaLo2VQkAP7A" target="_blank" class="c-flex__itemm is--invisionstudio w-inline-block">
+        <div class="c-tool-logo"> <img data-src="img/guajian-83.jpeg"></div>
+        <div class="c-tool-titles"><h3 class="c-tool-title">异型主题 | 去掉条条框框，更好看！</h3> <p id="ban">主题美化</p></div></a>
+
+        <a href="https://mp.weixin.qq.com/s/ghVqoqNzE5bKd5lxDnEqoQ" target="_blank" class="c-flex__itemm is--invisionstudio w-inline-block">
+        <div class="c-tool-logo"> <img data-src="img/guajian-80.jpeg"></div>
+        <div class="c-tool-titles"><h3 class="c-tool-title">3D立体主题 | 最好看的3D主题</h3> <p id="ban">主题美化</p></div></a>
+
+        <a href="https://mp.weixin.qq.com/s/8Clqw86X5uffW8MjXMzGEg" target="_blank" class="c-flex__itemm is--invisionstudio w-inline-block">
+        <div class="c-tool-logo"> <img data-src="img/guajian-663.jpeg"></div>
+        <div class="c-tool-titles"><h3 class="c-tool-title">Plates异型主题，不一样的形态图标！</h3> <p id="ban">主题美化</p></div></a>
+
+        <a href="https://mp.weixin.qq.com/s/ZZTBy467eSGZIFUmNCwDBA" target="_blank" class="c-flex__itemm is--invisionstudio w-inline-block">
+        <div class="c-tool-logo"> <img data-src="img/guajian-662.jpeg"></div>
+        <div class="c-tool-titles"><h3 class="c-tool-title">Ava CC 控制中心美化，比原版更好看！</h3> <p id="ban">主题美化</p></div></a>
+
+        <a href="https://mp.weixin.qq.com/s/Bz2XZ4au5UlA0wACJTY0CQ" target="_blank" class="c-flex__itemm is--invisionstudio w-inline-block">
+        <div class="c-tool-logo"> <img data-src="img/guajian-661.jpeg"></div>
+        <div class="c-tool-titles"><h3 class="c-tool-title">Ava UI新主题 | 系统全局UI 套装！</h3> <p id="ban">主题美化</p></div></a>
+
+        <a href="https://mp.weixin.qq.com/s/AmZhvDPplkl6_HbrW3bumg" target="_blank" class="c-flex__itemm is--invisionstudio w-inline-block">
+        <div class="c-tool-logo"> <img data-src="img/zhuti-03.jpeg"></div>
+        <div class="c-tool-titles"><h3 class="c-tool-title">空岛之境主题 | 高贵的主题</h3> <p id="ban">主题美化</p></div></a>
+
+        <a href="https://mp.weixin.qq.com/s/AnUDDDqnayZmEFNQnQKBRQ" target="_blank" class="c-flex__itemm is--invisionstudio w-inline-block">
+        <div class="c-tool-logo"> <img data-src="img/guajian-66.jpeg"></div>
+        <div class="c-tool-titles"><h3 class="c-tool-title">更新 | Elusive渐变主题，个性美丽！</h3> <p id="ban">主题美化</p></div></a>
+
+        <a href="https://mp.weixin.qq.com/s/49zOXt0FZwpAmEZf9acuKg" target="_blank" class="c-flex__itemm is--invisionstudio w-inline-block">
+        <div class="c-tool-logo"> <img data-src="img/guajian-78.jpeg"></div>
+        <div class="c-tool-titles"><h3 class="c-tool-title">立体暗金+挂件 | 这品味有点高！</h3> <p id="ban">主题美化</p></div></a>
+
+        <a href="https://mp.weixin.qq.com/s/lfECJdjhWNWAvxYYyYMTNA" target="_blank" class="c-flex__itemm is--invisionstudio w-inline-block">
+        <div class="c-tool-logo"> <img data-src="img/guajian-79.jpeg"></div>
+        <div class="c-tool-titles"><h3 class="c-tool-title">Ethereal主题 | 渐变暗黑多彩风格，酷！</h3> <p id="ban">主题美化</p></div></a>
+
+        <a href="https://mp.weixin.qq.com/s/wqPHCojGKjgtcMZhrb-xqQ" target="_blank" class="c-flex__itemm is--invisionstudio w-inline-block">
+        <div class="c-tool-logo"> <img data-src="img/guajian-77.jpeg"></div>
+        <div class="c-tool-titles"><h3 class="c-tool-title">简洁多彩 | 小清新，无框耐看主题！</h3> <p id="ban">主题美化</p></div></a>
+
+       <a href="https://mp.weixin.qq.com/s/CVJwSMgSZwUs6Tn0cjvwPw" target="_blank" class="c-flex__itemm is--invisionstudio w-inline-block">
+        <div class="c-tool-logo"> <img data-src="img/guajian-117.jpeg"></div>
+        <div class="c-tool-titles"><h3 class="c-tool-title">Sunset主题 | 暗黑超耐看的主题！</h3> <p id="ban">主题美化</p></div></a>
+  
+       <a href="https://mp.weixin.qq.com/s/EKP_JW4_rXD_8bppEIpfMQ" target="_blank" class="c-flex__itemm is--invisionstudio w-inline-block">
+        <div class="c-tool-logo"> <img data-src="img/guajian-116.jpeg"></div>
+        <div class="c-tool-titles"><h3 class="c-tool-title">Sakura主题 | 更年轻，更耐看的主题！</h3> <p id="ban">主题美化</p></div></a>
+
+       <a href="https://mp.weixin.qq.com/s/miIOO8zgoSUmQE0BtmNzFQ" target="_blank" class="c-flex__itemm is--invisionstudio w-inline-block">
+        <div class="c-tool-logo"> <img data-src="img/guajian-115.jpeg"></div>
+        <div class="c-tool-titles"><h3 class="c-tool-title">白色主题 | 新主题，超好看！</h3> <p id="ban">主题美化</p></div></a>
+      
+       <a href="https://mp.weixin.qq.com/s?__biz=MzA3NTQzOTUxMw==&amp;mid=2448055648&amp;idx=1&amp;sn=4f52e2196c2c83209e47823d0575e1fe&amp;chksm=8b6e7196bc19f880af644b5d3cbd8b394753699576c6aa5509fdf951096f07b252e8f8d4c34b&amp;token=988704855&amp;lang=zh_CN#rd" target="_blank" class="c-flex__itemm is--invisionstudio w-inline-block">
+        <div class="c-tool-logo"> <img data-src="img/guajian-68.jpeg"></div>
+        <div class="c-tool-titles"><h3 class="c-tool-title">Belle UI | 系统全局套装，这套很不错！</h3> <p id="ban">主题美化</p></div></a>
+
+
+
+
+       <a href="https://mp.weixin.qq.com/s?__biz=MzA3NTQzOTUxMw==&amp;mid=2448055182&amp;idx=1&amp;sn=203f1ac4d223debe2dabdefdc68176a8&amp;chksm=8b6e7778bc19fe6e55fa1b63dc2c0f7b4e885e281fd2982557975908e1ca85a975e93adfe08c&amp;token=1638305469&amp;lang=zh_CN#rd" target="_blank" class="c-flex__itemm is--invisionstudio w-inline-block">
+        <div class="c-tool-logo"> <img data-src="img/guajian-113.jpeg"></div>
+        <div class="c-tool-titles"><h3 class="c-tool-title">圣诞主题 | 气氛一下就加满了！</h3> <p id="ban">主题美化</p></div></a>
+
+       <a href="https://mp.weixin.qq.com/s?__biz=MzA3NTQzOTUxMw==&amp;mid=2448055131&amp;idx=1&amp;sn=69a9001d67820e5b53a14ac7de7a4bd2&amp;chksm=8b6e77adbc19febbf335fcb9da8637bc8892d106cfb7dc43a19fb5c040642c1bd9de191a65e7&amp;token=1457965616&amp;lang=zh_CN#rd" target="_blank" class="c-flex__itemm is--invisionstudio w-inline-block">
+        <div class="c-tool-logo"> <img data-src="img/guajian-110.jpeg"></div>
+        <div class="c-tool-titles"><h3 class="c-tool-title">BlueMist 新主题 | 有蓝光更商务！</h3> <p id="ban">主题美化</p></div></a>
+
+       <a href="https://mp.weixin.qq.com/s?__biz=MzA3NTQzOTUxMw==&amp;mid=2448055004&amp;idx=1&amp;sn=2b34a548903c8484a4cdda377b6d8ce7&amp;chksm=8b6e762abc19ff3c69175613d4714a1e55b10212bb8303f238e04ca7456e8fdee9f2aa9ff2ab&amp;token=1229185642&amp;lang=zh_CN#rd" target="_blank" class="c-flex__itemm is--invisionstudio w-inline-block">
+        <div class="c-tool-logo"> <img data-src="img/guajian-101.jpeg"></div>
+        <div class="c-tool-titles"><h3 class="c-tool-title">黑暗主题 | 复古主题，黑图标更护眼！</h3> <p id="ban">主题美化</p></div></a>
+  
+
+
+
+
+
+
+
+<a href="https://mp.weixin.qq.com/s?__biz=MzA3NTQzOTUxMw==&amp;mid=2448054197&amp;idx=1&amp;sn=24a47d40dc6d9c719de27462959aba75&amp;chksm=8b6e7b43bc19f2550547e7d1a8e89d75c5d788cf054feac3731bc949065c0c9332df7c3ee81f&amp;token=1146211221&amp;lang=zh_CN#rd" target="_blank" class="c-flex__itemm is--invisionstudio w-inline-block">
+        <div class="c-tool-logo"> <img data-src="img/guajian-75.jpeg"></div>
+        <div class="c-tool-titles"><h3 class="c-tool-title">多彩主题 | 圆角图标，年轻好看！</h3> <p id="ban">主题美化</p></div></a>
+
+<a href="https://mp.weixin.qq.com/s?__biz=MzA3NTQzOTUxMw==&amp;mid=2448054189&amp;idx=1&amp;sn=6e10eb272a93a7bd2bc8cb41706a2d15&amp;chksm=8b6e7b5bbc19f24dff85c239cdd8ba1475b81bc9ad5c7d8f3b355010b07c9af57d66b0c41f6f&amp;token=1146211221&amp;lang=zh_CN#rd" target="_blank" class="c-flex__itemm is--invisionstudio w-inline-block">
+        <div class="c-tool-logo"> <img data-src="img/guajian-74.jpeg"></div>
+        <div class="c-tool-titles"><h3 class="c-tool-title">简洁主题 | 时尚耐看，一年一换！</h3> <p id="ban">主题美化</p></div></a>
+
+ <a href="https://mp.weixin.qq.com/s?__biz=MzA3NTQzOTUxMw==&amp;mid=2448054119&amp;idx=1&amp;sn=0001a31d6c7aaf58a517c7fe362f3516&amp;chksm=8b6e7b91bc19f287d189bc72b8b977ff02883fe9e67f4e6e4774228bde170b1358682d3f5393&amp;token=1841321731&amp;lang=zh_CN#rd" target="_blank" class="c-flex__itemm is--invisionstudio w-inline-block">
+        <div class="c-tool-logo"> <img data-src="img/guajian-71.jpeg"></div>
+        <div class="c-tool-titles"><h3 class="c-tool-title">立体渐变主题 | 超越原生的付费主题！</h3> <p id="ban">主题美化</p></div></a>
+
+ <a href="https://mp.weixin.qq.com/s?__biz=MzA3NTQzOTUxMw==&amp;mid=2448054098&amp;idx=1&amp;sn=cb5a03e53ce71a469ccbdb4801616560&amp;chksm=8b6e7ba4bc19f2b24f4cca22ffb29539203998c3ee7841c2ca4ed16fa21cef0cb8875e463e64&amp;token=1841321731&amp;lang=zh_CN#rd" target="_blank" class="c-flex__itemm is--invisionstudio w-inline-block">
+        <div class="c-tool-logo"> <img data-src="img/guajian-72.jpeg"></div>
+        <div class="c-tool-titles"><h3 class="c-tool-title">塞班安娜 | 移植主题，小巧好看！</h3> <p id="ban">主题美化</p></div></a>
+
+  <a href="https://mp.weixin.qq.com/s?__biz=MzA3NTQzOTUxMw==&amp;mid=2448054092&amp;idx=1&amp;sn=503ab2c0ca611d3a156589b511eed74f&amp;chksm=8b6e7bbabc19f2acf2ad421bfde22f01492429362cad0d3a5f567e828439b67091361c976845&amp;token=1841321731&amp;lang=zh_CN#rd" target="_blank" class="c-flex__itemm is--invisionstudio w-inline-block">
+        <div class="c-tool-logo"> <img data-src="img/guajian-18.jpeg"></div>
+        <div class="c-tool-titles"><h3 class="c-tool-title">Echoes 渐变主题，国外超火主题！</h3> <p id="ban">主题美化</p></div></a>
+ 
+ <a href="https://mp.weixin.qq.com/s?__biz=MzA3NTQzOTUxMw==&amp;mid=2448054076&amp;idx=1&amp;sn=dc32481cfd73e58d639268244391679f&amp;chksm=8b6e7bcabc19f2dc2ca4190e0d299d587f52c84592166d99f5994f9cd714170b001d7b8df208&amp;token=268458864&amp;lang=zh_CN#rd" target="_blank" class="c-flex__itemm is--invisionstudio w-inline-block">
+        <div class="c-tool-logo"> <img data-src="img/guajian-69.jpeg"></div>
+        <div class="c-tool-titles"><h3 class="c-tool-title">极简主题 | 简简单单，很耐看！</h3> <p id="ban">主题美化</p></div></a>
+
+
+ <a href="http://mp.weixin.qq.com/s?__biz=MzA3NTQzOTUxMw==&amp;mid=300570411&amp;idx=1&amp;sn=1a831211d51f9eaa4b703c6138831155&amp;chksm=0b6e7bdd3c19f2cb7c5dde165f0b5f9f4cd88159074967ac242d3bf11f6d825f6510297386e3#rd" target="_blank" class="c-flex__itemm is--invisionstudio w-inline-block">
+        <div class="c-tool-logo"> <img data-src="img/guajian-67.jpeg"></div>
+        <div class="c-tool-titles"><h3 class="c-tool-title">耐看主题 | 多彩风格，漂亮！</h3> <p id="ban">主题美化</p></div></a>
+
+
+  <a href="https://mp.weixin.qq.com/s?__biz=MzA3NTQzOTUxMw==&amp;mid=2448053945&amp;idx=1&amp;sn=736d98647eb27d055c16fe752d7e4159&amp;chksm=8b6e7a4fbc19f359c470d25b93d686f5581cf82350ea07bbf239d9f6f53cf7969914894fedcb&amp;token=1968114240&amp;lang=zh_CN#rd" target="_blank" class="c-flex__itemm is--invisionstudio w-inline-block">
+        <div class="c-tool-logo"> <img data-src="img/guajian-65.jpeg"></div>
+        <div class="c-tool-titles"><h3 class="c-tool-title">超细腻主题 | 凸显线条，简单风格！</h3> <p id="ban">主题美化</p></div></a>
+
+  <a href="https://mp.weixin.qq.com/s?__biz=MzA3NTQzOTUxMw==&amp;mid=2448053914&amp;idx=1&amp;sn=f52d7449378ffb05033fefb5a47233c7&amp;chksm=8b6e7a6cbc19f37a956689869e8bbb1cc0bf42e1ccb868e78373049c6d486f41fbdbc08b048b&amp;token=1968114240&amp;lang=zh_CN#rd" target="_blank" class="c-flex__itemm is--invisionstudio w-inline-block">
+        <div class="c-tool-logo"> <img data-src="img/guajian-64.jpeg"></div>
+        <div class="c-tool-titles"><h3 class="c-tool-title">赛博朋克 | 荧光效果，另类风格！</h3> <p id="ban">主题美化</p></div></a>
+<!--  
+ <a href="http://mp.weixin.qq.com/s?__biz=MzA3NTQzOTUxMw==&mid=300570176&idx=1&sn=0d748f74b9e926ac19d2f943ee341fd1&chksm=0b6e7ab63c19f3a093c4c2cb72ff8aa5a00230c072a2d4b6dee6cede2e09d85ed3ded70d01ff#rd" target="_blank"  class="c-flex__itemm is--invisionstudio w-inline-block">
+        <div class="c-tool-logo"> <img data-src="images/guajian-632.jpg" ></div>
+        <div class="c-tool-titles"><h3 class="c-tool-title">粉桃主题 | 猛男都不敢用的主题，超骚！</h3> <p id="ban">主题美化</p></div></a>
+ -->
+  <a href="https://mp.weixin.qq.com/s?__biz=MzA3NTQzOTUxMw==&amp;mid=2448053821&amp;idx=1&amp;sn=4078780f07c099dcbf8f9ddf4fee8067&amp;chksm=8b6e7acbbc19f3ddcaa48e0b2c62b6d3c865f5ed5e024ddd62599720adeee0ead006e1a12220&amp;token=802060208&amp;lang=zh_CN#rd" target="_blank" class="c-flex__itemm is--invisionstudio w-inline-block">
+        <div class="c-tool-logo"> <img data-src="img/guajian-631.jpeg"></div>
+        <div class="c-tool-titles"><h3 class="c-tool-title">超立体主题 | 更好看的立体效果！</h3> <p id="ban">主题美化</p></div></a>
+<!-- 
+  <a href="http://mp.weixin.qq.com/s?__biz=MzA3NTQzOTUxMw==&mid=300570159&idx=1&sn=5dabc985441984d7fbc8a72f51eaedac&chksm=0b6e7ad93c19f3cfb778053334ceae0c9b959413246d5b1262096dcdf1a694ee39f651ba8710#rd" target="_blank"  class="c-flex__itemm is--invisionstudio w-inline-block">
+        <div class="c-tool-logo"> <img data-src="images/guajian-63.jpg" ></div>
+        <div class="c-tool-titles"><h3 class="c-tool-title">猛男专用主题 | 全网最骚！</h3> <p id="ban">主题美化</p></div></a>
+ -->
+ <a href="https://mp.weixin.qq.com/s?__biz=MzA3NTQzOTUxMw==&amp;mid=2448053768&amp;idx=1&amp;sn=8fb6508c9bec036d8c6772f2f28ffd6d&amp;chksm=8b6e7afebc19f3e8292169d11c09e56413d007eafb5999b60604089533bca886416b83729483&amp;token=1560144686&amp;lang=zh_CN#rd" target="_blank" class="c-flex__itemm is--invisionstudio w-inline-block">
+        <div class="c-tool-logo"> <img data-src="img/guajian-61.jpeg"></div>
+        <div class="c-tool-titles"><h3 class="c-tool-title">渐变主题 | 又一款好看的主题，简洁！</h3> <p id="ban">主题美化</p></div></a>
+
+  <a href="https://mp.weixin.qq.com/s?__biz=MzA3NTQzOTUxMw==&amp;mid=2448053758&amp;idx=1&amp;sn=7f0f4ab18639be87a3e3333a680ee898&amp;chksm=8b6e7908bc19f01edd5daf48b62a3d9129ec6139a00ef538d214fe15ba9200c2308d1541aa92&amp;token=376451638&amp;lang=zh_CN#rd" target="_blank" class="c-flex__itemm is--invisionstudio w-inline-block">
+        <div class="c-tool-logo"> <img data-src="img/guajian-60.jpeg"></div>
+        <div class="c-tool-titles"><h3 class="c-tool-title">半透明主题 | 若影若现，这个感觉吗？</h3> <p id="ban">主题美化</p></div></a>
+
+   <a href="https://mp.weixin.qq.com/s?__biz=MzA3NTQzOTUxMw==&amp;mid=2448053749&amp;idx=1&amp;sn=41ae50d0a793dfdc4e9ac9c5e90a190c&amp;chksm=8b6e7903bc19f01540e29111bc76ea4930a545844fbb28b0a07a98eab2b6dfe8e146dd3ccf8d&amp;token=376451638&amp;lang=zh_CN#rd" target="_blank" class="c-flex__itemm is--invisionstudio w-inline-block">
+        <div class="c-tool-logo"> <img data-src="img/guajian-59.jpeg"></div>
+        <div class="c-tool-titles"><h3 class="c-tool-title">控制中心美化，多款风格可替换！</h3> <p id="ban">主题美化</p></div></a>
+ 
+
+           <a href="https://mp.weixin.qq.com/s?__biz=MzA3NTQzOTUxMw==&amp;mid=2448053715&amp;idx=1&amp;sn=f9b4da56162d157dae1ae640438e624c&amp;chksm=8b6e7925bc19f03310029b8e0b22c7611722bfebbcdbcccc957b9ab1b5b285fd3d88438fab04&amp;token=503419944&amp;lang=zh_CN#rd" target="_blank" class="c-flex__itemm is--invisionstudio w-inline-block">
+        <div class="c-tool-logo"> <img data-src="img/guajian-58.jpeg"></div>
+        <div class="c-tool-titles"><h3 class="c-tool-title">手绘主题 | 漫画风格，是否更好看呢！</h3> <p id="ban">主题美化</p></div></a>
+    
+          <a href="https://mp.weixin.qq.com/s?__biz=MzA3NTQzOTUxMw==&amp;mid=2448053709&amp;idx=1&amp;sn=501188f45e5431349e5e6b91be465125&amp;chksm=8b6e793bbc19f02db2ccb81c6b915b331c13246e00095ff43941bc175d53c20fb82bc8119b4a&amp;token=165520902&amp;lang=zh_CN#rd" target="_blank" class="c-flex__itemm is--invisionstudio w-inline-block">
+        <div class="c-tool-logo"> <img data-src="img/guajian-57.jpeg"></div>
+        <div class="c-tool-titles"><h3 class="c-tool-title">撞色主题 | 不一样的风格，多彩就现在！</h3> <p id="ban">主题美化</p></div></a>
+    
+         <a href="https://mp.weixin.qq.com/s?__biz=MzA3NTQzOTUxMw==&amp;mid=2448053703&amp;idx=1&amp;sn=c7b45afe086065570f2ae1fdabc1b276&amp;chksm=8b6e7931bc19f027211315b482ebbadba0b4589cff97fcf006f993b202a6822c2b3a794c30ac&amp;token=2059572116&amp;lang=zh_CN#rd" target="_blank" class="c-flex__itemm is--invisionstudio w-inline-block">
+        <div class="c-tool-logo"> <img data-src="img/guajian-56.jpeg"></div>
+        <div class="c-tool-titles"><h3 class="c-tool-title">Hi主题 | 多彩朦胧，让屏幕更丰富！</h3> <p id="ban">主题美化</p></div></a>
+    
+        <a href="https://mp.weixin.qq.com/s?__biz=MzA3NTQzOTUxMw==&amp;mid=2448053682&amp;idx=1&amp;sn=cf2be77ab969c44f4862308a8a2c16b2&amp;chksm=8b6e7944bc19f0525d71eb449bed80df00cf774f7d9ddc324d9d5bef2208b7f6425a413a3552&amp;token=1295942188&amp;lang=zh_CN#rd" target="_blank" class="c-flex__itemm is--invisionstudio w-inline-block">
+        <div class="c-tool-logo"> <img data-src="img/guajian-55.jpeg"></div>
+        <div class="c-tool-titles"><h3 class="c-tool-title">Viola主题 | 三套风格配齐，可按颜色分类！</h3> <p id="ban">主题美化</p></div></a>
+    
+       <a href="https://mp.weixin.qq.com/s?__biz=MzA3NTQzOTUxMw==&amp;mid=2448053672&amp;idx=1&amp;sn=b3a52e470267bb2c4a2362304ab7c3b7&amp;chksm=8b6e795ebc19f0488d089825c12ed07791e6e5baaecd52e3c5f251ffe79535461f2df7c74e7c&amp;token=1295942188&amp;lang=zh_CN#rd" target="_blank" class="c-flex__itemm is--invisionstudio w-inline-block">
+        <div class="c-tool-logo"> <img data-src="img/guajian-54.jpeg"></div>
+        <div class="c-tool-titles"><h3 class="c-tool-title">ChillOut主题 | 这么好看的主题，我也是第一次见！</h3> <p id="ban">主题美化</p></div></a>
+   
+     <a href="https://mp.weixin.qq.com/s?__biz=MzA3NTQzOTUxMw==&amp;mid=2448053563&amp;idx=1&amp;sn=7bd8a0d8a7bd622c1c96e5f592a23585&amp;chksm=8b6e79cdbc19f0dba5139ecac21c87ad8629f36a5857088524ca4f69e669c2cdee9155e02b66&amp;token=1295942188&amp;lang=zh_CN#rd" target="_blank" class="c-flex__itemm is--invisionstudio w-inline-block">
+        <div class="c-tool-logo"> <img data-src="img/guajian-53.jpeg"></div>
+        <div class="c-tool-titles"><h3 class="c-tool-title">超酷主题 | 超多图标全覆盖！</h3> <p id="ban">主题美化</p></div></a>
+   
+   <a href="https://mp.weixin.qq.com/s?__biz=MzA3NTQzOTUxMw==&amp;mid=2448053555&amp;idx=1&amp;sn=da57812b122db9f2255fd75f2b648185&amp;chksm=8b6e79c5bc19f0d323254205852d180d4b2248736dc719d4ea40d5d8f693ec033a448bb64879&amp;token=1692114807&amp;lang=zh_CN#rd" target="_blank" class="c-flex__itemm is--invisionstudio w-inline-block">
+        <div class="c-tool-logo"> <img data-src="img/guajian-52.jpeg"></div>
+        <div class="c-tool-titles"><h3 class="c-tool-title">卡纸主题 | 小图标，也大不同！</h3> <p id="ban">主题美化</p></div></a>
+   
+   <a href="https://mp.weixin.qq.com/s/2vXB2SiW__bXmWUT0m0SWA" target="_blank" class="c-flex__itemm is--invisionstudio w-inline-block">
+        <div class="c-tool-logo"> <img data-src="img/zhuti-034.jpeg"></div>
+        <div class="c-tool-titles"><h3 class="c-tool-title">小清新主题 | 若影若现，简洁多彩！</h3> <p id="ban">主题美化</p></div></a>
+ 
+
+    <a href="https://mp.weixin.qq.com/s?__biz=MzA3NTQzOTUxMw==&amp;mid=2448053549&amp;idx=1&amp;sn=f1318da19c973b3cac4c1433ee54d34a&amp;chksm=8b6e79dbbc19f0cdf42241c2c394c3e6d98619c8b7eef001f3fc5a3215cd56b5b5037ec07fe1&amp;token=435905601&amp;lang=zh_CN#rd" target="_blank" class="c-flex__itemm is--invisionstudio w-inline-block">
+        <div class="c-tool-logo"> <img data-src="img/guajian-51.jpeg"></div>
+        <div class="c-tool-titles"><h3 class="c-tool-title">干净主题 | 简洁漂亮，色彩饱和！</h3> <p id="ban">主题美化</p></div></a>
+
+
+    <a href="https://mp.weixin.qq.com/s?__biz=MzA3NTQzOTUxMw==&amp;mid=2448053491&amp;idx=1&amp;sn=f6b2bd209dc05772928e890a36a9b752&amp;chksm=8b6e7805bc19f1132ec7dec21c628ea67d202259d93d28f085b530b0034c0094859a6b4514f2&amp;token=62874129&amp;lang=zh_CN#rd" target="_blank" class="c-flex__itemm is--invisionstudio w-inline-block">
+        <div class="c-tool-logo"> <img data-src="img/guajian-49.jpeg"></div>
+        <div class="c-tool-titles"><h3 class="c-tool-title">极简 | Mercury 水星主题，超全图标！</h3> <p id="ban">主题美化</p></div></a>
+ 
+ 
+    <a href="https://mp.weixin.qq.com/s?__biz=MzA3NTQzOTUxMw==&amp;mid=2448053463&amp;idx=1&amp;sn=9d109cabb79c38c7bf12b6bc0c015499&amp;chksm=8b6e7821bc19f137e99cbd55582efd3bc32ef0cece59277cefab77ce559fe1a3c65d0f07f819&amp;token=1181144292&amp;lang=zh_CN#rd" target="_blank" class="c-flex__itemm is--invisionstudio w-inline-block">
+        <div class="c-tool-logo"> <img data-src="img/guajian-48.jpeg"></div>
+        <div class="c-tool-titles"><h3 class="c-tool-title">极简 | 方块主题，独特风格，赞啊！</h3> <p id="ban">主题美化</p></div></a>
+ 
+ 
+    <a href="https://mp.weixin.qq.com/s?__biz=MzA3NTQzOTUxMw==&amp;mid=2448053449&amp;idx=1&amp;sn=82f690bc10eea43d18c2993e2ed6da24&amp;chksm=8b6e783fbc19f1299d06620426e4d3f96375d95c043ed9fe72a2586b6e9ba3a33c68f446fc49&amp;token=617961532&amp;lang=zh_CN#rd" target="_blank" class="c-flex__itemm is--invisionstudio w-inline-block">
+        <div class="c-tool-logo"> <img data-src="img/guajian-47.jpeg"></div>
+        <div class="c-tool-titles"><h3 class="c-tool-title">极简 | 超简单的主题，桌面瞬间干净了呢！</h3> <p id="ban">主题美化</p></div></a>
+ 
+  <a href="https://mp.weixin.qq.com/s?__biz=MzA3NTQzOTUxMw==&amp;mid=2448055650&amp;idx=1&amp;sn=e8af6dcc3187bad44e0999123bdc4f9a&amp;chksm=8b6e7194bc19f8826956998eb610f5a4a2f0736e6028fa706456b6e72187e5fdb0cc1e74fd71&amp;token=988704855&amp;lang=zh_CN#rd" target="_blank" class="c-flex__itemm is--invisionstudio w-inline-block">
+        <div class="c-tool-logo"> <img data-src="img/guajian-46.jpeg"></div>
+        <div class="c-tool-titles"><h3 class="c-tool-title">超耐看 | 国外超酷主题，好看就行了！</h3> <p id="ban">主题美化</p></div></a>
+
+   <a href="https://mp.weixin.qq.com/s?__biz=MzA3NTQzOTUxMw==&amp;mid=2448053334&amp;idx=1&amp;sn=82f2cbe38182349d45b26e734aaed516&amp;chksm=8b6e78a0bc19f1b672078ae7d562ac625555f31160f88a92887275d8a4e32620479adf4d0c09&amp;token=1462789167&amp;lang=zh_CN#rd" target="_blank" class="c-flex__itemm is--invisionstudio w-inline-block">
+        <div class="c-tool-logo"> <img data-src="img/guajian-44.jpeg"></div>
+        <div class="c-tool-titles"><h3 class="c-tool-title">复古主题 | 简洁复古风格，怀旧的来！</h3> <p id="ban">主题美化</p></div></a>
+ 
+     <a href="https://mp.weixin.qq.com/s?__biz=MzA3NTQzOTUxMw==&amp;mid=2448053121&amp;idx=1&amp;sn=c72ad00cea98549c5500e3d713897487&amp;chksm=8b6e7f77bc19f661c29a9c64c970acd830b1ff4c97e56ee26e0856e3338df4c8afc1ee2bd460&amp;token=810912079&amp;lang=zh_CN#rd" target="_blank" class="c-flex__itemm is--invisionstudio w-inline-block">
+        <div class="c-tool-logo"> <img data-src="img/zhuti-033.jpeg"></div>
+        <div class="c-tool-titles"><h3 class="c-tool-title">小清新主题 | 干净美丽，仿佛新生！</h3> <p id="ban">主题美化</p></div></a>
+  
+     <a href="https://mp.weixin.qq.com/s?__biz=MzA3NTQzOTUxMw==&amp;mid=2448053051&amp;idx=1&amp;sn=e9fc4d4932136e2fdf5ef8dace895179&amp;chksm=8b6e7fcdbc19f6dbaaf9c186c0fdaad1542d8cda0e401bc3a6d7f9850b8991d1d926e814a6f2&amp;token=1874439813&amp;lang=zh_CN#rd" target="_blank" class="c-flex__itemm is--invisionstudio w-inline-block">
+        <div class="c-tool-logo"> <img data-src="img/zhuti-032.jpeg"></div>
+        <div class="c-tool-titles"><h3 class="c-tool-title">酒红主题 | 圣诞节必备，多种遮罩！</h3> <p id="ban">主题美化</p></div></a>
+
+      <a href="https://mp.weixin.qq.com/s?__biz=MzA3NTQzOTUxMw==&amp;mid=2448053008&amp;idx=1&amp;sn=456e8e7331a5fcf58418335fe4197297&amp;chksm=8b6e7fe6bc19f6f0802ecb906a317d59f0d98f40c7b3e775800e5a89768b6e3c3659cca54c02&amp;token=1538047655&amp;lang=zh_CN#rd" target="_blank" class="c-flex__itemm is--invisionstudio w-inline-block">
+        <div class="c-tool-logo"> <img data-src="img/zhuti-031.jpeg"></div>
+        <div class="c-tool-titles"><h3 class="c-tool-title">极简 | 你们要的极简主题，多种配色！</h3> <p id="ban">主题美化</p></div></a>
+ 
+    <a href="https://mp.weixin.qq.com/s?__biz=MzA3NTQzOTUxMw==&amp;mid=2448052998&amp;idx=1&amp;sn=6be6748a0cbbc8f802565bafec4be737&amp;chksm=8b6e7ff0bc19f6e6e52ec28ca72025bb8fcfc8dd8831587699ad189b8ea288376016a55e7ae9&amp;token=160990616&amp;lang=zh_CN#rd" target="_blank" class="c-flex__itemm is--invisionstudio w-inline-block">
+        <div class="c-tool-logo"> <img data-src="img/zhuti-030.jpeg"></div>
+        <div class="c-tool-titles"><h3 class="c-tool-title">CGP | 暗属主题，很带感的主题！</h3> <p id="ban">主题美化</p></div></a>
+ 
+    <a href="https://mp.weixin.qq.com/s?__biz=MzA3NTQzOTUxMw==&amp;mid=2448052959&amp;idx=1&amp;sn=7c5500efdad6331fc0b8ce92a0c6a7cc&amp;chksm=8b6e7e29bc19f73f5006a5b7fe5b83b991ce31910bed98a4a7aa8b34742f56c69810c3f837ae&amp;token=182848111&amp;lang=zh_CN#rd" target="_blank" class="c-flex__itemm is--invisionstudio w-inline-block">
+        <div class="c-tool-logo"> <img data-src="img/zhuti-029.jpeg"></div>
+        <div class="c-tool-titles"><h3 class="c-tool-title">荧光 | 惊呆了，4275+个图标的主题！</h3> <p id="ban">主题美化</p></div></a>
+<!--  
+    <a href="https://mp.weixin.qq.com/s?__biz=MzA3NTQzOTUxMw==&mid=2448052953&idx=1&sn=d2306f68660b9dd8ae751044be252a92&chksm=8b6e7e2fbc19f739d0a2d4287c7d9f2c8b953d626c5bf8b832eef562844a992d7184d733df34&token=182848111&lang=zh_CN#rd" target="_blank"  class="c-flex__itemm is--invisionstudio w-inline-block">
+        <div class="c-tool-logo"> <img data-src="images/zhuti-028.jpg" ></div>
+        <div class="c-tool-titles"><h3 class="c-tool-title">3D | 金属主题，又一套土豪主题！</h3> <p id="ban">主题美化</p></div></a>
+ -->
+  <a href="https://mp.weixin.qq.com/s?__biz=MzA3NTQzOTUxMw==&amp;mid=2448052947&amp;idx=1&amp;sn=a2ba58f83d180d1ba4001f1a2fe110a4&amp;chksm=8b6e7e25bc19f733f8e47a2ca6ef241a2e10084545ce00d14587d3d397c7991807ef9cb7a6cc&amp;token=2063462659&amp;lang=zh_CN#rd" target="_blank" class="c-flex__itemm is--invisionstudio w-inline-block">
+        <div class="c-tool-logo"> <img data-src="img/zhuti-027.jpeg"></div>
+        <div class="c-tool-titles"><h3 class="c-tool-title">黑白灰主题，极简单色主题！</h3> <p id="ban">主题美化</p></div></a>
+
+ <a href="https://mp.weixin.qq.com/s?__biz=MzA3NTQzOTUxMw==&amp;mid=2448052927&amp;idx=1&amp;sn=b6c186790781ea718af6ec76a813cb02&amp;chksm=8b6e7e49bc19f75f319d32c3c316fc3ac97fb62e31a384e00b75dac8cebfd818f422e0365e19&amp;token=2039455760&amp;lang=zh_CN#rd" target="_blank" class="c-flex__itemm is--invisionstudio w-inline-block">
+        <div class="c-tool-logo"> <img data-src="img/zhuti-026.jpeg"></div>
+        <div class="c-tool-titles"><h3 class="c-tool-title">怀旧 | 原木色主题，成熟稳重！</h3> <p id="ban">主题美化</p></div></a>
+
+ <a href="https://mp.weixin.qq.com/s?__biz=MzA3NTQzOTUxMw==&amp;mid=2448052853&amp;idx=1&amp;sn=8b38379b883f658f6560b933af868268&amp;chksm=8b6e7e83bc19f795327d4034bfd89400cc053dfd483991be880fcccb38e3da2c82d9d4b136f4&amp;token=1708597218&amp;lang=zh_CN#rd" target="_blank" class="c-flex__itemm is--invisionstudio w-inline-block">
+        <div class="c-tool-logo"> <img data-src="img/zhuti-025.jpeg"></div>
+        <div class="c-tool-titles"><h3 class="c-tool-title">Nova CC 控制中心美化，比原版更好看！</h3> <p id="ban">主题美化</p></div></a>
+
+ <a href="https://mp.weixin.qq.com/s?__biz=MzA3NTQzOTUxMw==&amp;mid=2448052839&amp;idx=1&amp;sn=c6d46a94bf10d5fab21721a03e933152&amp;chksm=8b6e7e91bc19f787511197774255e3c3d516bafc081248c8fff0c3ac83064fe8888e4863638e&amp;token=1741186412&amp;lang=zh_CN#rd" target="_blank" class="c-flex__itemm is--invisionstudio w-inline-block">
+        <div class="c-tool-logo"> <img data-src="img/zhuti-024.jpeg"></div>
+        <div class="c-tool-titles"><h3 class="c-tool-title">暗黑主题 | 更好看的黑色主题，Rogue！</h3> <p id="ban">主题美化</p></div></a>
+
+<a href="https://mp.weixin.qq.com/s/xfrBxMsVhU_6vsCzQa5DYQ" target="_blank" class="c-flex__itemm is--invisionstudio w-inline-block">
+        <div class="c-tool-logo"> <img data-src="img/guajian-42.jpeg"></div>
+        <div class="c-tool-titles"><h3 class="c-tool-title">Reva 全局UI | 全系统图标替换！</h3> <p id="ban">主题美化</p></div></a>
+
+<a href="https://mp.weixin.qq.com/s?__biz=MzA3NTQzOTUxMw==&amp;mid=2448052770&amp;idx=1&amp;sn=eeba2b0b1d92ba9ff0ef0fc56387d59b&amp;chksm=8b6e7ed4bc19f7c2b8239cd136ff2042d8904d3bc01a3dbba71482a17fc017f7bd354c4a7d1f&amp;token=8254581&amp;lang=zh_CN#rd" target="_blank" class="c-flex__itemm is--invisionstudio w-inline-block">
+        <div class="c-tool-logo"> <img data-src="img/zhuti-023.jpeg"></div>
+        <div class="c-tool-titles"><h3 class="c-tool-title">磨砂主题 | 高端磨砂，小巧精致！</h3> <p id="ban">主题美化</p></div></a>
+
+<a href="https://mp.weixin.qq.com/s?__biz=MzA3NTQzOTUxMw==&amp;mid=2448052856&amp;idx=1&amp;sn=8a37b3d973c0b2495bfad3ecca9442ba&amp;chksm=8b6e7e8ebc19f7987b5d116e9ff88932b63dc6cdd9807fac2144a021c9233cb69fbdaea1bfa3&amp;token=1708597218&amp;lang=zh_CN#rd" target="_blank" class="c-flex__itemm is--invisionstudio w-inline-block">
+        <div class="c-tool-logo"> <img data-src="img/zhuti-022.jpeg"></div>
+        <div class="c-tool-titles"><h3 class="c-tool-title">黑紫主题 | 深色主题，这个有点骚！</h3> <p id="ban">主题美化</p></div></a>
+
+<a href="https://mp.weixin.qq.com/s?__biz=MzA3NTQzOTUxMw==&amp;mid=2448052691&amp;idx=1&amp;sn=c82f8ff8383eb4c31cce272d708a4b9d&amp;chksm=8b6e7d25bc19f433744083085a58c10c5f816a7385b8871ca9c27ea57968b5a244e4f3cec026&amp;token=130747236&amp;lang=zh_CN#rd" target="_blank" class="c-flex__itemm is--invisionstudio w-inline-block">
+        <div class="c-tool-logo"> <img data-src="img/zhuti-020.jpeg"></div>
+        <div class="c-tool-titles"><h3 class="c-tool-title">深浅主题 | 等于两套，超级好看的扁平主题！</h3> <p id="ban">主题美化</p></div></a>
+
+<a href="https://mp.weixin.qq.com/s?__biz=MzA3NTQzOTUxMw==&amp;mid=2448055652&amp;idx=1&amp;sn=b8db46c8c46897dcce3c91390c5e58c7&amp;chksm=8b6e7192bc19f884fa173b1082f762b9d755fc298aad3ca7c39efaa632009cbe9d33f86b810c&amp;token=988704855&amp;lang=zh_CN#rd" target="_blank" class="c-flex__itemm is--invisionstudio w-inline-block">
+        <div class="c-tool-logo"> <img data-src="img/zhuti-019.jpeg"></div>
+        <div class="c-tool-titles"><h3 class="c-tool-title">黑暗主题 | 适合深色模式的主题，超级棒！</h3> <p id="ban">主题美化</p></div></a>
+
+<a href="https://mp.weixin.qq.com/s?__biz=MzA3NTQzOTUxMw==&amp;mid=2448052590&amp;idx=1&amp;sn=b3dd3b12199dcfbde28b13a5f260ca32&amp;chksm=8b6e7d98bc19f48e1dbac2a731f33c1cd391e13918a8c33c7cf8eb450617f4b5dd6ec332df64&amp;token=703237193&amp;lang=zh_CN#rd" target="_blank" class="c-flex__itemm is--invisionstudio w-inline-block">
+        <div class="c-tool-logo"> <img data-src="img/zhuti-018.jpeg"></div>
+        <div class="c-tool-titles"><h3 class="c-tool-title">黑白主题 | 没有色彩，才是最耀眼的！</h3> <p id="ban">主题美化</p></div></a>
+
+<a href="https://mp.weixin.qq.com/s?__biz=MzA3NTQzOTUxMw==&amp;mid=2448052584&amp;idx=1&amp;sn=902281fd20e814f9f73a84f0d3ad5f34&amp;chksm=8b6e7d9ebc19f4880e97047f32a62efe7086185b39b4521323a519385cbf15f28fdb4e38cf64&amp;token=1398804370&amp;lang=zh_CN#rd" target="_blank" class="c-flex__itemm is--invisionstudio w-inline-block">
+        <div class="c-tool-logo"> <img data-src="img/zhuti-017.jpeg"></div>
+        <div class="c-tool-titles"><h3 class="c-tool-title">暗红主题 | 刺激炫酷主题，超个性！</h3> <p id="ban">主题美化</p></div></a>
+
+<a href="https://mp.weixin.qq.com/s/0mPqNGX0bfBYSZl8WU3_rQ" target="_blank" class="c-flex__itemm is--invisionstudio w-inline-block">
+        <div class="c-tool-logo"> <img data-src="img/zhuti-016.jpeg"></div>
+        <div class="c-tool-titles"><h3 class="c-tool-title">暗金主题 | 高端不失内涵，奢侈又低调！</h3> <p id="ban">主题美化</p></div></a>
+
+<a href="https://mp.weixin.qq.com/s/mXe0IQIIYVSJmXN3tvqS5g" target="_blank" class="c-flex__itemm is--invisionstudio w-inline-block">
+        <div class="c-tool-logo"> <img data-src="img/zhuti-014.jpeg"></div>
+        <div class="c-tool-titles"><h3 class="c-tool-title">炫彩主题 | 多彩，就现在！</h3> <p id="ban">主题美化</p></div></a>
+
+<a href="https://mp.weixin.qq.com/s?__biz=MzA3NTQzOTUxMw==&amp;mid=2448052557&amp;idx=1&amp;sn=c11c1b769cc34bd2c8d6b61f4736c968&amp;chksm=8b6e7dbbbc19f4adbae83935ae0ea8bf68e694f9d5d45cbfd10fe9eb44e956e68274e34bbee3&amp;token=464930852&amp;lang=zh_CN#rd" target="_blank" class="c-flex__itemm is--invisionstudio w-inline-block">
+        <div class="c-tool-logo"> <img data-src="img/zhuti-013.jpeg"></div>
+        <div class="c-tool-titles"><h3 class="c-tool-title">水晶主题 | 超级好看，超多遮罩选择！</h3> <p id="ban">主题美化</p></div></a>
+
+<a href="https://mp.weixin.qq.com/s?__biz=MzA3NTQzOTUxMw==&amp;mid=2448052535&amp;idx=1&amp;sn=803bb4992f3d15de860c70d3af3b77ae&amp;chksm=8b6e7dc1bc19f4d778197df8c5e2e63ff9557eb6970b3be7d829e4fd4d98d5f9e4a1cb1f542d&amp;token=464930852&amp;lang=zh_CN#rd" target="_blank" class="c-flex__itemm is--invisionstudio w-inline-block">
+        <div class="c-tool-logo"> <img data-src="img/zhuti-012.jpeg"></div>
+        <div class="c-tool-titles"><h3 class="c-tool-title">土豪主题 | 迪拜大佬，绝版主题！</h3> <p id="ban">主题美化</p></div></a>
+
+<a href="https://mp.weixin.qq.com/s?__biz=MzA3NTQzOTUxMw==&amp;mid=2448052528&amp;idx=1&amp;sn=c37322c4cb91a0a858535ce67fa168eb&amp;chksm=8b6e7dc6bc19f4d0bfc8ebaf0b6dfed3cc3109bc84ccf8e1e48b29010a5a3b73868ae31e16c5&amp;token=85464858&amp;lang=zh_CN#rd" target="_blank" class="c-flex__itemm is--invisionstudio w-inline-block">
+        <div class="c-tool-logo"> <img data-src="img/zhuti-011.jpeg"></div>
+        <div class="c-tool-titles"><h3 class="c-tool-title">Killa主题 | 微妙的渐变效果组成！</h3> <p id="ban">主题美化</p></div></a>
+
+<a href="https://mp.weixin.qq.com/s?__biz=MzA3NTQzOTUxMw==&amp;mid=2448052475&amp;idx=1&amp;sn=25adb681760e1b309b25a7a6c7a05b58&amp;chksm=8b6e7c0dbc19f51b64609a541b3ee22dcab3e873e745560235987a6e7780d33e48f894910541&amp;token=228392455&amp;lang=zh_CN#rd" target="_blank" class="c-flex__itemm is--invisionstudio w-inline-block">
+        <div class="c-tool-logo"> <img data-src="img/zhuti-010.jpeg"></div>
+        <div class="c-tool-titles"><h3 class="c-tool-title">小白主题 | 简洁的多彩主题，白天更好看！</h3> <p id="ban">主题美化</p></div></a>
+
+<a href="https://mp.weixin.qq.com/s?__biz=MzA3NTQzOTUxMw==&amp;mid=2448052462&amp;idx=1&amp;sn=78505f993f3a7a8ce480f07361924361&amp;chksm=8b6e7c18bc19f50e32ebbde49f681c557970a9bfd41101864fedadc09829f02b24fd8c0b9a37&amp;token=331045603&amp;lang=zh_CN#rd" target="_blank" class="c-flex__itemm is--invisionstudio w-inline-block">
+        <div class="c-tool-logo"> <img data-src="img/zhuti-09.jpeg"></div>
+        <div class="c-tool-titles"><h3 class="c-tool-title">黑色主题 | 超酷黑暗主题，可按颜色分类！</h3> <p id="ban">主题美化</p></div></a>
+
+<a href="https://mp.weixin.qq.com/s?__biz=MzA3NTQzOTUxMw==&amp;mid=2448052399&amp;idx=1&amp;sn=843c10efdba6dbc6fd9d2ddcb42d5a45&amp;chksm=8b6e7c59bc19f54f4b35357cc507854f24c3822fb9e79853f5f7222144dbc17cb9a9719ffc06&amp;token=1420152314&amp;lang=zh_CN#rd" target="_blank" class="c-flex__itemm is--invisionstudio w-inline-block">
+        <div class="c-tool-logo"> <img data-src="img/zhuti-08.jpeg"></div>
+        <div class="c-tool-titles"><h3 class="c-tool-title">冰块主题 | 透明小图标，让你夏天更凉爽！</h3> <p id="ban">主题美化</p></div></a>
+
+<a href="https://mp.weixin.qq.com/s?__biz=MzA3NTQzOTUxMw==&amp;mid=2448055654&amp;idx=1&amp;sn=bf6a6789a77b2666359eb49faa07746b&amp;chksm=8b6e7190bc19f88629eda7198a813339d1ee8923af193d2a90576c0acf48bdd99b8cdd5e0864&amp;token=988704855&amp;lang=zh_CN#rd" target="_blank" class="c-flex__itemm is--invisionstudio w-inline-block">
+        <div class="c-tool-logo"> <img data-src="img/zhuti-07.jpeg"></div>
+        <div class="c-tool-titles"><h3 class="c-tool-title">去掉条条框框，做更好的自己！</h3> <p id="ban">主题美化</p></div></a>
+
+<a href="https://mp.weixin.qq.com/s?__biz=MzA3NTQzOTUxMw==&amp;mid=2448052345&amp;idx=1&amp;sn=e7c849dbcdb5019b9afdac9c9e68cf29&amp;chksm=8b6e7c8fbc19f599cce05c5da68944f8531a6bebc4946c50c3ee75a35978ce27cd10f79a0e28&amp;token=716776722&amp;lang=zh_CN#rd" target="_blank" class="c-flex__itemm is--invisionstudio w-inline-block">
+        <div class="c-tool-logo"> <img data-src="img/zhuti-06.jpeg"></div>
+        <div class="c-tool-titles"><h3 class="c-tool-title">轻奢主题 | 最全主题，低调不失内涵！</h3> <p id="ban">主题美化</p></div></a>
+
+
+<a href="https://mp.weixin.qq.com/s?__biz=MzA3NTQzOTUxMw==&amp;mid=2448052204&amp;idx=1&amp;sn=f0d17c6c51a4d64fe1f6465ac891b7a4&amp;chksm=8b6e631abc19ea0c688838430064a416f79b06c1e21c8b2dc7417dc82ba92f363e18600dc52a&amp;token=396823953&amp;lang=zh_CN#rd" target="_blank" class="c-flex__itemm is--invisionstudio w-inline-block">
+        <div class="c-tool-logo"> <img data-src="img/zhuti-04.jpeg"></div>
+        <div class="c-tool-titles"><h3 class="c-tool-title">小清新主题 | 让界面更简洁！</h3> <p id="ban">主题美化</p></div></a>
+
+<a href="https://mp.weixin.qq.com/s?__biz=MzA3NTQzOTUxMw==&amp;mid=2448052178&amp;idx=1&amp;sn=8b4ad62025deb728cbcaad473aad58b4&amp;chksm=8b6e6324bc19ea32472e760d595d658b9a85ef15b6cce3c778809d4c8272fe1a04e9669d77a1&amp;token=524114571&amp;lang=zh_CN#rd" target="_blank" class="c-flex__itemm is--invisionstudio w-inline-block">
+        <div class="c-tool-logo"> <img data-src="img/zhuti-02.jpeg"></div>
+        <div class="c-tool-titles"><h3 class="c-tool-title">黑色系主题，好看不伤眼！</h3> <p id="ban">主题美化</p></div></a>
+
+<a href="https://mp.weixin.qq.com/s?__biz=MzA3NTQzOTUxMw==&amp;mid=2448051864&amp;idx=1&amp;sn=f1739d44c54758d48a03a8ad3fd8c918&amp;chksm=8b6e626ebc19eb78fb80e445a0d3d05bce30967e642a5aff3f0e648184a5adbb79cb60375528&amp;token=796202096&amp;lang=zh_CN#rd" target="_blank" class="c-flex__itemm is--invisionstudio w-inline-block">
+        <div class="c-tool-logo"> <img data-src="img/zhuti-05.jpeg"></div>
+        <div class="c-tool-titles"><h3 class="c-tool-title">miui手绘风主题 | 超全图标整合版！</h3> <p id="ban">主题美化</p></div></a>
+
+<a href="https://mp.weixin.qq.com/s?__biz=MzA3NTQzOTUxMw==&amp;mid=2448052161&amp;idx=1&amp;sn=a5511120a67f9fbb216022e1de5811a9&amp;chksm=8b6e6337bc19ea21b8cf33c6ca7356f8e7bbdadbe89d8ece574ac81651acce906225b19f6439&amp;token=1124922518&amp;lang=zh_CN#rd" target="_blank" class="c-flex__itemm is--invisionstudio w-inline-block">
+        <div class="c-tool-logo"> <img data-src="img/zhuti-01.jpeg"></div>
+        <div class="c-tool-titles"><h3 class="c-tool-title">超甜主题 | 超美活力主题，焕然一新</h3> <p id="ban">主题美化</p></div></a>
+
+<a href="https://mp.weixin.qq.com/s?__biz=MzA3NTQzOTUxMw==&amp;mid=2448052044&amp;idx=1&amp;sn=3cea94204a2a7516a1eb0fe1748a5848&amp;chksm=8b6e63babc19eaaccb6fdf68d2e7b1570744f6067c7377710ea05135d391399f8a827a95f9be&amp;token=1023274387&amp;lang=zh_CN#rd" target="_blank" class="c-flex__itemm is--invisionstudio w-inline-block">
+        <div class="c-tool-logo"> <img data-src="img/guajian-36.jpeg"></div>
+        <div class="c-tool-titles"><h3 class="c-tool-title">14款超好看的主题蒙板</h3> <p id="ban">主题蒙版</p></div></a>
+
+
+ <a href="https://mp.weixin.qq.com/s?__biz=MzA3NTQzOTUxMw==&amp;mid=2448051921&amp;idx=1&amp;sn=811fe41522a24e29dcb0a37f60483d39&amp;chksm=8b6e6227bc19eb318f599cd08b4657b6553284b471cc64867bc9611483ce898e868446160c34&amp;token=1270358223&amp;lang=zh_CN#rd" target="_blank" class="c-flex__itemm is--invisionstudio w-inline-block">
+        <div class="c-tool-logo"> <img data-src="img/guajian-27.jpeg"></div>
+        <div class="c-tool-titles"><h3 class="c-tool-title">布艺主题 | 超有质感的主题！</h3> <p id="ban">主题美化</p></div></a>
+
+  <a href="https://mp.weixin.qq.com/s?__biz=MzA3NTQzOTUxMw==&amp;mid=2448051738&amp;idx=1&amp;sn=c002dc9bcd87c1700d1051d5e16dbe0b&amp;chksm=8b6e62ecbc19ebfa47a5a1672ba14cf5765644b46c4a93b3c4b63af2fd30110ee4a78e9cf285&amp;token=1101724662&amp;lang=zh_CN#rd" target="_blank" class="c-flex__itemm is--invisionstudio w-inline-block">
+        <div class="c-tool-logo"> <img data-src="img/guajian-15.jpeg"></div>
+        <div class="c-tool-titles"><h3 class="c-tool-title">Mellow全局UI，替换全系统图标！</h3> <p id="ban">主题美化</p></div></a>
+
+  <a href="https://mp.weixin.qq.com/s?__biz=MzA3NTQzOTUxMw==&amp;mid=2448051592&amp;idx=1&amp;sn=e84ca1a825f2a7341818ee4954677bd4&amp;chksm=8b6e617ebc19e86849ca544cbf2758eb7ddc07cbab5e8959521114d7467854d36432911ece68&amp;token=10811618&amp;lang=zh_CN#rd" target="_blank" class="c-flex__itemm is--invisionstudio w-inline-block">
+        <div class="c-tool-logo"> <img data-src="img/guajian-08.jpeg"></div>
+        <div class="c-tool-titles"><h3 class="c-tool-title">超级好看的一套主题</h3> <p id="ban">iOS主题</p></div></a>
+
+
+ <div class="c-footer"><p class="texewx">关注&nbsp;设计之前<br></p><p class="texewx2">干 货 集 中 营 /&nbsp;你 的 设计 助 理</p><p class="texewx3"><img src="img/qrcode_for_gh_f6a93f3195d1_344.jpeg"></p><p class="texewx4">扫码关注「美化鸭」</p></div>
+</div>
+
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+</div>
+
+
+<script type="text/javascript">
+	$(function() {
+		$('.tabs li').hover(function() {
+			var i = $(this).index();
+			$(this).addClass('on').siblings().removeClass('on');
+			$('.tab-content').removeClass('show').eq(i).addClass('show');
+		})
+	})
+</script>
+
+    <script>
+//手机打开浮层
+$("#dd").click(function(){
+  //var s = $(".dropdown").css('overflow');
+  /*if ( s=='hidden' ){
+    $(".dropdown").css('overflow','visible');
+  }else{
+    $(".dropdown").css('overflow','hidden');
+  }*/
+  var s = $(this).hasClass('active');
+  if ( s ){
+    $(this).removeClass('active');
+  }else{
+    $(this).addClass('active');
+  }
+  var b = $(".search_top").css('display');
+
+  if ( b=='block'  ){$(".search_top").css('display','none');
+}
+})
+$(".so_icon").click(function(){
+  var s = $(".search_top").css('display');
+  if ( s=='none' ){
+    $(".search_top").css('display','block');
+  }else{
+    $(".search_top").css('display','none');
+  }
+  var b = $("#dd").hasClass('active');
+  if ( b  ){$("#dd").removeClass('active');
+  }
 })
 </script>
-<link rel="stylesheet" type="text/css" href="css/font.css"/>
-<script src="js/clipboard.min.js"></script>
-<script>//复制
-	var clipboard = new Clipboard('.copy');
-	clipboard.on('success', function(e) {
-		console.log(e);
-	});
-	clipboard.on('error', function(e) {
-		console.log(e);
-	});
-	$('#mail').click(function(){
-		$('#copyed').css('opacity',1)
-			setTimeout(function(){
-			$('#copyed').css('opacity',0)
-		},2000)
-	})
-	$('#one_part,#two_part,#three_part,#four_part,#five_part').hover(function(){
-		var that = $(this)
-		var target = that.attr('id').replace('_part','')
-		$('.focus .txt').hide()
-		$('#'+target).show()
-	},function(){
-		$('.focus .txt').hide()
-		$('#default').show()
-	})
-	$('#code').focus(function(){
-		$('#code').attr('placeholder','请输入提取码')
-		$('#code_error').hide()
-	})
-	$('#down').click(function(){
-		var that = $(this)
-		var code = $('#code').val();
-		if(code != 'anlenotes'){ //提取码
-			$('#code').attr('placeholder','').val('')
-			$('#code_error').show()
-			return false;
-		}
-		that.attr('href','https://www.x6g.com')//提取码成功跳转地址
-		that.attr('target','_blank')
-	})
+<script type="text/javascript">
+ var imgs = document.querySelectorAll('img');
+
+        //用来判断bound.top<=clientHeight的函数，返回一个bool值
+        function isIn(el) {
+            var bound = el.getBoundingClientRect();
+            var clientHeight = window.innerHeight;
+            return bound.top <= clientHeight;
+        } 
+        //检查图片是否在可视区内，如果不在，则加载
+        function check() {
+            Array.from(imgs).forEach(function(el){
+                if(isIn(el)){
+                    loadImg(el);
+                }
+            })
+        }
+        function loadImg(el) {
+            if(!el.src){
+                var source = el.dataset.src;
+                el.src = source;
+            }
+        }
+        window.onload = window.onscroll = function () { //onscroll()在滚动条滚动的时候触发
+            check();
+        }
 </script>
-<!-- 下载 -->
-<script>
-	const btn = document.querySelector("#btn");
-	const item = document.querySelectorAll(".lock");
-	let showCard = (event) => {
-		btn.classList.toggle("is-rotate");
-		for (var i = 0; i < item.length; i++) {
-			item[i].classList.toggle(`on`);
-		}
-	}
-	btn.addEventListener("click", showCard);
-</script>
-<!--音乐-->
-<script>
-function rbf(){
- var audio = document.getElementById('music1'); 
- audio.currentTime = 0;
-}
-function bf(){
- var audio = document.getElementById('music1'); 
- if(audio!==null){             
-     alert(audio.paused);
-  if(audio.paused)                     {                 
-      audio.play('播放');  
-  }else{
-   audio.pause('暂停');
-  }
- } 
-}
-   
-</script>
-<script>
-try {
-	if (/Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent)) {
 
-	} else {
-
-			var canvas = document.querySelector('canvas'),
-				ctx = canvas.getContext('2d')
-				canvas.width = window.innerWidth;
-			canvas.height = window.innerHeight;
-			ctx.lineWidth = .3;
-			ctx.strokeStyle = (new Color(150)).style;
-
-			var mousePosition = {
-				x: 30 * canvas.width / 100,
-				y: 30 * canvas.height / 100
-			};
-
-			var dots = {
-				nb: 250,
-				distance: 100,
-				d_radius: 150,
-				array: []
-			};
-
-			function colorValue(min) {
-				return Math.floor(Math.random() * 255 + min);
-			}
-
-			function createColorStyle(r, g, b) {
-				return 'rgba(' + r + ',' + g + ',' + b + ', 0.8)';
-			}
-
-			function mixComponents(comp1, weight1, comp2, weight2) {
-				return (comp1 * weight1 + comp2 * weight2) / (weight1 + weight2);
-			}
-
-			function averageColorStyles(dot1, dot2) {
-				var color1 = dot1.color,
-					color2 = dot2.color;
-
-				var r = mixComponents(color1.r, dot1.radius, color2.r, dot2.radius),
-					g = mixComponents(color1.g, dot1.radius, color2.g, dot2.radius),
-					b = mixComponents(color1.b, dot1.radius, color2.b, dot2.radius);
-				return createColorStyle(Math.floor(r), Math.floor(g), Math.floor(b));
-			}
-
-			function Color(min) {
-				min = min || 0;
-				this.r = colorValue(min);
-				this.g = colorValue(min);
-				this.b = colorValue(min);
-				this.style = createColorStyle(this.r, this.g, this.b);
-			}
-
-			function Dot() {
-				this.x = Math.random() * canvas.width;
-				this.y = Math.random() * canvas.height;
-
-				this.vx = -.5 + Math.random();
-				this.vy = -.5 + Math.random();
-
-				this.radius = Math.random() * 2;
-
-				this.color = new Color();
-				console.log(this);
-			}
-
-			Dot.prototype = {
-				draw: function() {
-					ctx.beginPath();
-					ctx.fillStyle = this.color.style;
-					ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false);
-					ctx.fill();
-				}
-			};
-
-			function createDots() {
-				for (i = 0; i < dots.nb; i++) {
-					dots.array.push(new Dot());
-				}
-			}
-
-			function moveDots() {
-				for (i = 0; i < dots.nb; i++) {
-
-					var dot = dots.array[i];
-
-					if (dot.y < 0 || dot.y > canvas.height) {
-						dot.vx = dot.vx;
-						dot.vy = -dot.vy;
-					} else if (dot.x < 0 || dot.x > canvas.width) {
-						dot.vx = -dot.vx;
-						dot.vy = dot.vy;
-					}
-					dot.x += dot.vx;
-					dot.y += dot.vy;
-				}
-			}
-
-			function connectDots() {
-				for (i = 0; i < dots.nb; i++) {
-					for (j = 0; j < dots.nb; j++) {
-						i_dot = dots.array[i];
-						j_dot = dots.array[j];
-
-						if ((i_dot.x - j_dot.x) < dots.distance && (i_dot.y - j_dot.y) < dots.distance && (i_dot.x - j_dot.x) > -dots.distance && (i_dot.y - j_dot.y) > -dots.distance) {
-							if ((i_dot.x - mousePosition.x) < dots.d_radius && (i_dot.y - mousePosition.y) < dots.d_radius && (i_dot.x - mousePosition.x) > -dots.d_radius && (i_dot.y - mousePosition.y) > -dots.d_radius) {
-								ctx.beginPath();
-								ctx.strokeStyle = averageColorStyles(i_dot, j_dot);
-								ctx.moveTo(i_dot.x, i_dot.y);
-								ctx.lineTo(j_dot.x, j_dot.y);
-								ctx.stroke();
-								ctx.closePath();
-							}
-						}
-					}
-				}
-			}
-
-			function drawDots() {
-				for (i = 0; i < dots.nb; i++) {
-					var dot = dots.array[i];
-					dot.draw();
-				}
-			}
-
-			function animateDots() {
-				ctx.clearRect(0, 0, canvas.width, canvas.height);
-				moveDots();
-				//connectDots();
-				drawDots();
-
-				requestAnimationFrame(animateDots);
-			}
-
-
-			createDots();
-			requestAnimationFrame(animateDots);
-
-	}
-} catch (e) {}
-</script>
-</body>
-</html>
+</body></html>
