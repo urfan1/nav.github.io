@@ -1,613 +1,1015 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>云盘资源站 - 精品网盘资源分享平台</title>
-  <meta name="description" content="海量网盘资源免费分享，涵盖影视、软件、教程、电子书、游戏等，VIP会员解锁隐藏资源">
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
-  <style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lin Chen | 视觉设计师作品集</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://unpkg.com/lucide@latest"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #0a0a0f;
+  --surface: #111118;
+  --surface-2: #1a1a24;
+  --text: #f0f0f5;
+  --text-muted: #8a8a9a;
+  --accent: #6366f1;
+  --accent-2: #ec4899;
+  --accent-3: #06b6d4;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Noto Sans SC', 'Space Grotesk', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  overflow-x: hidden;
+  cursor: none;
+}
 
-    :root {
-      --primary: #6366f1; --primary-dark: #4f46e5; --primary-light: #818cf8;
-      --accent: #f59e0b; --accent-glow: rgba(245, 158, 11, 0.3);
-      --vip: #f59e0b; --vip-glow: rgba(245, 158, 11, 0.2);
-      --bg: #0f0f1a; --bg-card: rgba(20, 20, 35, 0.9); --bg-card-hover: rgba(30, 30, 50, 0.95);
-      --border: rgba(255,255,255,0.06);
-      --text: #e2e8f0; --text-muted: #94a3b8; --text-dim: #64748b;
-      --success: #10b981; --danger: #ef4444; --glass: rgba(255,255,255,0.03);
-    }
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'Noto Sans SC', sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; overflow-x: hidden; }
-    .bg-mesh { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none;
-      background: radial-gradient(ellipse at 20% 20%, rgba(99,102,241,0.08) 0%, transparent 50%),
-        radial-gradient(ellipse at 80% 80%, rgba(245,158,11,0.05) 0%, transparent 50%),
-        radial-gradient(ellipse at 50% 50%, rgba(99,102,241,0.03) 0%, transparent 70%); }
-    .navbar { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; display: flex; justify-content: space-between; align-items: center;
-      padding: 0 40px; height: 64px; background: rgba(15,15,26,0.85); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); }
-    .nav-brand { display: flex; align-items: center; gap: 10px; font-size: 22px; font-weight: 900; color: #fff; text-decoration: none; }
-    .nav-brand .brand-icon { width: 36px; height: 36px; background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-      border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 18px; }
-    .nav-brand .brand-text { background: linear-gradient(90deg, #fff, var(--primary-light)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-    .nav-links { display: flex; align-items: center; gap: 8px; }
-    .nav-links a { color: var(--text-muted); text-decoration: none; font-size: 14px; font-weight: 500; padding: 8px 16px; border-radius: 8px; transition: all 0.3s; }
-    .nav-links a:hover, .nav-links a.active { color: #fff; background: var(--glass); }
-    .user-area { display: flex; align-items: center; gap: 12px; }
-    .btn { padding: 8px 20px; border-radius: 8px; font-size: 14px; font-weight: 600; cursor: pointer; transition: all 0.3s;
-      border: none; font-family: inherit; display: inline-flex; align-items: center; gap: 6px; }
-    .btn-primary { background: linear-gradient(135deg, var(--primary), var(--primary-dark)); color: #fff; }
-    .btn-primary:hover { box-shadow: 0 4px 20px rgba(99,102,241,0.4); transform: translateY(-1px); }
-    .btn-vip { background: linear-gradient(135deg, #f59e0b, #d97706); color: #000; }
-    .btn-vip:hover { box-shadow: 0 4px 20px var(--accent-glow); transform: translateY(-1px); }
-    .btn-outline { background: transparent; border: 1px solid var(--border); color: var(--text-muted); }
-    .btn-outline:hover { border-color: var(--primary); color: var(--primary-light); }
-    .btn-sm { padding: 6px 14px; font-size: 13px; }
-    .user-avatar { width: 36px; height: 36px; border-radius: 50%; background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-      display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 700; color: #fff;
-      cursor: pointer; border: 2px solid transparent; transition: all 0.3s; }
-    .user-avatar.vip { border-color: var(--vip); box-shadow: 0 0 10px var(--vip-glow); }
-    .vip-badge { background: linear-gradient(135deg, #f59e0b, #d97706); color: #000; font-size: 10px; font-weight: 700;
-      padding: 2px 8px; border-radius: 4px; margin-left: 6px; }
-    .hero { position: relative; z-index: 1; padding: 140px 40px 60px; text-align: center; max-width: 800px; margin: 0 auto; }
-    .hero h1 { font-size: 48px; font-weight: 900; line-height: 1.2; margin-bottom: 16px;
-      background: linear-gradient(135deg, #fff 0%, var(--primary-light) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-    .hero p { font-size: 18px; color: var(--text-muted); margin-bottom: 32px; line-height: 1.7; }
-    .hero-stats { display: flex; justify-content: center; gap: 48px; margin-top: 40px; }
-    .hero-stat { text-align: center; }
-    .hero-stat .num { font-size: 32px; font-weight: 900; color: #fff; }
-    .hero-stat .label { font-size: 13px; color: var(--text-dim); margin-top: 4px; }
-    .search-wrap { position: relative; max-width: 640px; margin: 0 auto 40px; }
-    .search-box { display: flex; align-items: center; background: var(--bg-card); border: 1px solid var(--border);
-      border-radius: 16px; padding: 4px; transition: all 0.3s; }
-    .search-box:focus-within { border-color: var(--primary); box-shadow: 0 0 30px rgba(99,102,241,0.15); }
-    .search-box input { flex: 1; background: transparent; border: none; color: #fff; font-size: 16px;
-      padding: 14px 20px; outline: none; font-family: inherit; }
-    .search-box input::placeholder { color: var(--text-dim); }
-    .search-box .search-btn { padding: 12px 28px; background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-      color: #fff; border: none; border-radius: 12px; font-size: 15px; font-weight: 600; cursor: pointer;
-      transition: all 0.3s; font-family: inherit; }
-    .search-box .search-btn:hover { box-shadow: 0 4px 20px rgba(99,102,241,0.4); }
-    .category-bar { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; padding: 0 40px;
-      margin-bottom: 24px; position: relative; z-index: 1; }
-    .cat-tag { padding: 8px 20px; border-radius: 30px; background: var(--glass); border: 1px solid var(--border);
-      color: var(--text-muted); font-size: 14px; cursor: pointer; transition: all 0.3s; font-family: inherit;
-      display: flex; align-items: center; gap: 6px; }
-    .cat-tag:hover, .cat-tag.active { background: rgba(99,102,241,0.15); border-color: var(--primary); color: var(--primary-light); }
-    
-    .toolbar { max-width: 1400px; margin: 0 auto; padding: 0 40px 20px; display: flex;
-      justify-content: space-between; align-items: center; position: relative; z-index: 1; }
-    .toolbar-left { display: flex; align-items: center; gap: 16px; }
-    .section-title { font-size: 20px; font-weight: 700; color: #fff; display: flex; align-items: center; gap: 10px; }
-    .section-title .dot { width: 8px; height: 8px; background: var(--primary); border-radius: 50%; box-shadow: 0 0 10px var(--primary); }
-    .result-count { font-size: 13px; color: var(--text-dim); }
-    .toolbar-right { display: flex; align-items: center; gap: 12px; }
-    .sort-select { padding: 6px 14px; background: var(--glass); border: 1px solid var(--border); border-radius: 8px;
-      color: var(--text-muted); font-size: 13px; font-family: inherit; cursor: pointer; outline: none; }
-    .sort-select:focus { border-color: var(--primary); }
-    .sort-select option { background: var(--bg-card); color: var(--text); }
-    .view-toggle { display: flex; background: var(--glass); border: 1px solid var(--border); border-radius: 10px; overflow: hidden; }
-    .view-btn { padding: 8px 14px; background: transparent; border: none; color: var(--text-dim); font-size: 16px;
-      cursor: pointer; transition: all 0.3s; display: flex; align-items: center; justify-content: center; }
-    .view-btn:hover { color: var(--text-muted); }
-    .view-btn.active { background: rgba(99,102,241,0.15); color: var(--primary-light); }
-    
-    .resources-wrap { max-width: 1400px; margin: 0 auto; padding: 0 40px 60px; position: relative; z-index: 1; }
-    .resources-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 20px; }
-    .resource-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px;
-      overflow: hidden; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); position: relative; }
-    .resource-card:hover { transform: translateY(-4px); border-color: rgba(99,102,241,0.2); box-shadow: 0 20px 40px rgba(0,0,0,0.3); }
-    .resource-card.vip-only { border-color: rgba(245,158,11,0.15); }
-    .resource-card.vip-only:hover { border-color: rgba(245,158,11,0.3); box-shadow: 0 20px 40px rgba(0,0,0,0.3), 0 0 30px var(--vip-glow); }
-    .card-cover { height: 160px; position: relative; display: flex; align-items: center; justify-content: center;
-      font-size: 48px; overflow: hidden; }
-    .card-cover::after { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
-      background: linear-gradient(180deg, transparent 50%, rgba(0,0,0,0.6) 100%); }
-    .card-cover .cover-icon { z-index: 1; filter: drop-shadow(0 4px 20px rgba(0,0,0,0.3)); }
-    .vip-ribbon { position: absolute; top: 12px; right: -30px; background: linear-gradient(135deg, #f59e0b, #d97706);
-      color: #000; font-size: 11px; font-weight: 700; padding: 4px 36px; transform: rotate(45deg); z-index: 2;
-      box-shadow: 0 2px 10px rgba(245,158,11,0.3); }
-    .card-body { padding: 20px; }
-    .card-meta { display: flex; gap: 8px; margin-bottom: 12px; flex-wrap: wrap; }
-    .meta-tag { font-size: 11px; padding: 3px 10px; border-radius: 6px; font-weight: 500; }
-    .meta-tag.type-movie { background: rgba(239,68,68,0.12); color: #f87171; }
-    .meta-tag.type-software { background: rgba(59,130,246,0.12); color: #60a5fa; }
-    .meta-tag.type-course { background: rgba(16,185,129,0.12); color: #34d399; }
-    .meta-tag.type-book { background: rgba(139,92,246,0.12); color: #a78bfa; }
-    .meta-tag.type-game { background: rgba(245,158,11,0.12); color: #fbbf24; }
-    .meta-tag.type-music { background: rgba(236,72,153,0.12); color: #f472b6; }
-    .meta-tag.type-design { background: rgba(6,182,212,0.12); color: #22d3ee; }
-    .meta-tag.size { background: var(--glass); color: var(--text-dim); }
-    .meta-tag.date { background: var(--glass); color: var(--text-dim); }
-    .card-title { font-size: 16px; font-weight: 700; color: #fff; margin-bottom: 8px; line-height: 1.5;
-      display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
-    .card-desc { font-size: 13px; color: var(--text-muted); line-height: 1.7; margin-bottom: 16px;
-      display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
-    .card-footer { display: flex; justify-content: space-between; align-items: center; padding-top: 16px; border-top: 1px solid var(--border); }
-    .card-stats { display: flex; gap: 16px; font-size: 12px; color: var(--text-dim); }
-    .card-stats span { display: flex; align-items: center; gap: 4px; }
-    .download-area { display: flex; align-items: center; gap: 10px; }
-    .link-hidden { display: flex; align-items: center; gap: 6px; font-size: 13px; color: var(--text-dim);
-      background: rgba(0,0,0,0.3); padding: 6px 14px; border-radius: 8px; border: 1px dashed rgba(245,158,11,0.3); }
-    .link-hidden .lock-icon { color: var(--vip); }
-    
-    .resources-list { display: flex; flex-direction: column; gap: 12px; }
-    .list-item { display: flex; align-items: center; gap: 16px; background: var(--bg-card); border: 1px solid var(--border);
-      border-radius: 14px; padding: 16px 20px; transition: all 0.3s; position: relative; overflow: hidden; }
-    .list-item:hover { border-color: rgba(99,102,241,0.2); background: var(--bg-card-hover); }
-    .list-item.vip-only { border-color: rgba(245,158,11,0.1); }
-    .list-item.vip-only:hover { border-color: rgba(245,158,11,0.25); }
-    .list-item.vip-only::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px;
-      background: linear-gradient(180deg, var(--vip), #d97706); border-radius: 14px 0 0 14px; }
-    .list-icon-wrap { width: 48px; height: 48px; border-radius: 12px; display: flex; align-items: center;
-      justify-content: center; font-size: 24px; flex-shrink: 0; position: relative; }
-    .list-icon-wrap .vip-dot { position: absolute; top: -2px; right: -2px; width: 14px; height: 14px;
-      background: linear-gradient(135deg, var(--vip), #d97706); border-radius: 50%; border: 2px solid var(--bg-card);
-      display: flex; align-items: center; justify-content: center; font-size: 8px; }
-    .list-content { flex: 1; min-width: 0; }
-    .list-title-row { display: flex; align-items: center; gap: 8px; margin-bottom: 6px; }
-    .list-title { font-size: 15px; font-weight: 600; color: #fff; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-    .list-desc { font-size: 13px; color: var(--text-muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-    .list-meta-row { display: flex; align-items: center; gap: 12px; margin-top: 8px; flex-wrap: wrap; }
-    .list-meta { display: flex; align-items: center; gap: 6px; font-size: 12px; color: var(--text-dim); }
-    .list-meta .meta-tag { font-size: 10px; padding: 2px 8px; }
-    .list-actions { display: flex; align-items: center; gap: 12px; flex-shrink: 0; }
-    .list-actions .link-hidden { padding: 6px 12px; font-size: 12px; }
-    .list-actions .btn-sm { padding: 8px 18px; }
-    .list-stat { font-size: 12px; color: var(--text-dim); display: flex; align-items: center; gap: 4px; }
-    
-    .footer { text-align: center; padding: 40px; color: var(--text-dim); font-size: 13px;
-      border-top: 1px solid var(--border); position: relative; z-index: 1; }
-    .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7);
-      backdrop-filter: blur(10px); z-index: 2000; display: none; align-items: center; justify-content: center;
-      opacity: 0; transition: opacity 0.3s; }
-    .modal-overlay.show { display: flex; opacity: 1; }
-    .modal { background: var(--bg-card); border: 1px solid var(--border); border-radius: 20px; padding: 40px;
-      max-width: 420px; width: 90%; text-align: center; transform: scale(0.9); transition: transform 0.3s; position: relative; }
-    .modal-overlay.show .modal { transform: scale(1); }
-    .modal-close { position: absolute; top: 16px; right: 16px; width: 32px; height: 32px; border-radius: 50%;
-      background: var(--glass); border: none; color: var(--text-muted); font-size: 18px; cursor: pointer;
-      display: flex; align-items: center; justify-content: center; transition: all 0.3s; }
-    .modal-close:hover { background: rgba(239,68,68,0.2); color: var(--danger); }
-    .modal-icon { width: 64px; height: 64px; background: linear-gradient(135deg, var(--vip), #d97706);
-      border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 28px;
-      margin: 0 auto 20px; box-shadow: 0 8px 30px var(--accent-glow); }
-    .modal h3 { font-size: 22px; font-weight: 700; color: #fff; margin-bottom: 12px; }
-    .modal p { font-size: 14px; color: var(--text-muted); line-height: 1.7; margin-bottom: 24px; }
-    .modal .features { text-align: left; background: var(--glass); border-radius: 12px; padding: 16px 20px; margin-bottom: 24px; }
-    .modal .features li { list-style: none; font-size: 13px; color: var(--text-muted); padding: 6px 0;
-      display: flex; align-items: center; gap: 8px; }
-    .modal .features li::before { content: '\2713'; color: var(--success); font-weight: 700; }
-    .modal-actions { display: flex; flex-direction: column; gap: 10px; }
-    .modal-actions .btn { width: 100%; justify-content: center; padding: 12px; font-size: 15px; }
-    .login-form { text-align: left; }
-    .form-group { margin-bottom: 16px; }
-    .form-group label { display: block; font-size: 13px; color: var(--text-muted); margin-bottom: 6px; }
-    .form-group input { width: 100%; padding: 12px 16px; background: var(--glass); border: 1px solid var(--border);
-      border-radius: 10px; color: #fff; font-size: 14px; outline: none; transition: all 0.3s; font-family: inherit; }
-    .form-group input:focus { border-color: var(--primary); box-shadow: 0 0 15px rgba(99,102,241,0.1); }
-    .form-group input::placeholder { color: var(--text-dim); }
-    .form-hint { font-size: 12px; color: var(--text-dim); text-align: center; margin-top: 12px; }
-    .form-hint a { color: var(--primary-light); text-decoration: none; }
-    .form-hint a:hover { text-decoration: underline; }
-    .vip-plans { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 24px; }
-    .plan-card { background: var(--glass); border: 1px solid var(--border); border-radius: 12px; padding: 20px 16px;
-      text-align: center; cursor: pointer; transition: all 0.3s; position: relative; }
-    .plan-card:hover, .plan-card.selected { border-color: var(--vip); background: rgba(245,158,11,0.05); }
-    .plan-card.recommended { border-color: var(--vip); background: rgba(245,158,11,0.08); }
-    .plan-card.recommended::before { content: '推荐'; position: absolute; top: -1px; left: 50%; transform: translateX(-50%);
-      background: linear-gradient(135deg, var(--vip), #d97706); color: #000; font-size: 10px; font-weight: 700;
-      padding: 2px 12px; border-radius: 0 0 8px 8px; }
-    .plan-card .plan-name { font-size: 14px; font-weight: 600; color: #fff; margin-bottom: 8px; }
-    .plan-card .plan-price { font-size: 28px; font-weight: 900; color: var(--vip); }
-    .plan-card .plan-price span { font-size: 14px; font-weight: 400; color: var(--text-dim); }
-    .plan-card .plan-period { font-size: 12px; color: var(--text-dim); margin-top: 4px; }
-    .toast { position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%) translateY(100px);
-      background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; padding: 14px 24px;
-      font-size: 14px; color: #fff; z-index: 3000; opacity: 0; transition: all 0.4s;
-      display: flex; align-items: center; gap: 10px; box-shadow: 0 10px 40px rgba(0,0,0,0.4); }
-    .toast.show { transform: translateX(-50%) translateY(0); opacity: 1; }
-    .toast.success { border-color: rgba(16,185,129,0.3); }
-    .toast.error { border-color: rgba(239,68,68,0.3); }
-    .toast.info { border-color: rgba(99,102,241,0.3); }
-    @media (max-width: 768px) {
-      .navbar { padding: 0 20px; } .nav-links { display: none; } .hero { padding: 120px 20px 40px; }
-      .hero h1 { font-size: 32px; } .hero-stats { gap: 24px; }
-      .resources-wrap, .toolbar { padding: 0 20px 40px; } .resources-grid { grid-template-columns: 1fr; }
-      .category-bar { padding: 0 20px; } .vip-plans { grid-template-columns: 1fr; } .modal { padding: 30px 24px; }
-      .toolbar { flex-direction: column; gap: 12px; align-items: flex-start; }
-      .toolbar-right { width: 100%; justify-content: space-between; }
-      .list-item { padding: 14px 16px; gap: 12px; } .list-icon-wrap { width: 40px; height: 40px; font-size: 20px; }
-      .list-actions .btn-sm { padding: 6px 12px; font-size: 12px; } .list-stat { display: none; }
-    }
-    @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-    .resource-card, .list-item { animation: fadeInUp 0.4s ease forwards; }
-    </style>
+/* Custom Cursor */
+.cursor-dot {
+  position: fixed;
+  width: 8px; height: 8px;
+  background: var(--accent);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  mix-blend-mode: difference;
+  transition: transform 0.1s ease;
+}
+.cursor-ring {
+  position: fixed;
+  width: 40px; height: 40px;
+  border: 1px solid rgba(99, 102, 241, 0.5);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9998;
+  transition: transform 0.15s ease, width 0.3s ease, height 0.3s ease;
+}
+.cursor-ring.hovering {
+  width: 60px; height: 60px;
+  border-color: var(--accent-2);
+  background: rgba(236, 72, 153, 0.1);
+}
+
+/* Noise overlay */
+.noise-overlay {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  pointer-events: none;
+  z-index: 9000;
+  opacity: 0.03;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+}
+
+/* Hero Canvas */
+#hero-canvas {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  z-index: 0;
+}
+
+/* Text effects */
+.glitch-text {
+  position: relative;
+}
+.glitch-text::before,
+.glitch-text::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  opacity: 0;
+}
+.glitch-text:hover::before {
+  animation: glitch-1 0.3s linear;
+  color: var(--accent-2);
+  opacity: 0.8;
+}
+.glitch-text:hover::after {
+  animation: glitch-2 0.3s linear;
+  color: var(--accent-3);
+  opacity: 0.8;
+}
+@keyframes glitch-1 {
+  0%, 100% { clip-path: inset(0 0 0 0); transform: translate(0); }
+  20% { clip-path: inset(20% 0 60% 0); transform: translate(-3px, 2px); }
+  40% { clip-path: inset(40% 0 40% 0); transform: translate(3px, -2px); }
+  60% { clip-path: inset(60% 0 20% 0); transform: translate(-2px, 3px); }
+  80% { clip-path: inset(80% 0 0% 0); transform: translate(2px, -3px); }
+}
+@keyframes glitch-2 {
+  0%, 100% { clip-path: inset(0 0 0 0); transform: translate(0); }
+  20% { clip-path: inset(60% 0 20% 0); transform: translate(3px, -2px); }
+  40% { clip-path: inset(40% 0 40% 0); transform: translate(-3px, 2px); }
+  60% { clip-path: inset(20% 0 60% 0); transform: translate(2px, -3px); }
+  80% { clip-path: inset(0% 0 80% 0); transform: translate(-2px, 3px); }
+}
+
+/* Marquee */
+.marquee-container {
+  overflow: hidden;
+  white-space: nowrap;
+}
+.marquee-track {
+  display: inline-flex;
+  animation: marquee 30s linear infinite;
+}
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* Project cards */
+.project-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 16px;
+  background: var(--surface);
+  transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+}
+.project-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(99,102,241,0.1), rgba(236,72,153,0.1));
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  z-index: 1;
+}
+.project-card:hover::before { opacity: 1; }
+.project-card:hover { transform: translateY(-8px); }
+.project-card img {
+  transition: transform 0.7s cubic-bezier(0.23, 1, 0.32, 1);
+}
+.project-card:hover img { transform: scale(1.05); }
+.project-card .project-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(10,10,15,0.95) 0%, rgba(10,10,15,0.3) 50%, transparent 100%);
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 2rem;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+}
+.project-card:hover .project-overlay {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Skill bars */
+.skill-bar {
+  height: 3px;
+  background: var(--surface-2);
+  border-radius: 3px;
+  overflow: hidden;
+}
+.skill-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  border-radius: 3px;
+  width: 0;
+  transition: width 1.5s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+/* Service cards */
+.service-card {
+  background: var(--surface);
+  border: 1px solid rgba(255,255,255,0.05);
+  border-radius: 20px;
+  padding: 2.5rem;
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  position: relative;
+  overflow: hidden;
+}
+.service-card::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(99,102,241,0.15), transparent 50%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+.service-card:hover::after { opacity: 1; }
+.service-card:hover {
+  border-color: rgba(99,102,241,0.3);
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px -20px rgba(99,102,241,0.2);
+}
+
+/* Scroll reveal */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+}
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Nav */
+.nav-glass {
+  background: rgba(10, 10, 15, 0.8);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+/* Testimonial */
+.testimonial-card {
+  background: var(--surface);
+  border: 1px solid rgba(255,255,255,0.05);
+  border-radius: 20px;
+  padding: 2rem;
+}
+
+/* Contact form */
+.form-input {
+  background: var(--surface);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 12px;
+  padding: 1rem 1.25rem;
+  color: var(--text);
+  width: 100%;
+  transition: all 0.3s ease;
+  outline: none;
+}
+.form-input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(99,102,241,0.1);
+}
+.form-input::placeholder { color: var(--text-muted); }
+
+/* Button */
+.btn-primary {
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  border: none;
+  border-radius: 12px;
+  padding: 1rem 2rem;
+  color: white;
+  font-weight: 600;
+  cursor: none;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  top: 50%; left: 50%;
+  width: 0; height: 0;
+  background: rgba(255,255,255,0.2);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.6s ease, height 0.6s ease;
+}
+.btn-primary:hover::before {
+  width: 300px; height: 300px;
+}
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px -10px rgba(99,102,241,0.4);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--surface-2); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--accent); }
+
+/* Mobile cursor hide */
+@media (pointer: coarse) {
+  .cursor-dot, .cursor-ring { display: none; }
+  body { cursor: auto; }
+  .btn-primary { cursor: pointer; }
+}
+
+/* Empty state */
+.empty-state {
+  text-align: center;
+  padding: 60px 20px;
+  color: var(--text-muted);
+}
+.empty-state i {
+  width: 48px; height: 48px;
+  margin-bottom: 16px;
+  opacity: 0.3;
+}
+</style>
 <base target="_blank">
 </head>
 <body>
 
-  <div class="bg-mesh"></div>
-  <nav class="navbar">
-    <a href="#" class="nav-brand" onclick="location.reload(); return false;">
-      <div class="brand-icon">☁</div>
-      <span class="brand-text">云盘资源站</span>
+<!-- Custom Cursor -->
+<div class="cursor-dot" id="cursor-dot"></div>
+<div class="cursor-ring" id="cursor-ring"></div>
+
+<!-- Noise Overlay -->
+<div class="noise-overlay"></div>
+
+<!-- Navigation -->
+<nav class="nav-glass fixed top-0 left-0 right-0 z-50 transition-all duration-300" id="navbar">
+  <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+    <a href="#" class="text-xl font-bold tracking-tight flex items-center gap-2 hover-target">
+      <span class="w-8 h-8 rounded-lg bg-gradient-to-br from-indigo-500 to-pink-500 flex items-center justify-center text-white text-sm font-bold">LC</span>
+      <span class="glitch-text" data-text="Lin Chen">Lin Chen</span>
     </a>
-    <div class="nav-links">
-      <a href="#" class="active" onclick="filterCategory('all'); return false;">首页</a>
-      <a href="#" onclick="filterCategory('movie'); return false;">影视</a>
-      <a href="#" onclick="filterCategory('software'); return false;">软件</a>
-      <a href="#" onclick="filterCategory('course'); return false;">教程</a>
-      <a href="#" onclick="filterCategory('book'); return false;">电子书</a>
-      <a href="#" onclick="filterCategory('game'); return false;">游戏</a>
+    <div class="hidden md:flex items-center gap-8">
+      <a href="#about" class="text-sm text-gray-400 hover:text-white transition-colors hover-target">关于</a>
+      <a href="#works" class="text-sm text-gray-400 hover:text-white transition-colors hover-target">作品</a>
+      <a href="#services" class="text-sm text-gray-400 hover:text-white transition-colors hover-target">服务</a>
+      <a href="#contact" class="text-sm text-gray-400 hover:text-white transition-colors hover-target">联系</a>
     </div>
-    <div class="user-area" id="userArea">
-      <button class="btn btn-outline btn-sm" onclick="showLogin()">登录</button>
-      <button class="btn btn-primary btn-sm" onclick="showVIP()">开通VIP</button>
-    </div>
-  </nav>
-  <section class="hero">
-    <h1>海量网盘资源<br>一键获取</h1>
-    <p>收录全网优质网盘资源，涵盖影视、软件、教程、电子书等<br>VIP会员解锁隐藏资源，享受无限制下载</p>
-    <div class="search-wrap">
-      <div class="search-box">
-        <input type="text" id="searchInput" placeholder="搜索资源名称、关键词..." oninput="searchResources(this.value)">
-        <button class="search-btn" onclick="searchResources(document.getElementById('searchInput').value)">搜索</button>
-      </div>
-    </div>
-    <div class="hero-stats">
-      <div class="hero-stat"><div class="num">12,580+</div><div class="label">收录资源</div></div>
-      <div class="hero-stat"><div class="num">8,200+</div><div class="label">VIP专属</div></div>
-      <div class="hero-stat"><div class="num">50+</div><div class="label">资源分类</div></div>
-      <div class="hero-stat"><div class="num">99.9%</div><div class="label">链接有效</div></div>
-    </div>
-  </section>
-  <div class="category-bar">
-    <button class="cat-tag active" onclick="filterCategory('all', this)">🌍 全部资源</button>
-    <button class="cat-tag" onclick="filterCategory('movie', this)">🎬 影视资源</button>
-    <button class="cat-tag" onclick="filterCategory('software', this)">💻 软件工具</button>
-    <button class="cat-tag" onclick="filterCategory('course', this)">📚 学习教程</button>
-    <button class="cat-tag" onclick="filterCategory('book', this)">📕 电子书</button>
-    <button class="cat-tag" onclick="filterCategory('game', this)">🎮 游戏</button>
-    <button class="cat-tag" onclick="filterCategory('music', this)">🎵 音乐</button>
-    <button class="cat-tag" onclick="filterCategory('design', this)">🎨 设计素材</button>
+    <button class="md:hidden text-white hover-target" id="mobile-menu-btn">
+      <i data-lucide="menu" class="w-6 h-6"></i>
+    </button>
   </div>
-  <div class="toolbar">
-    <div class="toolbar-left">
-      <div class="section-title"><span class="dot"></span>最新资源</div>
-      <span class="result-count" id="resultCount">共 18 条资源</span>
-    </div>
-    <div class="toolbar-right">
-      <select class="sort-select" id="sortSelect" onchange="sortResources(this.value)">
-        <option value="newest">📅 最新发布</option>
-        <option value="popular">🔥 最热下载</option>
-        <option value="size">📦 文件大小</option>
-        <option value="name">📖 名称排序</option>
-      </select>
-      <div class="view-toggle">
-        <button class="view-btn active" id="viewGrid" onclick="switchView('grid')" title="网格视图">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect></svg>
-        </button>
-        <button class="view-btn" id="viewList" onclick="switchView('list')" title="列表视图">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
-        </button>
-      </div>
+  <!-- Mobile Menu -->
+  <div class="md:hidden hidden bg-[#111118] border-t border-white/5" id="mobile-menu">
+    <div class="px-6 py-4 flex flex-col gap-4">
+      <a href="#about" class="text-gray-400 hover:text-white transition-colors">关于</a>
+      <a href="#works" class="text-gray-400 hover:text-white transition-colors">作品</a>
+      <a href="#services" class="text-gray-400 hover:text-white transition-colors">服务</a>
+      <a href="#contact" class="text-gray-400 hover:text-white transition-colors">联系</a>
     </div>
   </div>
-  <div class="resources-wrap">
-    <div id="resourcesContainer"></div>
-  </div>
-  <footer class="footer">
-    <p>© 2026 云盘资源站 · 本站资源均来自网络分享，仅供学习交流使用 · 如有侵权请联系删除</p>
-  </footer>
+</nav>
 
-  <div class="modal-overlay" id="vipModal">
-    <div class="modal">
-      <button class="modal-close" onclick="closeModal('vipModal')">✕</button>
-      <div class="modal-icon">👑</div>
-      <h3>开通VIP会员</h3>
-      <p>解锁全部隐藏资源链接，享受无限制高速下载</p>
-      <ul class="features">
-        <li>查看所有VIP专属隐藏资源链接</li>
-        <li>每日更新最新稀缺资源</li>
-        <li>专属客服一对一服务</li>
-        <li>资源失效快速补链</li>
-        <li>免广告纯净浏览体验</li>
-      </ul>
-      <div class="vip-plans">
-        <div class="plan-card" onclick="selectPlan(this, 'month')">
-          <div class="plan-name">月度会员</div>
-          <div class="plan-price">¥19<span>/月</span></div>
-          <div class="plan-period">30天有效期</div>
-        </div>
-        <div class="plan-card recommended selected" onclick="selectPlan(this, 'quarter')">
-          <div class="plan-name">季度会员</div>
-          <div class="plan-price">¥49<span>/季</span></div>
-          <div class="plan-period">90天有效期</div>
-        </div>
-        <div class="plan-card" onclick="selectPlan(this, 'year')">
-          <div class="plan-name">年度会员</div>
-          <div class="plan-price">¥168<span>/年</span></div>
-          <div class="plan-period">365天有效期</div>
+<!-- Hero Section -->
+<section class="relative min-h-screen flex items-center justify-center overflow-hidden">
+  <canvas id="hero-canvas"></canvas>
+  <div class="relative z-10 text-center px-6 max-w-5xl mx-auto">
+    <div class="mb-6 inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-sm">
+      <span class="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span>
+      <span class="text-sm text-gray-400">目前可接新项目</span>
+    </div>
+    <h1 class="text-5xl md:text-7xl lg:text-8xl font-black mb-6 leading-tight tracking-tight">
+      <span class="block glitch-text" data-text="创造视觉">创造视觉</span>
+      <span class="block bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">无限可能</span>
+    </h1>
+    <p class="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto mb-10 leading-relaxed" id="hero-bio">
+      我是 <strong class="text-white">林晨</strong>，一名专注于品牌视觉、UI/UX 设计与动态视觉的独立平面设计师。用设计讲述故事，用视觉传递价值。
+    </p>
+    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+      <a href="#works" class="btn-primary inline-flex items-center justify-center gap-2 hover-target">
+        <span>浏览作品</span>
+        <i data-lucide="arrow-down-right" class="w-5 h-5"></i>
+      </a>
+      <a href="#contact" class="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl border border-white/20 text-white hover:bg-white/5 transition-all hover-target">
+        <span>联系我</span>
+        <i data-lucide="mail" class="w-5 h-5"></i>
+      </a>
+    </div>
+  </div>
+  <div class="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce">
+    <i data-lucide="chevron-down" class="w-6 h-6 text-gray-500"></i>
+  </div>
+</section>
+
+<!-- Marquee -->
+<div class="py-8 border-y border-white/5 bg-[#0d0d14]">
+  <div class="marquee-container">
+    <div class="marquee-track">
+      <span class="text-6xl md:text-8xl font-black text-white/5 mx-8">BRANDING</span>
+      <span class="text-6xl md:text-8xl font-black text-white/5 mx-8">UI/UX</span>
+      <span class="text-6xl md:text-8xl font-black text-white/5 mx-8">MOTION</span>
+      <span class="text-6xl md:text-8xl font-black text-white/5 mx-8">EDITORIAL</span>
+      <span class="text-6xl md:text-8xl font-black text-white/5 mx-8">PACKAGING</span>
+      <span class="text-6xl md:text-8xl font-black text-white/5 mx-8">BRANDING</span>
+      <span class="text-6xl md:text-8xl font-black text-white/5 mx-8">UI/UX</span>
+      <span class="text-6xl md:text-8xl font-black text-white/5 mx-8">MOTION</span>
+      <span class="text-6xl md:text-8xl font-black text-white/5 mx-8">EDITORIAL</span>
+      <span class="text-6xl md:text-8xl font-black text-white/5 mx-8">PACKAGING</span>
+    </div>
+  </div>
+</div>
+
+<!-- About Section -->
+<section id="about" class="py-24 md:py-32 px-6">
+  <div class="max-w-7xl mx-auto">
+    <div class="grid lg:grid-cols-2 gap-16 items-center">
+      <div class="reveal">
+        <span class="text-indigo-400 text-sm font-semibold tracking-widest uppercase mb-4 block">关于我</span>
+        <h2 class="text-4xl md:text-5xl font-bold mb-6 leading-tight">
+          设计不仅是<br>
+          <span class="bg-gradient-to-r from-pink-400 to-indigo-400 bg-clip-text text-transparent">美学表达</span>
+        </h2>
+        <p class="text-gray-400 text-lg leading-relaxed mb-8" id="about-bio">
+          拥有8年设计经验，曾服务于字节跳动、腾讯、阿里巴巴等一线互联网公司。我相信好的设计应该是功能与美学的完美结合，每一个像素都承载着品牌的灵魂。
+        </p>
+        <div class="grid grid-cols-2 gap-6 mb-8">
+          <div class="p-4 rounded-xl bg-white/5 border border-white/5">
+            <div class="text-3xl font-bold text-white mb-1">8+</div>
+            <div class="text-sm text-gray-500">年设计经验</div>
+          </div>
+          <div class="p-4 rounded-xl bg-white/5 border border-white/5">
+            <div class="text-3xl font-bold text-white mb-1" id="stat-total-works">6</div>
+            <div class="text-sm text-gray-500">完成项目</div>
+          </div>
+          <div class="p-4 rounded-xl bg-white/5 border border-white/5">
+            <div class="text-3xl font-bold text-white mb-1">50+</div>
+            <div class="text-sm text-gray-500">品牌合作</div>
+          </div>
+          <div class="p-4 rounded-xl bg-white/5 border border-white/5">
+            <div class="text-3xl font-bold text-white mb-1">15</div>
+            <div class="text-sm text-gray-500">设计奖项</div>
+          </div>
         </div>
       </div>
-      <div class="modal-actions">
-        <button class="btn btn-vip" onclick="purchaseVIP()">立即开通VIP</button>
-        <button class="btn btn-outline" onclick="closeModal('vipModal')">稍后再说</button>
+      <div class="reveal space-y-6">
+        <div>
+          <div class="flex justify-between mb-2">
+            <span class="text-sm font-medium">品牌视觉设计</span>
+            <span class="text-sm text-gray-500">95%</span>
+          </div>
+          <div class="skill-bar"><div class="skill-fill" data-width="95"></div></div>
+        </div>
+        <div>
+          <div class="flex justify-between mb-2">
+            <span class="text-sm font-medium">UI/UX 设计</span>
+            <span class="text-sm text-gray-500">90%</span>
+          </div>
+          <div class="skill-bar"><div class="skill-fill" data-width="90"></div></div>
+        </div>
+        <div>
+          <div class="flex justify-between mb-2">
+            <span class="text-sm font-medium">动态视觉 / Motion</span>
+            <span class="text-sm text-gray-500">85%</span>
+          </div>
+          <div class="skill-bar"><div class="skill-fill" data-width="85"></div></div>
+        </div>
+        <div>
+          <div class="flex justify-between mb-2">
+            <span class="text-sm font-medium">插画与图形</span>
+            <span class="text-sm text-gray-500">88%</span>
+          </div>
+          <div class="skill-bar"><div class="skill-fill" data-width="88"></div></div>
+        </div>
+        <div>
+          <div class="flex justify-between mb-2">
+            <span class="text-sm font-medium">3D 设计</span>
+            <span class="text-sm text-gray-500">75%</span>
+          </div>
+          <div class="skill-bar"><div class="skill-fill" data-width="75"></div></div>
+        </div>
       </div>
     </div>
   </div>
+</section>
 
-  <div class="modal-overlay" id="loginModal">
-    <div class="modal">
-      <button class="modal-close" onclick="closeModal('loginModal')">✕</button>
-      <div class="modal-icon" style="background:linear-gradient(135deg,var(--primary),var(--primary-dark));">👤</div>
-      <h3>用户登录</h3>
-      <p>登录后即可收藏资源、查看下载记录</p>
-      <div class="login-form">
-        <div class="form-group">
-          <label>用户名 / 邮箱</label>
-          <input type="text" id="loginUser" placeholder="请输入用户名或邮箱">
-        </div>
-        <div class="form-group">
-          <label>密码</label>
-          <input type="password" id="loginPass" placeholder="请输入密码">
-        </div>
+<!-- Works Section -->
+<section id="works" class="py-24 md:py-32 px-6">
+  <div class="max-w-7xl mx-auto">
+    <div class="text-center mb-16 reveal">
+      <span class="text-indigo-400 text-sm font-semibold tracking-widest uppercase mb-4 block">精选作品</span>
+      <h2 class="text-4xl md:text-5xl font-bold mb-4">创意无界</h2>
+      <p class="text-gray-400 max-w-xl mx-auto">每一个项目都是一次独特的视觉探索，从概念到落地，追求极致的用户体验</p>
+    </div>
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6" id="works-grid">
+      <!-- Works will be populated by JS from localStorage -->
+    </div>
+    <div class="text-center mt-12" id="works-empty-state" style="display:none;">
+      <div class="empty-state">
+        <i data-lucide="image-off" class="w-12 h-12 mx-auto mb-4"></i>
+        <p class="text-lg mb-2">暂无作品</p>
+        <p class="text-sm">请在后台管理系统中添加作品</p>
+        <a href="admin.html" class="inline-flex items-center gap-2 mt-4 text-indigo-400 hover:text-indigo-300">
+          <span>前往后台管理</span>
+          <i data-lucide="arrow-right" class="w-4 h-4"></i>
+        </a>
       </div>
-      <div class="modal-actions" style="margin-top:8px;">
-        <button class="btn btn-primary" onclick="doLogin()">登录</button>
-        <button class="btn btn-outline" onclick="demoLogin()">⚡ 体验VIP账号登录</button>
-      </div>
-      <p class="form-hint">还没有账号？<a href="#" onclick="showToast('注册功能开发中...', 'info'); return false;">立即注册</a></p>
     </div>
   </div>
-  <div class="toast" id="toast"></div>
+</section>
 
-  <script>
-    let currentUser = null;
-    let selectedPlan = 'quarter';
-    let currentView = 'grid';
-    let currentCategory = 'all';
-    let currentSort = 'newest';
-    let filteredData = [];
+<!-- Services Section -->
+<section id="services" class="py-24 md:py-32 px-6">
+  <div class="max-w-7xl mx-auto">
+    <div class="text-center mb-16 reveal">
+      <span class="text-indigo-400 text-sm font-semibold tracking-widest uppercase mb-4 block">服务范围</span>
+      <h2 class="text-4xl md:text-5xl font-bold mb-4">我能为你做什么</h2>
+      <p class="text-gray-400 max-w-xl mx-auto">从品牌策略到视觉落地，提供全方位的设计解决方案</p>
+    </div>
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div class="service-card reveal hover-target">
+        <div class="w-14 h-14 rounded-2xl bg-indigo-500/10 flex items-center justify-center mb-6">
+          <i data-lucide="palette" class="w-7 h-7 text-indigo-400"></i>
+        </div>
+        <h3 class="text-xl font-bold mb-3">品牌视觉设计</h3>
+        <p class="text-gray-400 text-sm leading-relaxed">Logo设计、VI系统、品牌指南、视觉识别系统的完整构建与规范制定。</p>
+      </div>
+      <div class="service-card reveal hover-target">
+        <div class="w-14 h-14 rounded-2xl bg-pink-500/10 flex items-center justify-center mb-6">
+          <i data-lucide="layout" class="w-7 h-7 text-pink-400"></i>
+        </div>
+        <h3 class="text-xl font-bold mb-3">UI/UX 设计</h3>
+        <p class="text-gray-400 text-sm leading-relaxed">移动端与Web端界面设计、交互原型、用户体验优化与可用性测试。</p>
+      </div>
+      <div class="service-card reveal hover-target">
+        <div class="w-14 h-14 rounded-2xl bg-cyan-500/10 flex items-center justify-center mb-6">
+          <i data-lucide="play-circle" class="w-7 h-7 text-cyan-400"></i>
+        </div>
+        <h3 class="text-xl font-bold mb-3">动态视觉</h3>
+        <p class="text-gray-400 text-sm leading-relaxed">MG动画、产品演示视频、社交媒体动态内容、发布会视觉设计。</p>
+      </div>
+      <div class="service-card reveal hover-target">
+        <div class="w-14 h-14 rounded-2xl bg-purple-500/10 flex items-center justify-center mb-6">
+          <i data-lucide="package" class="w-7 h-7 text-purple-400"></i>
+        </div>
+        <h3 class="text-xl font-bold mb-3">包装设计</h3>
+        <p class="text-gray-400 text-sm leading-relaxed">产品包装、礼盒设计、标签与印刷品设计，让产品在货架上脱颖而出。</p>
+      </div>
+      <div class="service-card reveal hover-target">
+        <div class="w-14 h-14 rounded-2xl bg-amber-500/10 flex items-center justify-center mb-6">
+          <i data-lucide="book-open" class="w-7 h-7 text-amber-400"></i>
+        </div>
+        <h3 class="text-xl font-bold mb-3">出版物设计</h3>
+        <p class="text-gray-400 text-sm leading-relaxed">画册、杂志、书籍装帧、年度报告等印刷品的设计与排版。</p>
+      </div>
+      <div class="service-card reveal hover-target">
+        <div class="w-14 h-14 rounded-2xl bg-emerald-500/10 flex items-center justify-center mb-6">
+          <i data-lucide="megaphone" class="w-7 h-7 text-emerald-400"></i>
+        </div>
+        <h3 class="text-xl font-bold mb-3">营销物料</h3>
+        <p class="text-gray-400 text-sm leading-relaxed">海报、Banner、社交媒体配图、活动主视觉等营销设计物料。</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-    const resourcesData = [
-      { id: 1, title: "Adobe Photoshop 2026 完整版", desc: "最新PS完整安装包，含全套插件和预设，支持Win/Mac双平台", category: "software", icon: "💻", cover: "linear-gradient(135deg, #31a8ff, #001e36)", size: "3.2GB", date: "2026-07-15", views: 12500, downloads: 8300, isVIP: false, link: "https://pan.baidu.com/s/1demo123456789", pwd: "abcd" },
-      { id: 2, title: "Python全栈开发从入门到精通", desc: "2026最新版Python教程，涵盖Web开发、数据分析、AI应用", category: "course", icon: "🐍", cover: "linear-gradient(135deg, #3776ab, #ffd43b)", size: "28.6GB", date: "2026-07-14", views: 9200, downloads: 5100, isVIP: false, link: "https://pan.baidu.com/s/1demo234567890", pwd: "py26" },
-      { id: 3, title: "《三体》全集精校版电子书", desc: "刘慈欣科幻巨著，精校排版，支持EPUB/PDF/MOBI多格式", category: "book", icon: "📚", cover: "linear-gradient(135deg, #1a1a2e, #16213e)", size: "156MB", date: "2026-07-13", views: 15800, downloads: 11200, isVIP: false, link: "https://pan.baidu.com/s/1demo345678901", pwd: "st01" },
-      { id: 4, title: "Windows 11 24H2 官方镜像", desc: "微软官方原版镜像，含激活工具，支持UEFI/BIOS双启动", category: "software", icon: "💻", cover: "linear-gradient(135deg, #0078d4, #106ebe)", size: "5.8GB", date: "2026-07-12", views: 22100, downloads: 16700, isVIP: false, link: "https://pan.baidu.com/s/1demo456789012", pwd: "win11" },
-      { id: 5, title: "《星际穿越》4K HDR 国英双语", desc: "诺兰经典科幻片，4K HDR10+杜比全景声，内嵌中英双语字幕", category: "movie", icon: "🎬", cover: "linear-gradient(135deg, #0f2027, #203a43, #2c5364)", size: "45.2GB", date: "2026-07-11", views: 18600, downloads: 9800, isVIP: false, link: "https://pan.baidu.com/s/1demo567890123", pwd: "imax" },
-      { id: 6, title: "Figma UI设计组件库大全", desc: "5000+精品UI组件，涵盖移动端、Web端、后台管理系统", category: "design", icon: "🎨", cover: "linear-gradient(135deg, #f24e1e, #a259ff)", size: "2.1GB", date: "2026-07-10", views: 7300, downloads: 4500, isVIP: false, link: "https://pan.baidu.com/s/1demo678901234", pwd: "figma" },
-      { id: 7, title: "《塞尔达传说：王国之泪》NS模拟器版", desc: "Yuzu模拟器完美运行，含DLC和存档，60帧流畅体验", category: "game", icon: "🎮", cover: "linear-gradient(135deg, #e60012, #00a0e9)", size: "18.5GB", date: "2026-07-09", views: 25400, downloads: 14200, isVIP: false, link: "https://pan.baidu.com/s/1demo789012345", pwd: "zelda" },
-      { id: 8, title: "2026考研数学全套资料", desc: "张宇、李永乐、汤家凤全套课程+讲义+真题解析", category: "course", icon: "📚", cover: "linear-gradient(135deg, #e74c3c, #c0392b)", size: "35.2GB", date: "2026-07-08", views: 11700, downloads: 7900, isVIP: false, link: "https://pan.baidu.com/s/1demo890123456", pwd: "ky26" },
-      { id: 9, title: "《黑神话：悟空》完整破解版", desc: "国产3A大作完整版，含全部DLC和修改器，4K画质补丁", category: "game", icon: "🐵", cover: "linear-gradient(135deg, #1a1a1a, #c41e3a)", size: "128GB", date: "2026-07-19", views: 45200, downloads: 0, isVIP: true, link: "https://pan.baidu.com/s/1vip001blackmyth", pwd: "wukong" },
-      { id: 10, title: "Midjourney V7 提示词大师课", desc: "价值2999元的AI绘画进阶课程，含3000+独家提示词库", category: "course", icon: "🎨", cover: "linear-gradient(135deg, #1a1a2e, #4a148c)", size: "12.8GB", date: "2026-07-18", views: 8900, downloads: 0, isVIP: true, link: "https://pan.baidu.com/s/1vip002midjourney", pwd: "mjpro" },
-      { id: 11, title: "漫威电影宇宙全集 4K IMAX", desc: "MCU 1-6阶段全部电影，4K IMAX增强版，杜比视界", category: "movie", icon: "🎬", cover: "linear-gradient(135deg, #ed1c24, #ff6b35)", size: "1.2TB", date: "2026-07-17", views: 32600, downloads: 0, isVIP: true, link: "https://pan.baidu.com/s/1vip003marvel", pwd: "mcu4k" },
-      { id: 12, title: "AutoCAD 2026 + 天正建筑插件", desc: "最新CAD完整版，集成天正T20全套插件，建筑设计师必备", category: "software", icon: "📏", cover: "linear-gradient(135deg, #e31937, #b71c1c)", size: "4.5GB", date: "2026-07-16", views: 6400, downloads: 0, isVIP: true, link: "https://pan.baidu.com/s/1vip004autocad", pwd: "cad26" },
-      { id: 13, title: "《鬼灭之刃》全季 4K 无删减", desc: "包含柱训练篇、无限城篇，4K超清无水印，中日双语", category: "movie", icon: "🐉", cover: "linear-gradient(135deg, #2d1b4e, #e74c3c)", size: "68.3GB", date: "2026-07-15", views: 19800, downloads: 0, isVIP: true, link: "https://pan.baidu.com/s/1vip005demonslayer", pwd: "kimetsu" },
-      { id: 14, title: "ChatGPT Plus 共享账号池", desc: "100+个GPT-4o共享账号，含API Key，持续更新可用账号", category: "software", icon: "🤖", cover: "linear-gradient(135deg, #10a37f, #0d7a5e)", size: "50KB", date: "2026-07-14", views: 28300, downloads: 0, isVIP: true, link: "https://pan.baidu.com/s/1vip006chatgpt", pwd: "gpt4o" },
-      { id: 15, title: "2026前端架构师进阶路线图", desc: "大厂P7/P8级别前端架构课程，微前端、性能优化、工程化", category: "course", icon: "💻", cover: "linear-gradient(135deg, #61dafb, #282c34)", size: "45.6GB", date: "2026-07-13", views: 5700, downloads: 0, isVIP: true, link: "https://pan.baidu.com/s/1vip007frontend", pwd: "arch26" },
-      { id: 16, title: "周杰伦全集 Hi-Res无损音质", desc: "全部专辑Hi-Res无损格式，含演唱会Live和未发行Demo", category: "music", icon: "🎵", cover: "linear-gradient(135deg, #1a1a2e, #6366f1)", size: "8.9GB", date: "2026-07-12", views: 14200, downloads: 0, isVIP: true, link: "https://pan.baidu.com/s/1vip008jaychou", pwd: "jayjay" },
-      { id: 17, title: "《原神》全角色高清立绘+模型", desc: "截至5.8版本全部角色，4K立绘+3D模型源文件+动作数据", category: "design", icon: "🎨", cover: "linear-gradient(135deg, #4a90d9, #f5a623)", size: "32.1GB", date: "2026-07-11", views: 10500, downloads: 0, isVIP: true, link: "https://pan.baidu.com/s/1vip009genshin", pwd: "genshin" },
-      { id: 18, title: "《百年孤独》等诺奖名著合集", desc: "诺贝尔文学奖得主代表作合集，精校版，含有声书", category: "book", icon: "📚", cover: "linear-gradient(135deg, #2c3e50, #d4a574)", size: "3.4GB", date: "2026-07-10", views: 4800, downloads: 0, isVIP: true, link: "https://pan.baidu.com/s/1vip010nobel", pwd: "nobel" },
-    ];
+<!-- Testimonials -->
+<section class="py-24 md:py-32 px-6 border-y border-white/5">
+  <div class="max-w-7xl mx-auto">
+    <div class="text-center mb-16 reveal">
+      <span class="text-indigo-400 text-sm font-semibold tracking-widest uppercase mb-4 block">客户评价</span>
+      <h2 class="text-4xl md:text-5xl font-bold mb-4">他们这样说</h2>
+    </div>
+    <div class="grid md:grid-cols-3 gap-6">
+      <div class="testimonial-card reveal hover-target">
+        <div class="flex items-center gap-1 mb-4">
+          <i data-lucide="star" class="w-4 h-4 text-amber-400 fill-amber-400"></i>
+          <i data-lucide="star" class="w-4 h-4 text-amber-400 fill-amber-400"></i>
+          <i data-lucide="star" class="w-4 h-4 text-amber-400 fill-amber-400"></i>
+          <i data-lucide="star" class="w-4 h-4 text-amber-400 fill-amber-400"></i>
+          <i data-lucide="star" class="w-4 h-4 text-amber-400 fill-amber-400"></i>
+        </div>
+        <p class="text-gray-300 mb-6 leading-relaxed">"林晨的设计总能精准捕捉品牌的灵魂，Nova的品牌升级项目超出了我们的预期，市场反馈非常积极。"</p>
+        <div class="flex items-center gap-3">
+          <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face" alt="客户" class="w-10 h-10 rounded-full object-cover">
+          <div>
+            <div class="font-semibold text-sm">张明远</div>
+            <div class="text-xs text-gray-500">Nova科技 CEO</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card reveal hover-target">
+        <div class="flex items-center gap-1 mb-4">
+          <i data-lucide="star" class="w-4 h-4 text-amber-400 fill-amber-400"></i>
+          <i data-lucide="star" class="w-4 h-4 text-amber-400 fill-amber-400"></i>
+          <i data-lucide="star" class="w-4 h-4 text-amber-400 fill-amber-400"></i>
+          <i data-lucide="star" class="w-4 h-4 text-amber-400 fill-amber-400"></i>
+          <i data-lucide="star" class="w-4 h-4 text-amber-400 fill-amber-400"></i>
+        </div>
+        <p class="text-gray-300 mb-6 leading-relaxed">"与林晨合作Flow App是一次非常愉快的经历，他对用户体验的理解非常深刻，设计既美观又实用。"</p>
+        <div class="flex items-center gap-3">
+          <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop&crop=face" alt="客户" class="w-10 h-10 rounded-full object-cover">
+          <div>
+            <div class="font-semibold text-sm">李雨桐</div>
+            <div class="text-xs text-gray-500">Flow音乐 产品总监</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card reveal hover-target">
+        <div class="flex items-center gap-1 mb-4">
+          <i data-lucide="star" class="w-4 h-4 text-amber-400 fill-amber-400"></i>
+          <i data-lucide="star" class="w-4 h-4 text-amber-400 fill-amber-400"></i>
+          <i data-lucide="star" class="w-4 h-4 text-amber-400 fill-amber-400"></i>
+          <i data-lucide="star" class="w-4 h-4 text-amber-400 fill-amber-400"></i>
+          <i data-lucide="star" class="w-4 h-4 text-amber-400 fill-amber-400"></i>
+        </div>
+        <p class="text-gray-300 mb-6 leading-relaxed">"茶语系列的包装设计获得了行业大奖，林晨对细节的把控令人印象深刻，强烈推荐！"</p>
+        <div class="flex items-center gap-3">
+          <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face" alt="客户" class="w-10 h-10 rounded-full object-cover">
+          <div>
+            <div class="font-semibold text-sm">王浩然</div>
+            <div class="text-xs text-gray-500">茶语品牌 创始人</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-    const typeMap = {
-      movie: { label: '影视', class: 'type-movie' },
-      software: { label: '软件', class: 'type-software' },
-      course: { label: '教程', class: 'type-course' },
-      book: { label: '电子书', class: 'type-book' },
-      game: { label: '游戏', class: 'type-game' },
-      music: { label: '音乐', class: 'type-music' },
-      design: { label: '设计', class: 'type-design' },
-    };
+<!-- Contact Section -->
+<section id="contact" class="py-24 md:py-32 px-6">
+  <div class="max-w-7xl mx-auto">
+    <div class="grid lg:grid-cols-2 gap-16">
+      <div class="reveal">
+        <span class="text-indigo-400 text-sm font-semibold tracking-widest uppercase mb-4 block">联系我</span>
+        <h2 class="text-4xl md:text-5xl font-bold mb-6 leading-tight">
+          有项目想法？<br>
+          <span class="bg-gradient-to-r from-indigo-400 to-pink-400 bg-clip-text text-transparent">聊聊吧</span>
+        </h2>
+        <p class="text-gray-400 text-lg mb-10 leading-relaxed">
+          无论是品牌升级、产品界面还是创意视觉，我都期待与你一起创造令人惊艳的作品。
+        </p>
+        <div class="space-y-6">
+          <div class="flex items-center gap-4">
+            <div class="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center">
+              <i data-lucide="mail" class="w-5 h-5 text-indigo-400"></i>
+            </div>
+            <div>
+              <div class="text-sm text-gray-500">邮箱</div>
+              <div class="font-medium" id="contact-email">hello@linchen.design</div>
+            </div>
+          </div>
+          <div class="flex items-center gap-4">
+            <div class="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center">
+              <i data-lucide="phone" class="w-5 h-5 text-pink-400"></i>
+            </div>
+            <div>
+              <div class="text-sm text-gray-500">电话</div>
+              <div class="font-medium" id="contact-phone">+86 138 0000 0000</div>
+            </div>
+          </div>
+          <div class="flex items-center gap-4">
+            <div class="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center">
+              <i data-lucide="map-pin" class="w-5 h-5 text-cyan-400"></i>
+            </div>
+            <div>
+              <div class="text-sm text-gray-500">地址</div>
+              <div class="font-medium">上海市静安区创意园区</div>
+            </div>
+          </div>
+        </div>
+        <div class="flex gap-4 mt-10">
+          <a href="#" class="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center hover:bg-white/10 transition-colors hover-target">
+            <i data-lucide="instagram" class="w-5 h-5"></i>
+          </a>
+          <a href="#" class="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center hover:bg-white/10 transition-colors hover-target">
+            <i data-lucide="dribbble" class="w-5 h-5"></i>
+          </a>
+          <a href="#" class="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center hover:bg-white/10 transition-colors hover-target">
+            <i data-lucide="linkedin" class="w-5 h-5"></i>
+          </a>
+          <a href="#" class="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center hover:bg-white/10 transition-colors hover-target">
+            <i data-lucide="twitter" class="w-5 h-5"></i>
+          </a>
+        </div>
+      </div>
+      <div class="reveal">
+        <form class="space-y-6" onsubmit="event.preventDefault(); submitContact();">
+          <div class="grid md:grid-cols-2 gap-6">
+            <div>
+              <label class="block text-sm font-medium mb-2">姓名</label>
+              <input type="text" id="contact-name" class="form-input" placeholder="你的名字" required>
+            </div>
+            <div>
+              <label class="block text-sm font-medium mb-2">邮箱</label>
+              <input type="email" id="contact-email-input" class="form-input" placeholder="your@email.com" required>
+            </div>
+          </div>
+          <div>
+            <label class="block text-sm font-medium mb-2">项目类型</label>
+            <select id="contact-category" class="form-input">
+              <option>品牌设计</option>
+              <option>UI/UX 设计</option>
+              <option>动态视觉</option>
+              <option>包装设计</option>
+              <option>其他</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-sm font-medium mb-2">项目描述</label>
+            <textarea id="contact-content" class="form-input h-32 resize-none" placeholder="简单描述一下你的项目需求..." required></textarea>
+          </div>
+          <button type="submit" class="btn-primary w-full hover-target">
+            <span>发送消息</span>
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
 
-    function formatNum(n) {
-      if (n >= 10000) return (n / 10000).toFixed(1) + 'W';
-      if (n >= 1000) return (n / 1000).toFixed(1) + 'K';
-      return n.toString();
+<!-- Footer -->
+<footer class="border-t border-white/5 py-12 px-6">
+  <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+    <div class="flex items-center gap-2">
+      <span class="w-8 h-8 rounded-lg bg-gradient-to-br from-indigo-500 to-pink-500 flex items-center justify-center text-white text-sm font-bold">LC</span>
+      <span class="font-bold">Lin Chen</span>
+    </div>
+    <div class="text-sm text-gray-500">
+      © 2026 Lin Chen Design. All rights reserved.
+    </div>
+    <div class="flex gap-6">
+      <a href="admin.html" class="text-sm text-gray-500 hover:text-white transition-colors">后台管理</a>
+      <a href="#" class="text-sm text-gray-500 hover:text-white transition-colors">隐私政策</a>
+      <a href="#" class="text-sm text-gray-500 hover:text-white transition-colors">使用条款</a>
+    </div>
+  </div>
+</footer>
+
+<!-- Toast -->
+<div id="toast" class="fixed bottom-8 right-8 bg-green-500 text-white px-6 py-3 rounded-xl shadow-lg transform translate-y-20 opacity-0 transition-all duration-300 z-50 flex items-center gap-2">
+  <i data-lucide="check-circle" class="w-5 h-5"></i>
+  <span>消息已发送！我会尽快回复你。</span>
+</div>
+
+<script>
+// ==================== DEFAULT DATA ====================
+const DEFAULT_WORKS = [
+  { id: 1, title: 'Nova 科技品牌全案', category: '品牌设计', description: '从Logo到完整VI系统的品牌重塑项目', image: 'https://images.unsplash.com/photo-1634942537034-2531766767d1?w=600&h=750&fit=crop', published: true, createdAt: '2026-07-15' },
+  { id: 2, title: 'Flow 音乐App', category: 'UI/UX', description: '沉浸式音乐体验界面设计', image: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=600&h=750&fit=crop', published: true, createdAt: '2026-07-10' },
+  { id: 3, title: '茶语系列包装', category: '包装设计', description: '新中式茶饮品牌包装设计', image: 'https://images.unsplash.com/photo-1626785774573-4b799315345d?w=600&h=750&fit=crop', published: true, createdAt: '2026-07-05' },
+  { id: 4, title: 'Pulse 发布会视觉', category: '动态视觉', description: '产品发布会全案视觉设计', image: 'https://images.unsplash.com/photo-1558655146-9f40138edfeb?w=600&h=750&fit=crop', published: true, createdAt: '2026-06-28' },
+  { id: 5, title: '城市艺术节', category: '海报设计', description: '年度城市艺术节主视觉海报', image: 'https://images.unsplash.com/photo-1561070791-2526d30994b5?w=600&h=750&fit=crop', published: true, createdAt: '2026-06-20' },
+  { id: 6, title: '数字艺术系列', category: '插画设计', description: '探索数字艺术的无限可能', image: 'https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=600&h=750&fit=crop', published: true, createdAt: '2026-06-15' }
+];
+
+const DEFAULT_PROFILE = {
+  name: '林晨',
+  title: '视觉设计师',
+  email: 'hello@linchen.design',
+  phone: '+86 138 0000 0000',
+  bio: '拥有8年设计经验，曾服务于字节跳动、腾讯、阿里巴巴等一线互联网公司。我相信好的设计应该是功能与美学的完美结合，每一个像素都承载着品牌的灵魂。',
+  heroBio: '我是 <strong class="text-white">林晨</strong>，一名专注于品牌视觉、UI/UX 设计与动态视觉的独立平面设计师。用设计讲述故事，用视觉传递价值。'
+};
+
+// ==================== LOAD DATA ====================
+function loadWorks() {
+  let stored = localStorage.getItem('portfolio_works');
+  if (!stored) {
+    localStorage.setItem('portfolio_works', JSON.stringify(DEFAULT_WORKS));
+    return DEFAULT_WORKS;
+  }
+  try {
+    return JSON.parse(stored);
+  } catch(e) {
+    return DEFAULT_WORKS;
+  }
+}
+
+function loadProfile() {
+  let stored = localStorage.getItem('portfolio_profile');
+  if (!stored) {
+    localStorage.setItem('portfolio_profile', JSON.stringify(DEFAULT_PROFILE));
+    return DEFAULT_PROFILE;
+  }
+  try {
+    return JSON.parse(stored);
+  } catch(e) {
+    return DEFAULT_PROFILE;
+  }
+}
+
+function renderWorks() {
+  const works = loadWorks().filter(w => w.published);
+  const grid = document.getElementById('works-grid');
+  const emptyState = document.getElementById('works-empty-state');
+  const statTotal = document.getElementById('stat-total-works');
+
+  if (statTotal) statTotal.textContent = works.length;
+
+  if (works.length === 0) {
+    grid.innerHTML = '';
+    emptyState.style.display = 'block';
+    return;
+  }
+
+  emptyState.style.display = 'none';
+  grid.innerHTML = works.map(work => `
+    <div class="project-card aspect-[4/5] reveal hover-target">
+      <img src="${work.image}" alt="${work.title}" class="w-full h-full object-cover" onerror="this.src='https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=600&h=750&fit=crop'">
+      <div class="project-overlay">
+        <span class="text-xs text-indigo-400 font-semibold uppercase tracking-wider mb-2">${work.category}</span>
+        <h3 class="text-xl font-bold mb-2">${work.title}</h3>
+        <p class="text-sm text-gray-400">${work.description}</p>
+      </div>
+    </div>
+  `).join('');
+}
+
+function renderProfile() {
+  const profile = loadProfile();
+  const heroBio = document.getElementById('hero-bio');
+  const aboutBio = document.getElementById('about-bio');
+  const contactEmail = document.getElementById('contact-email');
+  const contactPhone = document.getElementById('contact-phone');
+
+  if (heroBio && profile.heroBio) heroBio.innerHTML = profile.heroBio;
+  if (aboutBio && profile.bio) aboutBio.textContent = profile.bio;
+  if (contactEmail && profile.email) contactEmail.textContent = profile.email;
+  if (contactPhone && profile.phone) contactPhone.textContent = profile.phone;
+}
+
+// ==================== CONTACT FORM ====================
+function submitContact() {
+  const name = document.getElementById('contact-name').value;
+  const email = document.getElementById('contact-email-input').value;
+  const category = document.getElementById('contact-category').value;
+  const content = document.getElementById('contact-content').value;
+
+  const messages = JSON.parse(localStorage.getItem('portfolio_messages') || '[]');
+  messages.unshift({
+    id: Date.now(),
+    name,
+    email,
+    category,
+    content,
+    status: 'unread',
+    createdAt: new Date().toLocaleString('zh-CN')
+  });
+  localStorage.setItem('portfolio_messages', JSON.stringify(messages));
+
+  // Show toast
+  const toast = document.getElementById('toast');
+  toast.style.transform = 'translateY(0)';
+  toast.style.opacity = '1';
+  setTimeout(() => {
+    toast.style.transform = 'translateY(20px)';
+    toast.style.opacity = '0';
+  }, 3000);
+
+  // Reset form
+  document.getElementById('contact-name').value = '';
+  document.getElementById('contact-email-input').value = '';
+  document.getElementById('contact-content').value = '';
+}
+
+// ==================== INITIALIZE ====================
+document.addEventListener('DOMContentLoaded', () => {
+  lucide.createIcons();
+  renderWorks();
+  renderProfile();
+
+  // Listen for storage changes (when admin updates data in another tab)
+  window.addEventListener('storage', (e) => {
+    if (e.key === 'portfolio_works') {
+      renderWorks();
     }
+    if (e.key === 'portfolio_profile') {
+      renderProfile();
+    }
+  });
+});
 
-    function getSortedData(data) {
-      const d = [...data];
-      switch (currentSort) {
-        case 'popular': return d.sort((a, b) => b.views - a.views);
-        case 'size': return d.sort((a, b) => {
-          const sa = parseFloat(a.size), sb = parseFloat(b.size);
-          const ua = a.size.includes('TB') ? 1024 : a.size.includes('GB') ? 1 : a.size.includes('MB') ? 1/1024 : 1/1024/1024;
-          const ub = b.size.includes('TB') ? 1024 : b.size.includes('GB') ? 1 : b.size.includes('MB') ? 1/1024 : 1/1024/1024;
-          return sb * ub - sa * ua;
-        });
-        case 'name': return d.sort((a, b) => a.title.localeCompare(b.title, 'zh'));
-        default: return d.sort((a, b) => new Date(b.date) - new Date(a.date));
+// ==================== CUSTOM CURSOR ====================
+const cursorDot = document.getElementById('cursor-dot');
+const cursorRing = document.getElementById('cursor-ring');
+let mouseX = 0, mouseY = 0;
+let ringX = 0, ringY = 0;
+
+if (window.matchMedia('(pointer: fine)').matches) {
+  document.addEventListener('mousemove', (e) => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+    cursorDot.style.left = mouseX - 4 + 'px';
+    cursorDot.style.top = mouseY - 4 + 'px';
+  });
+
+  function animateRing() {
+    ringX += (mouseX - ringX) * 0.15;
+    ringY += (mouseY - ringY) * 0.15;
+    cursorRing.style.left = ringX - 20 + 'px';
+    cursorRing.style.top = ringY - 20 + 'px';
+    requestAnimationFrame(animateRing);
+  }
+  animateRing();
+
+  document.querySelectorAll('.hover-target').forEach(el => {
+    el.addEventListener('mouseenter', () => cursorRing.classList.add('hovering'));
+    el.addEventListener('mouseleave', () => cursorRing.classList.remove('hovering'));
+  });
+}
+
+// ==================== HERO CANVAS ====================
+const canvas = document.getElementById('hero-canvas');
+const ctx = canvas.getContext('2d');
+let particles = [];
+let w, h;
+
+function resizeCanvas() {
+  w = canvas.width = window.innerWidth;
+  h = canvas.height = window.innerHeight;
+}
+resizeCanvas();
+window.addEventListener('resize', resizeCanvas);
+
+class Particle {
+  constructor() {
+    this.x = Math.random() * w;
+    this.y = Math.random() * h;
+    this.vx = (Math.random() - 0.5) * 0.5;
+    this.vy = (Math.random() - 0.5) * 0.5;
+    this.size = Math.random() * 2 + 0.5;
+    this.opacity = Math.random() * 0.5 + 0.1;
+  }
+  update() {
+    this.x += this.vx;
+    this.y += this.vy;
+    if (this.x < 0 || this.x > w) this.vx *= -1;
+    if (this.y < 0 || this.y > h) this.vy *= -1;
+  }
+  draw() {
+    ctx.beginPath();
+    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+    ctx.fillStyle = `rgba(99, 102, 241, ${this.opacity})`;
+    ctx.fill();
+  }
+}
+
+for (let i = 0; i < 80; i++) particles.push(new Particle());
+
+function animateCanvas() {
+  ctx.clearRect(0, 0, w, h);
+  for (let i = 0; i < particles.length; i++) {
+    for (let j = i + 1; j < particles.length; j++) {
+      const dx = particles[i].x - particles[j].x;
+      const dy = particles[i].y - particles[j].y;
+      const dist = Math.sqrt(dx * dx + dy * dy);
+      if (dist < 150) {
+        ctx.beginPath();
+        ctx.moveTo(particles[i].x, particles[i].y);
+        ctx.lineTo(particles[j].x, particles[j].y);
+        ctx.strokeStyle = `rgba(99, 102, 241, ${0.1 * (1 - dist / 150)})`;
+        ctx.lineWidth = 0.5;
+        ctx.stroke();
       }
     }
+  }
+  particles.forEach(p => { p.update(); p.draw(); });
+  requestAnimationFrame(animateCanvas);
+}
+animateCanvas();
 
-    function renderGrid(resources) {
-      const container = document.getElementById('resourcesContainer');
-      if (resources.length === 0) {
-        container.innerHTML = '<div style="text-align:center;padding:80px 20px;color:var(--text-dim);font-size:16px;">未找到匹配的资源</div>';
-        return;
-      }
-      container.innerHTML = '<div class="resources-grid">' + resources.map((res, i) => {
-        const type = typeMap[res.category];
-        const canSee = !res.isVIP || (currentUser && currentUser.isVIP);
-        const linkHtml = canSee
-          ? '<a href="' + res.link + '" target="_blank" class="btn btn-primary btn-sm">获取链接</a>'
-          : '<div class="link-hidden"><span class="lock-icon">🔒</span>VIP专属</div>';
-        return '<div class="resource-card ' + (res.isVIP ? 'vip-only' : '') + '" style="animation-delay:' + (i * 0.05) + 's">' +
-          (res.isVIP ? '<div class="vip-ribbon">VIP</div>' : '') +
-          '<div class="card-cover" style="background:' + res.cover + '"><span class="cover-icon">' + res.icon + '</span></div>' +
-          '<div class="card-body">' +
-            '<div class="card-meta"><span class="meta-tag ' + type.class + '">' + type.label + '</span><span class="meta-tag size">' + res.size + '</span><span class="meta-tag date">' + res.date + '</span></div>' +
-            '<div class="card-title">' + res.title + '</div>' +
-            '<div class="card-desc">' + res.desc + '</div>' +
-            '<div class="card-footer">' +
-              '<div class="card-stats"><span>👁 ' + formatNum(res.views) + '</span><span>⬇ ' + (res.isVIP ? 'VIP' : formatNum(res.downloads)) + '</span></div>' +
-              '<div class="download-area">' + (canSee ? '<span style="font-size:12px;color:var(--text-dim);margin-right:6px;">提取码: ' + res.pwd + '</span>' : '') + linkHtml + '</div>' +
-            '</div>' +
-          '</div>' +
-        '</div>';
-      }).join('') + '</div>';
-    }
-
-    function renderList(resources) {
-      const container = document.getElementById('resourcesContainer');
-      if (resources.length === 0) {
-        container.innerHTML = '<div style="text-align:center;padding:80px 20px;color:var(--text-dim);font-size:16px;">未找到匹配的资源</div>';
-        return;
-      }
-      container.innerHTML = '<div class="resources-list">' + resources.map((res, i) => {
-        const type = typeMap[res.category];
-        const canSee = !res.isVIP || (currentUser && currentUser.isVIP);
-        const linkHtml = canSee
-          ? '<a href="' + res.link + '" target="_blank" class="btn btn-primary btn-sm">获取链接</a>'
-          : '<div class="link-hidden"><span class="lock-icon">🔒</span>VIP专属</div>';
-        return '<div class="list-item ' + (res.isVIP ? 'vip-only' : '') + '" style="animation-delay:' + (i * 0.03) + 's">' +
-          '<div class="list-icon-wrap" style="background:' + res.cover + '"><span>' + res.icon + '</span>' + (res.isVIP ? '<span class="vip-dot">⭐</span>' : '') + '</div>' +
-          '<div class="list-content">' +
-            '<div class="list-title-row"><span class="list-title">' + res.title + '</span></div>' +
-            '<div class="list-desc">' + res.desc + '</div>' +
-            '<div class="list-meta-row">' +
-              '<span class="meta-tag ' + type.class + '">' + type.label + '</span>' +
-              '<span class="list-meta">📦 ' + res.size + '</span>' +
-              '<span class="list-meta">📅 ' + res.date + '</span>' +
-              '<span class="list-meta">👁 ' + formatNum(res.views) + '</span>' +
-              '<span class="list-meta">⬇ ' + (res.isVIP ? 'VIP专属' : formatNum(res.downloads)) + '</span>' +
-            '</div>' +
-          '</div>' +
-          '<div class="list-actions">' + (canSee ? '<span class="list-stat">提取码: ' + res.pwd + '</span>' : '') + linkHtml + '</div>' +
-        '</div>';
-      }).join('') + '</div>';
-    }
-
-    function renderResources(resources) {
-      filteredData = resources;
-      const sorted = getSortedData(resources);
-      document.getElementById('resultCount').textContent = '共 ' + resources.length + ' 条资源';
-      if (currentView === 'grid') {
-        renderGrid(sorted);
-      } else {
-        renderList(sorted);
-      }
-      document.querySelectorAll('.link-hidden').forEach(el => {
-        el.style.cursor = 'pointer';
-        el.onclick = (e) => {
-          if (e.target.tagName === 'A') return;
-          if (!currentUser) { showLogin(); }
-          else if (!currentUser.isVIP) { showVIP(); }
-        };
+// ==================== SCROLL REVEAL ====================
+const revealElements = document.querySelectorAll('.reveal');
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('active');
+      const skillFills = entry.target.querySelectorAll('.skill-fill');
+      skillFills.forEach(fill => {
+        const width = fill.getAttribute('data-width');
+        setTimeout(() => { fill.style.width = width + '%'; }, 300);
       });
     }
+  });
+}, { threshold: 0.1 });
+revealElements.forEach(el => revealObserver.observe(el));
 
-    function switchView(view) {
-      currentView = view;
-      document.getElementById('viewGrid').classList.toggle('active', view === 'grid');
-      document.getElementById('viewList').classList.toggle('active', view === 'list');
-      renderResources(filteredData);
+// ==================== SERVICE CARD SPOTLIGHT ====================
+document.querySelectorAll('.service-card').forEach(card => {
+  card.addEventListener('mousemove', (e) => {
+    const rect = card.getBoundingClientRect();
+    const x = ((e.clientX - rect.left) / rect.width) * 100;
+    const y = ((e.clientY - rect.top) / rect.height) * 100;
+    card.style.setProperty('--mouse-x', x + '%');
+    card.style.setProperty('--mouse-y', y + '%');
+  });
+});
+
+// ==================== NAVBAR ====================
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 50) {
+    navbar.classList.add('nav-glass');
+  } else {
+    navbar.classList.remove('nav-glass');
+  }
+});
+
+// ==================== MOBILE MENU ====================
+const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+const mobileMenu = document.getElementById('mobile-menu');
+mobileMenuBtn.addEventListener('click', () => {
+  mobileMenu.classList.toggle('hidden');
+});
+
+// ==================== SMOOTH SCROLL ====================
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function(e) {
+    e.preventDefault();
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      mobileMenu.classList.add('hidden');
     }
-
-    function sortResources(sortType) {
-      currentSort = sortType;
-      renderResources(filteredData);
-    }
-
-    function filterCategory(category, btn) {
-      currentCategory = category;
-      if (btn) {
-        document.querySelectorAll('.cat-tag').forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-      }
-      document.getElementById('searchInput').value = '';
-      if (category === 'all') {
-        renderResources(resourcesData);
-      } else {
-        renderResources(resourcesData.filter(r => r.category === category));
-      }
-    }
-
-    function searchResources(query) {
-      const q = query.toLowerCase().trim();
-      if (!q) {
-        if (currentCategory === 'all') { renderResources(resourcesData); }
-        else { renderResources(resourcesData.filter(r => r.category === currentCategory)); }
-        return;
-      }
-      const base = currentCategory === 'all' ? resourcesData : resourcesData.filter(r => r.category === currentCategory);
-      renderResources(base.filter(r => r.title.toLowerCase().includes(q) || r.desc.toLowerCase().includes(q)));
-      document.querySelectorAll('.cat-tag').forEach(b => b.classList.remove('active'));
-    }
-
-    function updateUserArea() {
-      const area = document.getElementById('userArea');
-      if (currentUser) {
-        area.innerHTML = '<div style="display:flex;align-items:center;gap:10px;"><div class="user-avatar ' + (currentUser.isVIP ? 'vip' : '') + '">' + currentUser.avatar + '</div><div style="text-align:right;"><div style="font-size:14px;font-weight:600;color:#fff;">' + currentUser.name + (currentUser.isVIP ? '<span class="vip-badge">VIP</span>' : '') + '</div><div style="font-size:12px;color:var(--text-dim);">' + (currentUser.isVIP ? '会员有效期至 2026-10-19' : '普通用户') + '</div></div><button class="btn btn-outline btn-sm" onclick="logout()">退出</button></div>';
-      } else {
-        area.innerHTML = '<button class="btn btn-outline btn-sm" onclick="showLogin()">登录</button><button class="btn btn-primary btn-sm" onclick="showVIP()">开通VIP</button>';
-      }
-      renderResources(filteredData.length > 0 ? filteredData : resourcesData);
-    }
-
-    function showLogin() { document.getElementById('loginModal').classList.add('show'); }
-
-    function doLogin() {
-      const user = document.getElementById('loginUser').value.trim();
-      const pass = document.getElementById('loginPass').value.trim();
-      if (!user || !pass) { showToast('请输入用户名和密码', 'error'); return; }
-      currentUser = { name: user, isVIP: false, avatar: user.charAt(0).toUpperCase() };
-      closeModal('loginModal');
-      updateUserArea();
-      showToast('欢迎回来，' + user + '！', 'success');
-    }
-
-    function demoLogin() {
-      currentUser = { name: 'VIP体验用户', isVIP: true, avatar: 'V' };
-      closeModal('loginModal');
-      updateUserArea();
-      showToast('🎉 VIP体验登录成功！已解锁所有隐藏资源', 'success');
-    }
-
-    function logout() {
-      currentUser = null;
-      updateUserArea();
-      showToast('已退出登录', 'info');
-    }
-
-    function showVIP() { document.getElementById('vipModal').classList.add('show'); }
-
-    function selectPlan(el, plan) {
-      document.querySelectorAll('.plan-card').forEach(c => c.classList.remove('selected'));
-      el.classList.add('selected');
-      selectedPlan = plan;
-    }
-
-    function purchaseVIP() {
-      if (!currentUser) {
-        closeModal('vipModal');
-        setTimeout(showLogin, 300);
-        showToast('请先登录后再开通VIP', 'info');
-        return;
-      }
-      currentUser.isVIP = true;
-      closeModal('vipModal');
-      updateUserArea();
-      showToast('🎉 恭喜！VIP开通成功，所有资源已解锁', 'success');
-    }
-
-    function closeModal(id) { document.getElementById(id).classList.remove('show'); }
-
-    document.querySelectorAll('.modal-overlay').forEach(overlay => {
-      overlay.addEventListener('click', (e) => { if (e.target === overlay) overlay.classList.remove('show'); });
-    });
-
-    function showToast(msg, type) {
-      const toast = document.getElementById('toast');
-      toast.className = 'toast ' + type;
-      toast.innerHTML = msg;
-      toast.classList.add('show');
-      setTimeout(() => toast.classList.remove('show'), 3000);
-    }
-
-    document.addEventListener('DOMContentLoaded', () => { renderResources(resourcesData); });
-  </script>
+  });
+});
+</script>
 </body>
 </html>
